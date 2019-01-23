@@ -1,0 +1,105 @@
+{
+	"users":[
+		{
+			"id": 1,
+			"userName": "alagrad94",
+			"password": "russ0675",
+			"firstName": "Russell",
+			"lastName": "Reiter",
+			"birthDate": "09/12/1971",
+			"certLevel": "Instructor",
+			"certOrg": "NAUI",
+			"gender": "M",
+			"city": "Nashville",
+			"state": "TN",
+			"country": "USA",
+			"zip": 11111,
+			"friendsUserId": [1]
+		}
+	],
+
+	"diveLogs": [
+		{
+			"id": 1,
+			"userId": 1
+		}
+	],
+
+	"diveLogEntries": [
+		{
+			"id": 1,
+			"diveLogId": 1,
+			"userId": 1,
+			"diveSiteId": 1,
+			"diveDate": "01/01/2019",
+			"diveTime": "11:30:00",
+			"diveTypeId": [1],
+			"airTemp": 1,
+			"surfaceTemp": 1,
+			"bottomTemp": 1,
+			"depth": 1,
+			"precipTypeId": 1,
+			"diveDepth": 1,
+			"vis": 1,
+			"imageCollectionId": 1
+		}
+	],
+
+	"precipTypes": [
+		{
+			"id": 1,
+			"precipType": "Sunny"
+		}
+	],
+
+	"diveTypes": [
+		{
+			"id": 1,
+			"diveType": "Open Water"
+		}
+	],
+
+	"imageCollections": [
+		{
+			"id": 1,
+			"imageCollection": [1]
+		}
+	],
+
+	"diveSites": [
+		{
+			"id": 1,
+			"name": "Blue Hole",
+			"city": "Belize City",
+			"state": "NA",
+			"country": "Belize",
+			"zip": "NA",
+			"landAttractionId": [1],
+			"underwaterAttractionId": [1],
+			"waterDepth": 100,
+			"waterTypeId": 1,
+			"diveTypeId": [1]
+		}
+	],
+
+	"landAttractions": [
+		{
+			"id": 1,
+			"landAttraction": "Margaritas"
+		}
+	],
+
+	"underwaterAttractions": [
+		{
+			"id": 1,
+			"underwaterAttraction": "Shipwrecks"
+		}
+	],
+
+	"waterTypes": [
+		{
+			"id": 1,
+			"waterType": "Salt"
+		}
+	]
+}
