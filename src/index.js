@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
 
 import './index.css'
-import Divebook from './Divebook';
+import Divebook from '../src/components/divebook/Divebook';
 
 ReactDOM.render(
     <Router>
