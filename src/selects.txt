@@ -1,0 +1,98 @@
+
+	"airMixes": [
+		{
+			"id": 1,
+			"airType": "Air"
+		},
+		{
+			"id": 2,
+			"airType": "Nitrox"
+		},
+		{
+			"id": 3,
+			"airType": "Trimix"
+		},
+		{
+			"id": 4,
+			"airType": "Heliox"
+		}
+	],
+
+	"precipTypes": [
+		{
+			"id": 1,
+			"precipType": "Sunny"
+		},
+		{
+			"id": 2,
+			"precipType": "Rain"
+		},
+		{
+			"id": 3,
+			"precipType": "Sleet"
+		},
+		{
+			"id": 4,
+			"precipType": "Snow"
+		}
+	],
+
+	"diveTypes": [
+		{
+			"id": 1,
+			"diveType": "Open Water - Ocean"
+		},
+		{
+			"id": 2,
+			"diveType": "Open Water - Lake"
+		},
+		{
+			"id": 3,
+			"diveType": "Open Water - Quary"
+		},
+		{
+			"id": 4,
+			"diveType": "Open Water - Other"
+		},
+		{
+			"id": 5,
+			"diveType": "River"
+		},
+		{
+			"id": 6,
+			"diveType": "Wreck"
+		},
+		{
+			"id": 7,
+			"diveType": "Cave"
+		}
+	],
+
+	"landAttractions": [
+		{
+			"id": 1,
+			"landAttraction": "Margaritas"
+		}
+	],
+
+	"underwaterAttractions": [
+		{
+			"id": 1,
+			"underwaterAttraction": "Shipwrecks"
+		}
+	],
+
+	"waterTypes": [
+		{
+			"id": 1,
+			"waterType": "Salt"
+		},
+		{
+			"id": 2,
+			"waterType": "Fresh"
+		},
+		{
+			"id": 3,
+			"waterType": "Brackish"
+		}
+	]
