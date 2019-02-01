@@ -14,6 +14,7 @@
 			"state": "TN",
 			"country": "USA",
 			"zip": 11111,
+			"diveInterests": "I love to dive.  I want to do.......  more in the future",
 			"diveLogId": 1,
 			"friends": [2,3]
 		},
@@ -31,6 +32,7 @@
 			"state": "TN",
 			"country": "USA",
 			"zip": 11111,
+			"diveInterests": "I love to dive.  I want to do.......  more in the future",
 			"diveLogId": 2,
 			"friends": [1,3]
 		},
@@ -48,6 +50,7 @@
 			"state": "TN",
 			"country": "USA",
 			"zip": 11111,
+			"diveInterests": "I love to dive.  I want to do.......  more in the future",
 			"diveLogId": 2,
 			"friends": [1,2]
 		}
@@ -61,6 +64,10 @@
 		{
 			"id": 2,
 			"userId": 2
+		},
+		{
+			"id": 3,
+			"userId": 3
 		}
 	],
 
@@ -71,53 +78,26 @@
 			"userId": 1,
 			"diveSiteId": 1,
 			"diveDate": "01/01/2019",
-			"diveTime": "11:30:00",
+			"diveStartTime": "11:30:00",
+			"diveEndTime": "12:00:00",
+			"bottomTime": "30:00",
 			"diveTypeId": [1],
-			"airTemp": 1,
-			"surfaceTemp": 1,
-			"bottomTemp": 1,
-			"depth": 1,
-			"precipTypeId": 1,
-			"diveDepth": 1,
-			"vis": 1,
-			"imageCollectionId": 1
-		},
-		{
-			"id": 2,
-			"diveLogId": 2,
-			"userId": 2,
-			"diveSiteId": 1,
-			"diveDate": "01/01/2019",
-			"diveTime": "11:30:00",
-			"diveTypeId": [1],
-			"airTemp": 1,
-			"surfaceTemp": 1,
-			"bottomTemp": 1,
-			"depth": 1,
-			"precipTypeId": 1,
-			"diveDepth": 1,
-			"vis": 1,
+			"equipment": "",
+			"airMixId": 1,
+			"airTemp": 80,
+			"surfaceTemp": 75,
+			"bottomTemp": 60,
+			"precipTypeId": [1],
+			"diveDepth": 50,
+			"vis": 15,
 			"imageCollectionId": 1
 		}
 	],
-
-	"precipTypes": [
-		{
-			"id": 1,
-			"precipType": "Sunny"
-		}
-	],
-
-	"diveTypes": [
-		{
-			"id": 1,
-			"diveType": "Open Water"
-		}
-	],
-
 	"imageCollections": [
 		{
 			"id": 1,
+			"userId": 1,
+			"diveLogEntryId": 1,
 			"imageCollection": [1]
 		}
 	],
@@ -135,6 +115,75 @@
 			"waterDepth": 100,
 			"waterTypeId": 1,
 			"diveTypeId": [1]
+		}
+	],
+
+	"airTypes": [
+		{
+			"id": 1,
+			"airType": "Air"
+		},
+		{
+			"id": 2,
+			"airType": "Nitrox"
+		},
+		{
+			"id": 3,
+			"airType": "Trimix"
+		},
+		{
+			"id": 4,
+			"airType": "Heliox"
+		}
+	],
+
+	"precipTypes": [
+		{
+			"id": 1,
+			"precipType": "Sunny"
+		},
+		{
+			"id": 2,
+			"precipType": "Rain"
+		},
+		{
+			"id": 3,
+			"precipType": "Sleet"
+		},
+		{
+			"id": 4,
+			"precipType": "Snow"
+		}
+	],
+
+	"diveTypes": [
+		{
+			"id": 1,
+			"diveType": "Open Water - Ocean"
+		},
+		{
+			"id": 2,
+			"diveType": "Open Water - Lake"
+		},
+		{
+			"id": 3,
+			"diveType": "Open Water - Quary"
+		},
+		{
+			"id": 4,
+			"diveType": "Open Water - Other"
+		},
+		{
+			"id": 5,
+			"diveType": "River"
+		},
+		{
+			"id": 6,
+			"diveType": "Wreck"
+		},
+		{
+			"id": 7,
+			"diveType": "Cave"
 		}
 	],
 
@@ -156,6 +205,14 @@
 		{
 			"id": 1,
 			"waterType": "Salt"
+		},
+		{
+			"id": 2,
+			"waterType": "Fresh"
+		},
+		{
+			"id": 3,
+			"waterType": "Brackish"
 		}
 	]
 }

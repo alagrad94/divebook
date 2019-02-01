@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import User from '../users/user'
 export default class Dashboard  extends Component {
 
 	render() {
-
+		let currentUser = 1;
 		return (
 			<section className="dahsboard">
 				{
