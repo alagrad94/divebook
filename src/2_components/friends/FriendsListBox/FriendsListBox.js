@@ -6,7 +6,7 @@ export default class FriendsListBox extends Component {
   render () {
     return(
       this.props.data.friends.map(friend => (
-        <FriendsListFriend key={friend.id} friend={[friend]} />
+        <FriendsListFriend key={friend.id} friend={[friend]} {...this.props}/>
         ))
     )
   }
