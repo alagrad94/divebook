@@ -6,7 +6,7 @@ export default class FriendsProfileBox extends Component {
   render () {
     return(
       this.props.data.friends.map(friend => (
-        <FriendsFriendDisplay key={friend.id} friend={[friend]} />
+        <FriendsFriendDisplay key={friend.id} friend={friend.id} deleteFriend={this.props.deleteFriend} {...this.props}/>
       ))
     )
   }

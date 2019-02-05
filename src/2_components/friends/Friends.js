@@ -8,7 +8,7 @@ export default class Friends extends Component {
     return(
       <section className="dahsboard">
       <FriendsListBox  {...this.props} />
-      <FriendsProfileBox {...this.props} />
+      <FriendsProfileBox deleteFriend={this.props.deleteFriend} {...this.props} />
       </section>
     )
   }

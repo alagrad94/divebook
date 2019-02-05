@@ -62,6 +62,24 @@
         2
       ],
       "userPhoto": "One day I'll have a pic here"
+    },
+    {
+      "id": 4,
+      "userName": "jdavid123",
+      "password": "russ0675",
+      "firstName": "Jisie",
+      "lastName": "David",
+      "birthDate": "09/12/1971",
+      "certLevel": "Instructor",
+      "certOrg": "NAUI",
+      "gender": "M",
+      "city": "Nashville",
+      "state": "TN",
+      "country": "USA",
+      "zip": 11111,
+      "diveInterests": "I love to dive.  I want to do.......  more in the future",
+      "friends": [],
+      "userPhoto": "One day I'll have a pic here"
     }
   ],
   "diveLogEntries": [
