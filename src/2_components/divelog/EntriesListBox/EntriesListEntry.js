@@ -4,7 +4,12 @@ export default class EntriesListEntry extends Component {
 
   render () {
     return(
-      <button></button>
+
+      this.props.entry.map(log =>
+        <div key={log.id}>
+        <h1>{log.diveSite.name}{log.date}</h1>
+        </div>
+      )
     )
   }
 }

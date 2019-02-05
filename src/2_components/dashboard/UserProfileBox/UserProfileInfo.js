@@ -4,7 +4,15 @@ export default class UserProfileInfo extends Component {
 
   render () {
     return(
-      <button></button>
+      <section>
+      {
+        this.props.data.currentUser.map(user =>
+          <div key={user.id}>
+          <h1>{user.firstName}{user.lastName}</h1>
+          </div>
+        )
+      }
+    </section>
     )
   }
 }

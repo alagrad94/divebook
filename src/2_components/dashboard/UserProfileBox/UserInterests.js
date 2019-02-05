@@ -4,7 +4,14 @@ export default class UserInterests extends Component {
 
   render () {
     return(
-      <button></button>
+      <section>
+      {
+        this.props.data.currentUser.map(user =>
+          <div key={user.id}>
+          <h1>{user.diveInterests}</h1>
+          </div>
+        )}
+    </section>
     )
   }
 }

@@ -2,7 +2,15 @@ export default {
 
 	handleData(fetchObject) {
 
-	// "http://localhost:5002/users?_embed=friend"
+	// "http://localhost:5002/diveSites"
+
+	// "friends"
+	// "waterType"
+	// "precipType"
+	// "landAttractionType"
+	// "underwaterAttractionType"
+	// "diveType"
+	// "airMixType"
 
 		let remoteURL = "http://localhost:5002"
 		let dataSet = fetchObject.dataSet;
@@ -15,7 +23,7 @@ export default {
 		switch (fetchType) {
 
 			case "GET":
-				return fetch(`${remoteURL}/${dataSet}?${embedItem}`).then(r => r.json())
+				return fetch(`${remoteURL}/${dataSet}${embedItem}`).then(r => r.json())
 
 			case "POST":
 				return fetch(`${remoteURL}/${dataSet}`, {method: `${fetchType}`,headers: {"Content-Type": "application/json; charset=utf-8",},body: JSON.stringify(dataBaseObject),}).then(r => r.json())
