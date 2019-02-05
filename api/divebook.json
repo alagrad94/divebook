@@ -1,120 +1,287 @@
 {
-	"users":[
-		{
-			"id": 1,
-			"userName": "alagrad94",
-			"password": "russ0675",
-			"firstName": "Russell",
-			"lastName": "Reiter",
-			"birthDate": "09/12/1971",
-			"certLevel": "Instructor",
-			"certOrg": "NAUI",
-			"gender": "M",
-			"city": "Nashville",
-			"state": "TN",
-			"country": "USA",
-			"zip": 11111,
-			"diveInterests": "I love to dive.  I want to do.......  more in the future",
-			"diveLogId": 1,
-			"friends": [2,3]
-		},
-		{
-			"id": 2,
-			"userName": "johndoe1234",
-			"password": "russ0675",
-			"firstName": "John",
-			"lastName": "Doe",
-			"birthDate": "09/12/1971",
-			"certLevel": "Instructor",
-			"certOrg": "NAUI",
-			"gender": "M",
-			"city": "Nashville",
-			"state": "TN",
-			"country": "USA",
-			"zip": 11111,
-			"diveInterests": "I love to dive.  I want to do.......  more in the future",
-			"diveLogId": 2,
-			"friends": [1,3]
-		},
-		{
-			"id": 3,
-			"userName": "janedoe5678",
-			"password": "russ0675",
-			"firstName": "Jane",
-			"lastName": "Doe",
-			"birthDate": "09/12/1971",
-			"certLevel": "Instructor",
-			"certOrg": "NAUI",
-			"gender": "M",
-			"city": "Nashville",
-			"state": "TN",
-			"country": "USA",
-			"zip": 11111,
-			"diveInterests": "I love to dive.  I want to do.......  more in the future",
-			"diveLogId": 2,
-			"friends": [1,2]
-		}
-	],
-
-	"diveLogs": [
-		{
-			"id": 1,
-			"userId": 1
-		},
-		{
-			"id": 2,
-			"userId": 2
-		},
-		{
-			"id": 3,
-			"userId": 3
-		}
-	],
-
-	"diveLogEntries": [
-		{
-			"id": 1,
-			"diveLogId": 1,
-			"userId": 1,
-			"diveSiteId": 1,
-			"diveDate": "01/01/2019",
-			"diveStartTime": "11:30:00",
-			"diveEndTime": "12:00:00",
-			"bottomTime": "30:00",
-			"diveType": "",
-			"waterType": "",
-			"equipment": "",
-			"airMix": "",
-			"airTemp": 80,
-			"surfaceTemp": 75,
-			"bottomTemp": 60,
-			"precipType": "",
-			"diveDepth": 50,
-			"vis": 15,
-			"imageCollectionId": 1
-		}
-	],
-	"imageCollections": [
-		{
-			"id": 1,
-			"userId": 1,
-			"diveLogEntryId": 1,
-			"imageCollection": [1]
-		}
-	],
-
-	"diveSites": [
-		{
-			"id": 1,
-			"name": "Blue Hole",
-			"city": "Belize City",
-			"state": "NA",
-			"country": "Belize",
-			"zip": "NA",
-			"landAttractionId": "",
-			"underwaterAttractionId": "",
-			"waterDepth": 100,
-			"waterTypeId": ""
-		}
-	]
+  "users": [
+    {
+      "id": 1,
+      "userName": "alagrad94",
+      "password": "russ0675",
+      "firstName": "Russell",
+      "lastName": "Reiter",
+      "birthDate": "09/12/1971",
+      "certLevel": "Instructor",
+      "certOrg": "NAUI",
+      "gender": "M",
+      "city": "Nashville",
+      "state": "TN",
+      "country": "USA",
+      "zip": 11111,
+      "diveInterests": "I love to dive.  I want to do.......  more in the future",
+      "friends": [
+        2,
+        3
+      ],
+      "userPhoto": "One day I'll have a pic here"
+    },
+    {
+      "id": 2,
+      "userName": "johndoe1234",
+      "password": "russ0675",
+      "firstName": "John",
+      "lastName": "Doe",
+      "birthDate": "09/12/1971",
+      "certLevel": "Instructor",
+      "certOrg": "NAUI",
+      "gender": "M",
+      "city": "Nashville",
+      "state": "TN",
+      "country": "USA",
+      "zip": 11111,
+      "diveInterests": "I love to dive.  I want to do.......  more in the future",
+      "friends": [
+        1,
+        3
+      ],
+      "userPhoto": "One day I'll have a pic here"
+    },
+    {
+      "id": 3,
+      "userName": "janedoe5678",
+      "password": "russ0675",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "birthDate": "09/12/1971",
+      "certLevel": "Instructor",
+      "certOrg": "NAUI",
+      "gender": "M",
+      "city": "Nashville",
+      "state": "TN",
+      "country": "USA",
+      "zip": 11111,
+      "diveInterests": "I love to dive.  I want to do.......  more in the future",
+      "friends": [
+        1,
+        2
+      ],
+      "userPhoto": "One day I'll have a pic here"
+    }
+  ],
+  "diveLogEntries": [
+    {
+      "userId": 1,
+      "id": 1,
+      "diveSiteId": 1,
+      "diveTypeId": 1,
+      "waterTypeId": 1,
+      "airMixId": 1,
+      "precipTypeId": 1,
+      "diveDate": "2019-02-04",
+      "diveStartTime": "01:00",
+      "diveEndTime": "01:00",
+      "bottomTime": "1",
+      "equipment": "This is ",
+      "airTemp": 0,
+      "surfaceTemp": 0,
+      "bottomTemp": 0,
+      "diveDepth": 0,
+      "vis": 0,
+      "comments": "A PUT"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "diveSiteId": 1,
+      "diveTypeId": 1,
+      "waterTypeId": 1,
+      "airMixId": 1,
+      "precipTypeId": 1,
+      "diveDate": "2019-01-01",
+      "diveStartTime": "11:30:00",
+      "diveEndTime": "12:00:00",
+      "bottomTime": "30:00",
+      "equipment": "",
+      "airTemp": 80,
+      "surfaceTemp": 75,
+      "bottomTemp": 60,
+      "diveDepth": 50,
+      "vis": 15,
+      "comments": ""
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "diveSiteId": 1,
+      "diveTypeId": 1,
+      "waterTypeId": 1,
+      "airMixId": 1,
+      "precipTypeId": 1,
+      "diveDate": "2019-01-01",
+      "diveStartTime": "11:30:00",
+      "diveEndTime": "12:00:00",
+      "bottomTime": "30:00",
+      "equipment": "",
+      "airTemp": 80,
+      "surfaceTemp": 75,
+      "bottomTemp": 60,
+      "diveDepth": 50,
+      "vis": 15,
+      "comments": ""
+    },
+    {
+      "userId": 1,
+      "id": 4,
+      "diveSiteId": 1,
+      "diveTypeId": 1,
+      "waterTypeId": 1,
+      "airMixId": 1,
+      "precipTypeId": 1,
+      "diveDate": "2019-02-04",
+      "diveStartTime": "01:00",
+      "diveEndTime": "01:00",
+      "bottomTime": 1,
+      "equipment": "This is ",
+      "airTemp": 0,
+      "surfaceTemp": 0,
+      "bottomTemp": 0,
+      "diveDepth": 0,
+      "vis": 0,
+      "comments": "A PUT"
+    }
+  ],
+  "diveSites": [
+    {
+      "id": 1,
+      "name": "Blue Hole",
+      "diveTypeId": 1,
+      "waterTypeId": 1,
+      "waterDepth": 100,
+      "city": "Belize City",
+      "state": "NA",
+      "zip": "NA",
+      "landAttractions": "Lots and lots and lots",
+      "underwaterAttractions": "Fishies"
+    },
+    {
+      "id": 2,
+      "name": "Martha's Quarry",
+      "city": "Nahsville",
+      "state": "TN",
+      "country": "USA",
+      "zip": "37122",
+      "landAttractions": "None",
+      "underwaterAttractions": "None",
+      "waterDepth": 100,
+      "waterTypeId": 2,
+      "diveTypeId": 1
+    },
+    {
+      "id": 3,
+      "name": "Vortex Springs",
+      "city": "Ponce de Leon",
+      "state": "FL",
+      "country": "USA",
+      "zip": "32455",
+      "landAttractions": "None",
+      "underwaterAttractions": "Sunken school bus",
+      "waterDepth": 100,
+      "waterTypeId": 2,
+      "diveTypeId": 1
+    },
+    {
+      "name": "Grand Caymay",
+      "diveTypeId": 1,
+      "waterTypeId": 1,
+      "waterDepth": "30",
+      "city": "Grand Cayman",
+      "state": "NA",
+      "zip": "NA",
+      "landAttractions": "Lots and Lots",
+      "underwaterAttractions": "Fishies and fishies",
+      "id": 4
+    }
+  ],
+  "airMixes": [
+    {
+      "id": 1,
+      "airType": "Air"
+    },
+    {
+      "id": 2,
+      "airType": "Nitrox"
+    },
+    {
+      "id": 3,
+      "airType": "Trimix"
+    },
+    {
+      "id": 4,
+      "airType": "Heliox"
+    }
+  ],
+  "precipTypes": [
+    {
+      "id": 1,
+      "precipType": "Sunny"
+    },
+    {
+      "id": 2,
+      "precipType": "Rain"
+    },
+    {
+      "id": 3,
+      "precipType": "Sleet"
+    },
+    {
+      "id": 4,
+      "precipType": "Snow"
+    }
+  ],
+  "diveTypes": [
+    {
+      "id": 1,
+      "diveType": "Open Water - Ocean"
+    },
+    {
+      "id": 2,
+      "diveType": "Open Water - Lake"
+    },
+    {
+      "id": 3,
+      "diveType": "Open Water - Quarry"
+    },
+    {
+      "id": 4,
+      "diveType": "Open Water - Other"
+    },
+    {
+      "id": 5,
+      "diveType": "River"
+    },
+    {
+      "id": 6,
+      "diveType": "Wreck"
+    },
+    {
+      "id": 7,
+      "diveType": "Cave"
+    }
+  ],
+  "waterTypes": [
+    {
+      "id": 1,
+      "waterType": "Salt"
+    },
+    {
+      "id": 2,
+      "waterType": "Fresh"
+    },
+    {
+      "id": 3,
+      "waterType": "Brackish"
+    }
+  ],
+  "friends": [
+    {
+      "userId": 1,
+      "friendId": 2
+    }
+  ]
 }

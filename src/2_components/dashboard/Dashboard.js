@@ -1,26 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import DiveLogBox from './DiveLogBox/DiveLogBox';
+import FriendsBox from './FriendsBox/FriendsBox';
+import UserProfileBox from './UserProfileBox/UserProfileBox';
+import './dashboard.css'
 
 export default class Dashboard  extends Component {
 
 	render() {
-		let currentUser = 1;
+
 		return (
 			<section className="dahsboard">
-				{
-					this.props.state.users.map(user =>
-					<div key={user.id} className="card">
-						<h5 className="card-title">{`User: `}{user.firstName} {user.lastName}</h5>
-						<h5 className="card-subtitle mb-2 text-muted">Friends:</h5>
-							{
-							user.friends.map(buddy =>
-								this.props.state.users.filter(user => user.id === buddy).map(friend =>
-									<div key={friend.id} className="friend">
-										{friend.firstName} {friend.lastName}
-									</div>
-								)
-							)}
-					</div>
-				)}
+					<UserProfileBox  user={Number(sessionStorage.getItem("user"))} data={this.props.data} />
+					<DiveLogBox user={Number(sessionStorage.getItem("user"))} data={this.props.data} />
+					<FriendsBox className="friendsBox" user={Number(sessionStorage.getItem("user"))} data={this.props.data} />
 			</section>
 		)
 	}
