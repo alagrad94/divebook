@@ -97,7 +97,7 @@ export default class DiveLogEntryEditForm extends Component {
       }
       console.log("POST", entryObject)
       this.props.addLogEntry(entryObject)
-      this.props.history.push("/divelog")
+      this.props.history.push("/divelog/:id")
     }
 
   }
