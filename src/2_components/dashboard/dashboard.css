@@ -1,3 +1,28 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100%
+}
 .friendsBox {
-  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  height: 100%
+}
+
+.profileBox {
+  display: flex;
+  flex-direction: column;
+  height: 100%
+}
+
+.diveLogBox {
+  display: flex;
+  flex-direction: row;
+  height: 100%
+}
+
+.dashboardFriend {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
 }

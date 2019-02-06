@@ -7,7 +7,7 @@ export default class EntriesListEntry extends Component {
     return(
 
       this.props.entry.map(log =>
-        <Link to={{pathname: `/divelog/${log.id}`, log:{id: log.id}}}><h5 key={log.id} width="100%" className="logEntryLink" >{log.diveSite.name} {log.diveDate}<br /></h5></Link>
+        <Link key={log.id} to={{pathname: `/divelog/${log.id}`, log:{id: log.id}}}><h5 width="100%" className="logEntryLink" >{log.diveSite.name} {log.diveDate}<br /></h5></Link>
       )
     )
   }

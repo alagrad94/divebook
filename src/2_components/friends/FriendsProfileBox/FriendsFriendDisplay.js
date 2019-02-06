@@ -1,39 +1,49 @@
 import React, { Component } from 'react'
 import divebookData from '../../../1_modules/divebookData'
-// import Dashboard from '../../dashboard/Dashboard'
+import SplitterLayout from 'react-splitter-layout'
+import UserProfileBox from '../../dashboard/UserProfileBox/UserProfileBox'
+import DiveLogBox from '../../dashboard/DiveLogBox/DiveLogBox'
+import FriendsBox from '../../dashboard/FriendsBox/FriendsBox'
 
 export default class FriendsFriendDisplay extends Component {
 
   deleteFriend(id) {
 
-    let friendId = id;
 		let currentUser = Number(sessionStorage.getItem("user"));
 		let userToRemoveFriend;
-		let friendToRemoveUser;
+		let friendToRemoveUser = id[0];
+		let friendId = friendToRemoveUser.id;
 
 		divebookData.handleData({dataSet: "users", fetchType: "GET", embedItem: `/${currentUser}`})
 		.then(user => {
 			userToRemoveFriend = user;
 			userToRemoveFriend.friends.pop(friendId)})
 		.then(() => this.props.deleteFriend(currentUser, userToRemoveFriend))
-		.then(() => divebookData.handleData({dataSet: "users", fetchType: "GET", embedItem: `/${friendId}`}))
-		.then(friend => {
-			friendToRemoveUser = friend;
-			friendToRemoveUser.friends.pop(currentUser)
-			console.log(friendToRemoveUser)})
+		.then(() => friendToRemoveUser.friends.pop(currentUser))
 		.then(() => this.props.deleteFriend(friendId, friendToRemoveUser))
-
-		this.props.history.push("/friends/:id")
   }
 
   render () {
     return(
-			this.props.friend.map(friend =>
-			<div key={friend.id}>
-			<h1>{friend.firstName} {friend.lastName}</h1>
-			<button type="button" onClick={() => this.deleteFriend(this.props.friend)}>Remove Friend</button>
-			</div>
-			)
+			<SplitterLayout vertical percentage={true} secondaryInitialSize={30}>
+				<SplitterLayout percentage={true} secondaryInitialSize={50}>
+				<div className="my-pane">
+					<UserProfileBox user={2} data={this.props.data} />
+				</div>
+				<div className="my-pane">
+					<DiveLogBox user={2} data={this.props.data} />
+				</div>
+				</SplitterLayout>
+				<div className="my-pane">
+					<FriendsBox user={2} data={this.props.data} />
+				</div>
+			</SplitterLayout>
+			// this.props.friend.map(friend =>
+			// <div key={friend.id}>
+			// <h1>{friend.firstName} {friend.lastName}</h1>
+			// <button type="button" onClick={() => this.deleteFriend(this.props.friend)}>Remove Friend</button>
+			// </div>
+			// )
     )
   }
 }

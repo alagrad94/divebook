@@ -1,41 +1,41 @@
 import React, { Component } from 'react'
-import DiveSiteDetails from './DiveSiteDetails'
-import divebookData from '../../1_modules/divebookData';
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import DiveSitesListBox from './DiveSitesListBox/DiveSitesListBox'
+import DiveSitesDetailsBox from './DiveSitesDetailsBox/DiveSitesDetailsBox'
+import { AppContainer as BaseAppContainer, ExampleNavigation as BaseNavigation } from '../../containers';
+import { SideNav } from 'react-sidenav'
+import './divesites.css'
+
+const AppContainer = styled(BaseAppContainer)`
+  height: calc(100vh - 40px);
+`;
+
+const Navigation = styled(BaseNavigation)`
+  background: #303641;
+  color: #8d97ad;
+  font-size: 1em;
+  letter-spacing: 2px;
+  width: 25%;
+  line-height: 22px;
+`;
 
 export default class DiveSites extends Component {
 
-  constructor (props){
-    super(props);
-    this.state = {
-
-      diveSites: []
-    }
-  }
-
-  getDiveSites() {
-    let diveSites = []
-    divebookData.handleData({dataSet: "diveSites", fetchType: "GET", embedItem: ""})
-    .then(sites => {
-      sites.forEach(site => {
-        diveSites.push(site)
-      });
-      this.setState({diveSites: diveSites})
-    })
-  }
-
-  componentDidMount() {
-    this.getDiveSites();
-  }
   render () {
     return(
       <React.Fragment>
-      {
-      this.state.diveSites.map(site => (
-      <DiveSiteDetails key={site.id} diveSite={[site]} {...this.props}/>
-        ))
-      }
-      <Link to={{pathname: "/divesites/new", state: {fetch: "POST"}}}><button>Add New Dive Site</button></Link>
+         <AppContainer>
+          <Navigation>
+            <SideNav >
+              <DiveSitesListBox key={1} {...this.props}/>
+            </SideNav>
+          </Navigation>
+          <section>
+            <DiveSitesDetailsBox {...this.props} />
+            <Link to={{pathname: "/divesitesentry/new", state: {fetch: "POST"}}}><button>Add New Dive Site</button></Link>
+          </section>
+        </AppContainer>
       </React.Fragment>
     )
   }

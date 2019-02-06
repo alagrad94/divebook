@@ -10,6 +10,7 @@ export default class DiveLogDiveDetails extends Component {
         <div key={log.id}>
         <h1>{log.diveSite.name}</h1>
         <Link to={{pathname: `/divelog/${log.id}/edit`, state: {fetch: "PUT", diveLog: this.props.data.diveLog}}}><button>Edit Log Entry</button></Link>
+        <button type="button" onClick={()=> this.props.deleteLogEntry(log.id)} >Delete Log Entry</button>
         </div>
       )
     )

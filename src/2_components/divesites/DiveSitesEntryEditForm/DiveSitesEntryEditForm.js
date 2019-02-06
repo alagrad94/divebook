@@ -55,7 +55,6 @@ export default class DiveSiteEntryEditForm extends Component {
       }
       console.log("PUT", entryObject)
       this.props.editDiveSite(entryObject)
-      this.props.history.push("/divesites")
 
     } else if (this.props.location.state.fetch === "POST") {
 
@@ -73,7 +72,7 @@ export default class DiveSiteEntryEditForm extends Component {
       }
       console.log("POST", entryObject)
       this.props.addDiveSite(entryObject)
-      this.props.history.push("/divesites")
+
     }
   }
 

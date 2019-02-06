@@ -15,7 +15,7 @@ const Navigation = styled(BaseNavigation)`
   color: #8d97ad;
   font-size: 1em;
   letter-spacing: 2px;
-  width: 25%;
+  width: 20%;
   line-height: 22px;
 `;
 export default class Friends extends Component {

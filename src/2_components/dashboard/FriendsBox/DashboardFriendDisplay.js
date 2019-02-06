@@ -5,7 +5,7 @@ export default class DahsboardFriendDisplay extends Component {
   render () {
 
     return(
-      <section>
+      <section className="dashboardFriend">
         {
           this.props.data.friends.filter(friend => friend.id === this.props.friend).map(friend =>
               <div key={friend.id}>

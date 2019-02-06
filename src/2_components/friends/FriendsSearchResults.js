@@ -21,7 +21,6 @@ export default class FriendsSearchResults extends Component {
 			friendToAddUser = friend;
 			friendToAddUser.friends.push(currentUser)})
 		.then(() => this.props.addFriend(friendId, friendToAddUser))
-		this.props.history.push("/friends/:id")
 	}
 
 	render () {
