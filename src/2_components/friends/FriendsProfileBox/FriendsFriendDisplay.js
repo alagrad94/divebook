@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import divebookData from '../../../1_modules/divebookData'
-import Dashboard from '../../dashboard/Dashboard'
+// import Dashboard from '../../dashboard/Dashboard'
 
 export default class FriendsFriendDisplay extends Component {
 
@@ -23,12 +23,17 @@ export default class FriendsFriendDisplay extends Component {
 			console.log(friendToRemoveUser)})
 		.then(() => this.props.deleteFriend(friendId, friendToRemoveUser))
 
-		this.props.history.push("/friends")
+		this.props.history.push("/friends/:id")
   }
 
   render () {
     return(
-      <section>Hi I'm a friend<button type="button" onClick={() => this.deleteFriend(this.props.friend)}>Remove Friend</button></section>
+			this.props.friend.map(friend =>
+			<div key={friend.id}>
+			<h1>{friend.firstName} {friend.lastName}</h1>
+			<button type="button" onClick={() => this.deleteFriend(this.props.friend)}>Remove Friend</button>
+			</div>
+			)
     )
   }
 }

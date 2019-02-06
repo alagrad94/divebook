@@ -23,10 +23,10 @@
     },
     {
       "id": 2,
-      "userName": "johndoe1234",
+      "userName": "johnford1234",
       "password": "russ0675",
       "firstName": "John",
-      "lastName": "Doe",
+      "lastName": "Ford",
       "birthDate": "09/12/1971",
       "certLevel": "Instructor",
       "certOrg": "NAUI",
@@ -78,7 +78,8 @@
       "country": "USA",
       "zip": 11111,
       "diveInterests": "I love to dive.  I want to do.......  more in the future",
-      "friends": [],
+      "friends": [
+      ],
       "userPhoto": "One day I'll have a pic here"
     }
   ],
@@ -146,12 +147,12 @@
     {
       "userId": 1,
       "id": 4,
-      "diveSiteId": 1,
+      "diveSiteId": 2,
       "diveTypeId": 1,
       "waterTypeId": 1,
       "airMixId": 1,
       "precipTypeId": 1,
-      "diveDate": "2019-02-04",
+      "diveDate": "2019-02-03",
       "diveStartTime": "01:00",
       "diveEndTime": "01:00",
       "bottomTime": 1,
