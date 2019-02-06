@@ -8,7 +8,7 @@ export default class UserProfileBox extends Component {
   render () {
 
     return(
-      <section>
+      <section className="profileBox">
       <UserPhoto {...this.props} />
       <UserProfileInfo {...this.props} />
       <UserInterests {...this.props} />

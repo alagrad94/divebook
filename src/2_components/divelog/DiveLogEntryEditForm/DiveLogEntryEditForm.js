@@ -72,7 +72,6 @@ export default class DiveLogEntryEditForm extends Component {
       }
       console.log("PUT", entryObject)
       this.props.editLogEntry(entryObject)
-      this.props.history.push("/divelog")
 
     } else if (this.props.location.state.fetch === "POST") {
 
@@ -97,7 +96,7 @@ export default class DiveLogEntryEditForm extends Component {
       }
       console.log("POST", entryObject)
       this.props.addLogEntry(entryObject)
-      this.props.history.push("/divelog/:id")
+
     }
 
   }
