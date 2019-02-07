@@ -110,32 +110,32 @@ export default class ProfileAddEditForm extends Component {
 
     return(
       <React.Fragment>
-        <form className="profileAddEditForm" onSubmit={this.handleEntry}>
-          <label>Birth Date
-          <input type="date" name="birthDate" required={true} value={this.state.birthDate} onChange={this.handleInputChange} /></label><br />
-          <label>First Name
-          <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleInputChange} /></label><br />
-          <label>Last Name
-          <input type="text" name="lastName" value={this.state.lastName} onChange={this.handleInputChange} /></label><br />
-          <label>Certification Level
-          <input type="text" name="certLevel" value={this.state.certLevel} onChange={this.handleInputChange} /></label><br />
-          <label>Certifying Organization
-          <input type="text" name="certOrg" value={this.state.certOrg} onChange={this.handleInputChange} /></label><br />
-          <label>Gender
-          <input type="text" name="gender" value={this.state.gender} onChange={this.handleInputChange} /></label><br />
-          <label>City
-          <input type="text" name="city" value={this.state.city} onChange={this.handleInputChange} /></label><br />
-          <label>State
-          <input type="text" name="state" value={this.state.state} onChange={this.handleInputChange} /></label><br />
-          <label>Country
-          <input type="text" name="country" value={this.state.country} onChange={this.handleInputChange} /></label><br />
-          <label>Zip
-          <input type="text" name="zip" value={this.state.zip} onChange={this.handleInputChange} /></label><br />
-          <label>Dive Interests
-          <textarea name="diveInterests" value={this.state.diveInterests} onChange={this.handleInputChange} /></label><br />
-          <label>Password
-          <input type="text"name="password" value={this.state.password} onChange={this.handleInputChange} /></label><br />
-          <input type="submit" />
+        <form className="profile_add_edit_form" onSubmit={this.handleEntry}>
+          <label className="profile_add_edit_form profile_birthdate form_label">Birth Date
+          <input className="profile_add_edit_form profile_birthdate form_input" type="date" name="birthDate" required={true} value={this.state.birthDate} onChange={this.handleInputChange} /></label><br />
+          <label className="profile_add_edit_form profile_first_name form_label">First Name
+          <input className="profile_add_edit_form profile_first_name form_input" ype="text" name="firstName" value={this.state.firstName} onChange={this.handleInputChange} /></label><br />
+          <label className="profile_add_edit_form profile_last_name form_label">Last Name
+          <input className="profile_add_edit_form profile_last_name form_input" type="text" name="lastName" value={this.state.lastName} onChange={this.handleInputChange} /></label><br />
+          <label className="profile_add_edit_form profile_cert_level form_label">Certification Level
+          <input className="profile_add_edit_form profile_cert_level form_input" type="text" name="certLevel" value={this.state.certLevel} onChange={this.handleInputChange} /></label><br />
+          <label className="profile_add_edit_form profile_cert_org form_label">Certifying Organization
+          <input className="profile_add_edit_form profile_cert_org form_input" type="text" name="certOrg" value={this.state.certOrg} onChange={this.handleInputChange} /></label><br />
+          <label className="profile_add_edit_form profile_gender form_label">Gender
+          <input className="profile_add_edit_form profile_gender form_input" type="text" name="gender" value={this.state.gender} onChange={this.handleInputChange} /></label><br />
+          <label className="profile_add_edit_form profile_city form_label">City
+          <input className="profile_add_edit_form profile_city form_input" type="text" name="city" value={this.state.city} onChange={this.handleInputChange} /></label><br />
+          <label className="profile_add_edit_form profile_state form_label">State
+          <input className="profile_add_edit_form profile_state form_input" type="text" name="state" value={this.state.state} onChange={this.handleInputChange} /></label><br />
+          <label className="profile_add_edit_form profile_country form_label">Country
+          <input className="profile_add_edit_form profile_country form_input" type="text" name="country" value={this.state.country} onChange={this.handleInputChange} /></label><br />
+          <label className="profile_add_edit_form profile_zip form_label">Zip
+          <input className="profile_add_edit_form profile_zip form_input" type="text" name="zip" value={this.state.zip} onChange={this.handleInputChange} /></label><br />
+          <label className="profile_add_edit_form profile_interests form_label">Dive Interests
+          <textarea className="profile_add_edit_form profile_interests form_textarea" name="diveInterests" value={this.state.diveInterests} onChange={this.handleInputChange} /></label><br />
+          <label className="profile_add_edit_form profile_password form_label">Password
+          <input className="profile_add_edit_form profile_password form_input" type="text"name="password" value={this.state.password} onChange={this.handleInputChange} /></label><br />
+          <input className="button profile_entry_edit_form submit_profile_button" type="submit" />
         </form>;
       </React.Fragment>
     )

@@ -95,23 +95,25 @@ export default class DiveSiteEntryEditForm extends Component {
 
     return(
       <React.Fragment>
-        <form className="diveLogEntryEditForm" onSubmit={this.handleEntry}>
-          <label>Name</label>
-          <input type="text" name="name" value={this.state.name} onChange={this.handleInputChange}></input><br />
-          <label>City</label>
-          <input type="text" name="city" value={this.state.city} onChange={this.handleInputChange}></input><br />
-          <label>State</label>
-          <input type="text" name="state" value={this.state.state} onChange={this.handleInputChange}></input><br />
-          <label>Zip Code</label>
-          <input name="zip" type="text" value={this.state.zip} onChange={this.handleInputChange}></input><br />
-          <label>Things to do on shore nearby</label>
-          <textarea name="landAttractions" value={this.state.landAttractions} onChange={this.handleInputChange}></textarea><br />
-          <label>Things to see underwater</label>
-          <textarea name="underwaterAttractions" value={this.state.underwaterAttractions} onChange={this.handleInputChange}></textarea><br />
-          <label>Depth</label>
-          <input name="waterDepth" value={this.state.waterDepth} onChange={this.handleInputChange}></input><br />
-          <label>Dive Type</label>
-          <select name="diveTypeId" value={this.state.diveTypeId} onChange={this.handleInputChange}>
+        <form className="ds_entry_edit_form" onSubmit={this.handleEntry}>
+          <label className="ds_entry_edit_form site_name form_label">Name</label>
+          <input className="ds_entry_edit_form site_name form_input" type="text" name="name" value={this.state.name} onChange={this.handleInputChange}></input><br />
+          <label className="ds_entry_edit_form site_city form_label">City</label>
+          <input className="ds_entry_edit_form site_city form_input" type="text" name="city" value={this.state.city} onChange={this.handleInputChange}></input><br />
+          <label className="ds_entry_edit_form site_state form_label">State</label>
+          <input className="ds_entry_edit_form site_state form_input" type="text" name="state" value={this.state.state} onChange={this.handleInputChange}></input><br />
+          <label className="ds_entry_edit_form site_zip form_label">Zip Code</label>
+          <input className="ds_entry_edit_form site_zip form_input" name="zip" type="text" value={this.state.zip} onChange={this.handleInputChange}></input><br />
+          <label className="ds_entry_edit_form site_country form_label">Country</label>
+          <input className="ds_entry_edit_form site_country form_input" name="zip" type="text" value={this.state.country} onChange={this.handleInputChange}></input><br />
+          <label className="ds_entry_edit_form site_landAttractions form_label">Things to do on shore nearby</label>
+          <textarea className="ds_entry_edit_form site_landAttractions form_textarea" name="landAttractions" value={this.state.landAttractions} onChange={this.handleInputChange}></textarea><br />
+          <label className="ds_entry_edit_form site_underwaterAttractions form_label">Things to see underwater</label>
+          <textarea className="ds_entry_edit_form site_underwaterAttractions form_textarea" name="underwaterAttractions" value={this.state.underwaterAttractions} onChange={this.handleInputChange}></textarea><br />
+          <label className="ds_entry_edit_form site_depth form_label">Depth</label>
+          <input className="ds_entry_edit_form site_depth form_input" name="waterDepth" value={this.state.waterDepth} onChange={this.handleInputChange}></input><br />
+          <label className="ds_entry_edit_form site_dive_type form_label">Dive Type</label>
+          <select className="ds_entry_edit_form site_dive_type form_select" name="diveTypeId" value={this.state.diveTypeId} onChange={this.handleInputChange}>
             <option key={0} defaultValue=""></option>
             <option key={1} value={1}>Open Water - Ocean</option>
             <option key={2} value={2}>Open Water - Lake</option>
@@ -121,14 +123,14 @@ export default class DiveSiteEntryEditForm extends Component {
             <option key={6} value={6}>Wreck</option>
             <option key={7} value={7}>Cave</option>
           </select><br />
-          <label>Water Type</label>
-          <select name="waterTypeId"  value={this.state.waterTypeId} onChange={this.handleInputChange}>
+          <label className="ds_entry_edit_form site_water_type form_label">Water Type</label>
+          <select className="ds_entry_edit_form site_water_type form_select"name="waterTypeId"  value={this.state.waterTypeId} onChange={this.handleInputChange}>
             <option key={0} defaultValue=""></option>
             <option key={1} value={1}>Salt</option>
             <option key={2} value={2}>Fresh</option>
             <option key={3} value={3}>Brackish</option>
           </select><br />
-          <input type="submit" />
+          <input className="button ds_entry_edit_form submit_ds_site_button" type="submit" />
         </form>;
       </React.Fragment>
     )

@@ -8,7 +8,7 @@ export default class FriendsProfileBox extends Component {
     let friendToDisplay = this.props.data.friends.filter(friend => friend.id === parseInt(this.props.match.params.id))
 
     return(
-      <section>
+      <section className="friends_profile_box">
       {
       friendToDisplay.map(friend => (
         <FriendsFriendDisplay key={friend.id} friend={[friend]} deleteFriend={this.props.deleteFriend} {...this.props}/>

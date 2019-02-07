@@ -6,7 +6,7 @@ export default class FriendsListFriend extends Component {
   render () {
     return(
       this.props.friend.map(buddy =>
-        <Link key={buddy.id} to={{pathname: `/friends/${buddy.id}`, buddy:{id: buddy.id}}}><h5 width="100%" className="logEntryLink" >{buddy.firstName} {buddy.lastName}<br /></h5></Link>
+        <Link key={buddy.id} to={{pathname: `/friends/${buddy.id}`, buddy:{id: buddy.id}}}><p className="friends_list_friend_link" width="100%" className="logEntryLink" >{buddy.firstName} {buddy.lastName}<br /></p></Link>
       )
     )
   }

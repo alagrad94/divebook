@@ -27,11 +27,11 @@ export default class Divelog extends Component {
          <AppContainer>
           <Navigation>
             <SideNav >
-              <EntriesListBox key={1} {...this.props}/>
+              <EntriesListBox className="dl_entries_box" key={1} {...this.props}/>
             </SideNav>
           </Navigation>
           <section>
-            <DiveDetailsBox {...this.props} />
+            <DiveDetailsBox className="dl_dive_details_box" {...this.props} />
             <Link to={{pathname: "/divelogentry/new", state: {fetch: "POST"}}}><button>Add New Dive</button></Link>
           </section>
         </AppContainer>

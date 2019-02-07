@@ -26,11 +26,11 @@ export default class Friends extends Component {
          <AppContainer>
           <Navigation>
             <SideNav >
-              <FriendsListBox key={1} {...this.props} />
+              <FriendsListBox className="friends_list_box" key={1} {...this.props} />
             </SideNav>
           </Navigation>
           <section>
-            <FriendsProfileBox deleteFriend={this.props.deleteFriend} {...this.props} />
+            <FriendsProfileBox className="friends_profile_box" deleteFriend={this.props.deleteFriend} {...this.props} />
           </section>
         </AppContainer>
       </React.Fragment>

@@ -1,0 +1,168 @@
+Dashboard:
+
+“db_profile prof_box” - section wrapping UserPhoto, UserProfileInfo & UserInterests components & UserProfileBox component
+“db_profile  user_profile” - div wrapping the user profile info - name, address, etc…. & the UserProfileInfo component
+“db_profile user_name” -p with user’s first and last name
+“db_profile cert_org” -p with certifying organization
+“db_profile cert_level” -p with certification level
+“db_profile user_location” - p with user city, state, country, zip
+“db_profile user_interests” - p with user dive interests & the UserInterests component
+“db_profile user_photo” - div with user photo & the UserPhoto component
+“db_divelog divelog_box” - section holding DashboardDiveLogEntry components & DiveLogBox component
+“db_divelog log_entry” - div containing log entry info for dashboard & the DashboardDiveLogEntry component
+“db_divelog divesite_name” - p with divesite name on db
+“db_divelog dive_date -    p with dive date on db
+“db_friends friends_box” -  section holding DashboardFriendDisplay components & FriendsBox component
+“db_friends friend” -  section holding DashboardFriendDisplay components & the DashboardFriendDisplay component
+“db_friends friend_name” -  p with friend name
+db_friends friend_photo” -  p with friend photo
+
+Dive Log:
+
+“dl_entries_box” - EntriesListBox component
+“dl_entry_link - EntriesListEntry component & p containing dive log entry name for left nav link
+“dl_dive_details_box” - DiveDetailsBox component & section holding DiveLogDetails component
+“dl_dive_details” - DiveLogDiveDetails component & div wrapping dive details
+“dl_dive_details divesite_name” - p containing dive site name
+“button dl_edit_button” - dive log entry edit button
+“button dl_delete_button” - dive log entry delete button
+“dl_dive_details dive_date” - p containing dive date
+“dl_dive_details dive_start_time” - p containing dive start time
+“dl_dive_details dive_end_time” - p containing dive end time
+“dl_dive_details dive_bottom_time” - p containing dive bottom time
+“dl_dive_details dive_air_mix” - p containing dive air mix
+“dl_dive_details dive_water” - p containing water type
+“dl_dive_details dive_air_temp” - p containing dive air temp
+“dl_dive_details dive_surface_temp” - p containing water surface temp
+“dl_dive_details dive_bottom_temp” - p containing water bottom temp
+“dl_dive_details dive_depth” - p containing dive depth
+“dl_dive_details dive_vis” - p containing dive vis
+“dl_dive_details dive_precip” - p containing precipitation
+“dl_dive_details dive_equp” - p containing equip
+“dl_dive_details dive_comments” - p containing comments
+“dl_entry_edit_form” - dive log entry/edit form
+“dl_entry_edit_form dive_date form_label” - dive log entry/edit form dive date input label
+“dl_entry_edit_form dive_date form_input” - dive log entry/edit form dive date input
+“dl_entry_edit_form dive_start_time form_label” - dive log entry/edit form dive start time input label
+“dl_entry_edit_form dive_start_time form_input” - dive log entry/edit form dive start time input
+“dl_entry_edit_form dive_end_time form_label” - dive log entry/edit form dive end time input label
+“dl_entry_edit_form dive_end_time form_input” - dive log entry/edit form dive end time input
+“dl_entry_edit_form dive_bottom_time form_label” - dive log entry/edit form dive bottom time input label
+“dl_entry_edit_form dive_bottom_time form_input” - dive log entry/edit form dive bottom time input
+“dl_entry_edit_form dive_divesite form_label”  - dive log entry/edit form dive site select label
+“dl_entry_edit_form dive_divesite form_select” - dive log entry/edit form dive site select
+“dl_entry_edit_form dive_dive_type form_label”  - dive log entry/edit form dive type select label
+“dl_entry_edit_form dive_dive_type form_select” - dive log entry/edit form dive type select
+“dl_entry_edit_form dive_water_type form_label”  - dive log entry/edit form water type select label
+“dl_entry_edit_form dive_water_type form_select” - dive log entry/edit form water type select
+“dl_entry_edit_form dive_air_mix form_label”  - dive log entry/edit form air type select label
+“dl_entry_edit_form dive_air_mix form_select” - dive log entry/edit form air type select
+“dl_entry_edit_form dive_precip_type form_label”  - dive log entry/edit form precipitation type select label
+“dl_entry_edit_form dive_precip_type form_select” - dive log entry/edit form precipitation type select
+“dl_entry_edit_form dive_air_temp form_label” - dive log entry/edit form air temp input label
+“dl_entry_edit_form dive_air_temp form_input” - dive log entry/edit form air temp input
+“dl_entry_edit_form dive_surface_temp form_label” - dive log entry/edit form surface temp input label
+“dl_entry_edit_form dive_surface_temp form_input” - dive log entry/edit form surface temp input
+“dl_entry_edit_form dive_bottom_temp form_label” - dive log entry/edit form bottom temp input label
+“dl_entry_edit_form dive_bottom_temp form_input” - dive log entry/edit form bottom temp input
+“dl_entry_edit_form dive_vis form_label” - dive log entry/edit form dive vis input label
+“dl_entry_edit_form dive_vis form_input” - dive log entry/edit form dive vis input
+“dl_entry_edit_form dive_depth form_label” - dive log entry/edit form dive depth input label
+“dl_entry_edit_form dive_depth form_input” - dive log entry/edit form dive depth input
+“dl_entry_edit_form dive_equip form_label” - dive log entry/edit form dive equip input label
+“dl_entry_edit_form dive_equip form_textarea” - dive log entry/edit form dive equip texture
+“dl_entry_edit_form dive_comments form_label” - dive log entry/edit form dive comments input label
+“dl_entry_edit_form dive_comments form_textarea” - dive log entry/edit form dive comments texture
+“button dl_entry_edit_form create_divesite_button” - dive log entry/edit form create dive site button
+“button dl_entry_edit_form submit_dl_entry_button” - dive log entry/edit form create dive site button
+
+Dive Sites:
+
+“ds_dslist_box” - DiveSitesListBox component & section wrapping DivesSitesListSite component
+“ds_site_link” - DiveSitesListSite component & p containing dive site name for left nav link
+“ds_dsdetails_box” - DiveSiteDetailsBox component & section holding DiveLogDetails component
+“ds_site_details” - DiveSiteSiteDetails component & div wrapping site details
+“button ds_edit_divesite_button” - dive site edit button
+“ds_details divesite_name” - p containing dive site name
+“ds_details divesite_location” - p containing dive site city, state, zip, country
+“ds_details divesite_water_type” - p containing dive site water type
+“ds_details divesite_dive_type” - p containing dive site dive type
+“ds_details divesite_depth” - p containing dive site depth
+“ds_details divesite_landAttractions” - p containing dive site land attractions
+“ds_details divesite_underwaterAttractions” - p containing dive site underwater attractions
+“ds_entry_edit_form” - dive site entry/edit form
+“ds_entry_edit_form site_name form_label” - dive site entry/edit form divesite name input label
+“ds_entry_edit_form site_name form_input” - dive site entry/edit form divesite name input
+“ds_entry_edit_form site_city form_label” - dive site entry/edit form divesite city input label
+“ds_entry_edit_form site_city form_input” - dive site entry/edit form divesite city input
+“ds_entry_edit_form site_state form_label” - dive site entry/edit form divesite state input label
+“ds_entry_edit_form site_state form_input” - dive site entry/edit form divesite state input
+“ds_entry_edit_form site_zip form_label” - dive site entry/edit form divesite zip input label
+“ds_entry_edit_form site_zip form_input” - dive site entry/edit form divesite zip input
+“ds_entry_edit_form site_country form_label” - dive site entry/edit form divesite country input label
+“ds_entry_edit_form site_country form_input” - dive site entry/edit form divesite country input
+“ds_entry_edit_form site_landAttractions form_label” - dive site entry/edit form divesite land attractions textarea label
+“ds_entry_edit_form site_landAttractions form_textarea” - dive site entry/edit form divesite land attractions textarea
+“ds_entry_edit_form site_underwaterAttractions form_label” - dive site entry/edit form divesite underwater attractions textarea label
+“ds_entry_edit_form site_underwaterAttractions form_textarea” - dive site entry/edit form divesite underwater attractions textarea
+“ds_entry_edit_form site_depth form_label” - dive site entry/edit form divesite depth input label
+“ds_entry_edit_form site_depth form_input” - dive site entry/edit form divesite depth input
+“ds_entry_edit_form site_dive_type form_label”  - dive site entry/edit form divesite dive type select label
+“ds_entry_edit_form site_dive_type form_select” - dive site entry/edit form divesite dive type select
+“ds_entry_edit_form site_water_type form_label”  - dive site entry/edit form divesite water type select label
+“ds_entry_edit_form site_water_type form_select” - dive site entry/edit form divesite water type select
+
+Friends:
+
+“friends_list_box” -  FriendsListBox component
+“friends_profile_box” - FriendsProfileBox component & section wrapping FriendsFriendDisplay component
+“friends_friend_link”  - FriendsListFriend component & p containing friend name for left nav link
+“friends_profile friend_user_profile_box” - UserProfileBox component on friends dashboard
+“friends_profile friend_divelog_box” - DiveLogBox component on friends dashboard
+“friends_profile friend_friends_box” - FriendsBox component on friends dashboard
+“friends_search friend_search_results” - div containing search results from friend search
+“link-button friends_search search_button” - friend search button
+
+Nav:
+
+“navbar navbar-light light-blue flex-md-nowrap p=0 shadow” - nav top level
+“nav nav-pills” - ul containing nav li’s
+“nav-item”  - nav li
+“nav-link” - links
+“friend_search_form” - form wrapping friend search input
+“friend_search_input” - friend search input
+
+Profile:
+
+“profile_entry_edit_form profile_birthdate form_label” - profile entry/edit form user birthdate input label
+“profile_entry_edit_form profile_birthdate form_input” - profile entry/edit form user birthdate input
+“profile_entry_edit_form profile_first_name form_label” - profile entry/edit form user first_name input label
+“profile_entry_edit_form profile_first_name form_input” - profile entry/edit form user first_name input
+“profile_entry_edit_form profile_last_name form_label” - profile entry/edit form user last_name input label
+“profile_entry_edit_form profile_last_name form_input” - profile entry/edit form user last_name input
+“profile_entry_edit_form profile_cert_level form_label” - profile entry/edit form user cert_level input label
+“profile_entry_edit_form profile_cert_level form_input” - profile entry/edit form user cert_level input
+“profile_entry_edit_form profile_cert_org form_label” - profile entry/edit form user cert_org input label
+“profile_entry_edit_form profile_cert_org form_input” - profile entry/edit form user cert_org input
+“profile_entry_edit_form profile_gender form_label” - profile entry/edit form user gender input label
+“profile_entry_edit_form profile_gender form_input” - profile entry/edit form user gender input
+“profile_entry_edit_form profile_city form_label” - profile entry/edit form user city input label
+“profile_entry_edit_form profile_city form_input” - profile entry/edit form user city input
+“profile_entry_edit_form profile_state form_label” - profile entry/edit form user state input label
+“profile_entry_edit_form profile_state form_input” - profile entry/edit form user state input
+“profile_entry_edit_form profile_country form_label” - profile entry/edit form user country input label
+“profile_entry_edit_form profile_country form_input” - profile entry/edit form user country input
+“profile_entry_edit_form profile_zip form_label” - profile entry/edit form user zip input label
+“profile_entry_edit_form profile_zip form_input” - profile entry/edit form user zip input
+“profile_entry_edit_form profile_password form_label” - profile entry/edit form user password input label
+“profile_entry_edit_form profile_password form_input” - profile entry/edit form user password input
+“profile_entry_edit_form profile_interests form_label” - profile entry/edit form user interests textarea label
+“profile_entry_edit_form profile_interests form_textarea” - profile entry/edit form user interests textarea
+“profile  user_profile” - div wrapping the user profile info - name, address, etc…. on profile page
+“profile user_name” -p with user’s first and last name on profile page
+“profile cert_org” -p with certifying organization on profile page
+“profile cert_level” -p with certification level on profile page
+“profile user_location” - p with user city, state, country, zip on profile page
+“profile user_interests” - p with user dive interests on profile page
+“profile user_photo” - div with user photo on profile page
+“button profile_edit_profile_button” - edit user profile button

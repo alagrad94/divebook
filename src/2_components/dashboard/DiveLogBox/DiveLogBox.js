@@ -4,10 +4,10 @@ export default class DiveLogBox extends Component {
 
   render () {
     return(
-      <section className="diveLogBox">
+      <section className="db_divelog divelog_box">
       {
         this.props.data.diveLog.map(entry => (
-        <DashboardDiveLogEntry key={entry.id} entry={entry.id} {...this.props}/>
+        <DashboardDiveLogEntry className="db_divelog log_entry" key={entry.id} entry={entry.id} {...this.props}/>
         ))
       }
       </section>

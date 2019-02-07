@@ -2,7 +2,7 @@ export default {
 
 	handleData(fetchObject) {
 
-	// "http://localhost:5002/users/1"
+	// "http://localhost:5002/divesites?_expand=diveType&_expand=waterType"
 
 	// "friends"
 	// "waterType"

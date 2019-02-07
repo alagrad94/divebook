@@ -5,10 +5,10 @@ export default class FriendsBox extends Component {
 
   render () {
     return(
-      <section className="friendsBox">
+      <section className="db-friends friends_box">
       {
       this.props.data.friends.map(friend => (
-      <DashboardFriendDisplay key={friend.id} friend={friend.id} {...this.props}/>
+      <DashboardFriendDisplay className="db-friends friend" key={friend.id} friend={friend.id} {...this.props}/>
       ))
       }
       </section>

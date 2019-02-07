@@ -13,14 +13,14 @@ export default class DivebookDashboard  extends Component {
 			<SplitterLayout vertical percentage={true} secondaryInitialSize={30}>
 				<SplitterLayout percentage={true} secondaryInitialSize={50}>
 				<div className="my-pane">
-					<UserProfileBox user={Number(sessionStorage.getItem("user"))} data={this.props.data} />
+					<UserProfileBox className="profile prof_box" user={Number(sessionStorage.getItem("user"))} data={this.props.data} />
 				</div>
 				<div className="my-pane">
-					<DiveLogBox user={Number(sessionStorage.getItem("user"))} data={this.props.data} />
+					<DiveLogBox className="db_divelog divelog_box" user={Number(sessionStorage.getItem("user"))} data={this.props.data} />
 				</div>
 				</SplitterLayout>
 				<div className="my-pane">
-					<FriendsBox user={Number(sessionStorage.getItem("user"))} data={this.props.data} />
+					<FriendsBox className="db_friends friends_box" user={Number(sessionStorage.getItem("user"))} data={this.props.data} />
 				</div>
 			</SplitterLayout>
 		)
