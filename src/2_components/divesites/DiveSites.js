@@ -28,11 +28,11 @@ export default class DiveSites extends Component {
          <AppContainer>
           <Navigation>
             <SideNav >
-              <DiveSitesListBox key={1} {...this.props}/>
+              <DiveSitesListBox className="ds_dslist_box" key={1} {...this.props}/>
             </SideNav>
           </Navigation>
           <section>
-            <DiveSitesDetailsBox {...this.props} />
+            <DiveSitesDetailsBox className="ds_dsdetails_box" {...this.props} />
             <Link to={{pathname: "/divesitesentry/new", state: {fetch: "POST"}}}><button>Add New Dive Site</button></Link>
           </section>
         </AppContainer>

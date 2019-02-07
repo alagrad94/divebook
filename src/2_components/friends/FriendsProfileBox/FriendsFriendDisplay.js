@@ -28,14 +28,14 @@ export default class FriendsFriendDisplay extends Component {
 			<SplitterLayout vertical percentage={true} secondaryInitialSize={30}>
 				<SplitterLayout percentage={true} secondaryInitialSize={50}>
 				<div className="my-pane">
-					<UserProfileBox user={2} data={this.props.data} />
+					<UserProfileBox className="friends_profile friend_user_profile_box" user={2} data={this.props.data} />
 				</div>
 				<div className="my-pane">
-					<DiveLogBox user={2} data={this.props.data} />
+					<DiveLogBox className="friends_profile friend_divelog_box"  user={2} data={this.props.data} />
 				</div>
 				</SplitterLayout>
 				<div className="my-pane">
-					<FriendsBox user={2} data={this.props.data} />
+					<FriendsBox className="friends_profile friend_friends_box"  user={2} data={this.props.data} />
 				</div>
 			</SplitterLayout>
 			// this.props.friend.map(friend =>

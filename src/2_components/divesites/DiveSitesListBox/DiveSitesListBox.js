@@ -6,10 +6,10 @@ export default class DiveSitesListBox extends Component {
   render () {
 
     return(
-      <section>
+      <section className="ds_dslist_box">
       {
         this.props.data.diveSites.map(site => (
-          <DiveSitesListSite key={site.id} site={[site]} {...this.props} />
+          <DiveSitesListSite className="ds_site_link" key={site.id} site={[site]} {...this.props} />
           ))
       }
       </section>

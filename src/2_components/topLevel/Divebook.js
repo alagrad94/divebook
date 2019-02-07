@@ -84,7 +84,7 @@ export default class Divebook extends Component {
 			diveLog.sort((a,b) => new Date(b.diveDate) - new Date(a.diveDate))
 			this.setState({diveLog: diveLog}, () => null)
 		})
-		.then(() => divebookData.handleData({dataSet: "diveSites", fetchType: "GET", embedItem: ""}))
+		.then(() => divebookData.handleData({dataSet: "diveSites", fetchType: "GET", embedItem: "?_expand=diveType&_expand=waterType"}))
     .then(sites => {
       sites.forEach(site => {
 				diveSites.push(site)})

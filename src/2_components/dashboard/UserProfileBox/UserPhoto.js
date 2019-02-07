@@ -4,15 +4,9 @@ export default class UserPhoto extends Component {
 
   render () {
     return(
-      <section>
-        {
-          this.props.data.currentUser.map(user =>
-            <div key={user.id}>
-            <h1>{user.userPhoto}</h1>
-            </div>
-          )
-        }
-      </section>
+      this.props.data.currentUser.map(user =>
+        <div key={user.id} className="db_profile user_photo">{user.userPhoto}</div>
+      )
     )
   }
 }

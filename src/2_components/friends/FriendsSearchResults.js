@@ -31,8 +31,8 @@ export default class FriendsSearchResults extends Component {
 				<h2>Click A Users Name to Add as a Friend</h2>
 			{
 				this.props.friendSearchResults.map(potentialFriend =>
-				<div key={potentialFriend.id} className="friendsSearchResults">
-					<button className="link-button" href='#' onClick={() => this.addFriend(potentialFriend.id)}>{`Name: `}{potentialFriend.userName}</button>
+				<div key={potentialFriend.id} className="friends_search friend_search_results">
+					<button className="link-button friends_search search_button" href='#' onClick={() => this.addFriend(potentialFriend.id)}>{`Name: `}{potentialFriend.userName}</button>
 				</div>
 			)}
 		</section>

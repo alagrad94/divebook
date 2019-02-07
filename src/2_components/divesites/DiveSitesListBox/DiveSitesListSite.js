@@ -7,7 +7,7 @@ export default class DiveSitesListSite extends Component {
     return(
 
       this.props.site.map(dsite =>
-        <Link key={dsite.id} to={{pathname: `/divesites/${dsite.id}`, dsite:{id: dsite.id}}}><h5 width="100%" className="logEntryLink" >{dsite.name}<br /></h5></Link>
+        <Link key={dsite.id} to={{pathname: `/divesites/${dsite.id}`, dsite:{id: dsite.id}}}><p width="100%" className="ds_site_link" >{dsite.name}<br /></p></Link>
       )
     )
   }

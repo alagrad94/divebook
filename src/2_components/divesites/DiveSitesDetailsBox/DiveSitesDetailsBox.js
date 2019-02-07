@@ -7,10 +7,10 @@ export default class DiveSiteDetailsBox extends Component {
     let diveSite = this.props.data.diveSites.filter(site => site.id === parseInt(this.props.match.params.id))
 
     return(
-      <section>
+      <section className="ds_dsdetails_box" >
       {
         diveSite.map(site => (
-          <DiveSitesSiteDetails key={site.id} diveSite={[site]} {...this.props} />
+          <DiveSitesSiteDetails className="ds_site_details" key={site.id} diveSite={[site]} {...this.props} />
           ))
       }
       </section>

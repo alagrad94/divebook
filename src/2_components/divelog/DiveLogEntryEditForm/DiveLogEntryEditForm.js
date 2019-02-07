@@ -133,17 +133,17 @@ export default class DiveLogEntryEditForm extends Component {
 
     return(
       <React.Fragment>
-        <form className="diveLogEntryEditForm" onSubmit={this.handleEntry}>
-          <label>Dive Date
-          <input type="date" name="diveDate" required={true} value={this.state.diveDate} onChange={this.handleInputChange} /></label><br />
-          <label>Dive Start Time
-          <input type="time" name="diveStartTime" value={this.state.diveStartTime} onChange={this.handleInputChange} /></label><br />
-          <label>Dive End Time
-          <input type="time" name="diveEndTime" value={this.state.diveEndTime} onChange={this.handleInputChange} /></label><br />
-          <label>Bottom Time
-          <input name="bottomTime" value={this.state.bottomTime} onChange={this.handleInputChange} /></label><br />
-          <label>Select A Dive Site</label>
-            <select name="diveSiteId" value={this.state.diveSiteId} onChange={this.handleInputChange}>
+        <form className="dl_entry_edit_form" onSubmit={this.handleEntry}>
+          <label className="dl_entry_edit_form dive_date form_label">Dive Date
+          <input type="date" name="diveDate" className="dl_entry_edit_form dive_date form_input" required={true} value={this.state.diveDate} onChange={this.handleInputChange} /></label><br />
+          <label className="dl_entry_edit_form form_field dive_start_time form_label" >Dive Start Time
+          <input type="time" name="diveStartTime" className="dl_entry_edit_form dive_start_time form_input" value={this.state.diveStartTime} onChange={this.handleInputChange} /></label><br />
+          <label className="dl_entry_edit_form form_field dive_end_time form_label">Dive End Time
+          <input type="time" name="diveEndTime" className="dl_entry_edit_form dive_end_time form_input" value={this.state.diveEndTime} onChange={this.handleInputChange} /></label><br />
+          <label className="dl_entry_edit_form form_field dive_bottom_time form_label">Bottom Time
+          <input name="bottomTime" className="dl_entry_edit_form dive_bottom_time form_input" value={this.state.bottomTime} onChange={this.handleInputChange} /></label><br />
+          <label className="dl_entry_edit_form dive_divesite form_label">Select A Dive Site</label>
+            <select name="diveSiteId" className="dl_entry_edit_form dive_divesite form_select" value={this.state.diveSiteId} onChange={this.handleInputChange}>
               <option key={0} defaultValue=""></option>
               {
                 this.state.diveSiteNames.map(diveSite =>(
@@ -151,9 +151,9 @@ export default class DiveLogEntryEditForm extends Component {
                 ))
               }
             </select>
-            <button onClick={()=> {this.props.history.push("/divesites/new")}}>Create a New Dive Site</button><br />
-          <label>Dive Type</label>
-          <select name="diveTypeId" value={this.state.diveTypeId} onChange={this.handleInputChange}>
+            <button className="button dl_entry_edit_form create_divesite_button" onClick={()=> {this.props.history.push("/divesites/new")}}>Create a New Dive Site</button><br />
+          <label className="dl_entry_edit_form dive_dive_type form_label">Dive Type</label>
+          <select name="diveTypeId" className="dl_entry_edit_form dive_dive_type form_select" value={this.state.diveTypeId} onChange={this.handleInputChange}>
             <option key={0} defaultValue=""></option>
             <option key={1} value={1}>Open Water - Ocean</option>
             <option key={2} value={2}>Open Water - Lake</option>
@@ -163,44 +163,44 @@ export default class DiveLogEntryEditForm extends Component {
             <option key={6} value={6}>Wreck</option>
             <option key={7} value={7}>Cave</option>
           </select><br />
-          <label>Water Type</label>
-          <select name="waterTypeId" value={this.state.waterTypeId} onChange={this.handleInputChange}>
+          <label className="dl_entry_edit_form dive_water_type form_label">Water Type</label>
+          <select name="waterTypeId" className="dl_entry_edit_form dive_water_type form_select" value={this.state.waterTypeId} onChange={this.handleInputChange}>
             <option key={0} defaultValue=""></option>
             <option key={1} value={1}>Salt</option>
             <option key={2} value={2}>Fresh</option>
             <option key={3} value={3}>Brackish</option>
           </select><br />
-          <label>Air Mix</label>
-          <select name="airMixId" value={this.state.airMixId} onChange={this.handleInputChange}>
+          <label className="dl_entry_edit_form dive_air_mix form_label">Air Mix</label>
+          <select name="airMixId" className="dl_entry_edit_form dive_air_mix form_select" value={this.state.airMixId} onChange={this.handleInputChange}>
             <option key={0} defaultValue=""></option>
             <option key={1} value={1}>Air</option>
             <option key={2} value={2}>Nitrox</option>
             <option key={3} value={3}>Trimix</option>
             <option key={4} value={4}>Heliox</option>
           </select><br />
-          <label>Precipitation</label>
-          <select name="precipTypeId" value={this.state.precipTypeId} onChange={this.handleInputChange}>
+          <label className="dl_entry_edit_form dive_precip_type form_label">Precipitation</label>
+          <select name="precipTypeId" className="dl_entry_edit_form dive_precip_type form_select" value={this.state.precipTypeId} onChange={this.handleInputChange}>
             <option key={0} defaultValue=""></option>
             <option key={1} value={1}>Sunny</option>
             <option key={2} value={2}>Rain</option>
             <option key={3} value={3}>Sleet</option>
             <option key={4} value={4}>Snow</option>
           </select><br />
-          <label>Air Temperature
-          <input name="airTemp" value={this.state.airTemp} onChange={this.handleInputChange} /></label><br />
-          <label>Surface Temperature
-          <input name="surfaceTemp" value={this.state.surfaceTemp} onChange={this.handleInputChange} /></label><br />
-          <label>Bottom Temperature
-          <input name="bottomTemp" value={this.state.bottomTemp} onChange={this.handleInputChange} /></label><br />
-          <label>Visibility
-          <input name="vis" value={this.state.vis} onChange={this.handleInputChange} /></label><br />
-          <label>Depth
-          <input type="text" name="diveDepth" value={this.state.diveDepth} onChange={this.handleInputChange} /></label><br />
-          <label>Equipment Used
-          <textarea name="equipment" value={this.state.equipment} onChange={this.handleInputChange} /></label><br />
-          <label>Comments
-          <textarea name="comments" value={this.state.comments} onChange={this.handleInputChange} /></label><br />
-          <input type="submit" />
+          <label className="dl_entry_edit_form dive_air_temp form_label">Air Temperature
+          <input name="airTemp" className="dl_entry_edit_form dive_air_temp form_input" value={this.state.airTemp} onChange={this.handleInputChange} /></label><br />
+          <label className="dl_entry_edit_form dive_surface_temp form_label">Surface Temperature
+          <input name="surfaceTemp" className="dl_entry_edit_form dive_surface_temp form_input" value={this.state.surfaceTemp} onChange={this.handleInputChange} /></label><br />
+          <label className="dl_entry_edit_form dive_bottom_temp form_label">Bottom Temperature
+          <input name="bottomTemp" className="dl_entry_edit_form dive_bottom_tem form_input" value={this.state.bottomTemp} onChange={this.handleInputChange} /></label><br />
+          <label className="dl_entry_edit_form dive_vis form_label">Visibility
+          <input name="vis" className="dl_entry_edit_form dive_vis form_input" value={this.state.vis} onChange={this.handleInputChange} /></label><br />
+          <label className="dl_entry_edit_form dive_depth form_label">Depth
+          <input type="text" className="dl_entry_edit_form dive_depth form_input" name="diveDepth" value={this.state.diveDepth} onChange={this.handleInputChange} /></label><br />
+          <label className="dl_entry_edit_form dive_equip form_label">Equipment Used
+          <textarea name="equipment" className="dl_entry_edit_form dive_equip form_textarea" value={this.state.equipment} onChange={this.handleInputChange} /></label><br />
+          <label className="dl_entry_edit_form dive_comments form_label">Comments
+          <textarea name="comments" className="dl_entry_edit_form dive_comments form_textarea" value={this.state.comments} onChange={this.handleInputChange} /></label><br />
+          <input className="button dl_entry_edit_form submit_dl_entry_button" type="submit" />
         </form>;
       </React.Fragment>
     )
