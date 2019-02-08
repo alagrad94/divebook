@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import divebookData from '../../1_modules/divebookData'
-
-
-
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 export default class ProfileAddEditForm extends Component {
 
   constructor(props) {
@@ -109,35 +107,72 @@ export default class ProfileAddEditForm extends Component {
   render () {
 
     return(
-      <React.Fragment>
-        <form className="profile_add_edit_form" onSubmit={this.handleEntry}>
-          <label className="profile_add_edit_form profile_birthdate form_label">Birth Date
-          <input className="profile_add_edit_form profile_birthdate form_input" type="date" name="birthDate" required={true} value={this.state.birthDate} onChange={this.handleInputChange} /></label><br />
-          <label className="profile_add_edit_form profile_first_name form_label">First Name
-          <input className="profile_add_edit_form profile_first_name form_input" ype="text" name="firstName" value={this.state.firstName} onChange={this.handleInputChange} /></label><br />
-          <label className="profile_add_edit_form profile_last_name form_label">Last Name
-          <input className="profile_add_edit_form profile_last_name form_input" type="text" name="lastName" value={this.state.lastName} onChange={this.handleInputChange} /></label><br />
-          <label className="profile_add_edit_form profile_cert_level form_label">Certification Level
-          <input className="profile_add_edit_form profile_cert_level form_input" type="text" name="certLevel" value={this.state.certLevel} onChange={this.handleInputChange} /></label><br />
-          <label className="profile_add_edit_form profile_cert_org form_label">Certifying Organization
-          <input className="profile_add_edit_form profile_cert_org form_input" type="text" name="certOrg" value={this.state.certOrg} onChange={this.handleInputChange} /></label><br />
-          <label className="profile_add_edit_form profile_gender form_label">Gender
-          <input className="profile_add_edit_form profile_gender form_input" type="text" name="gender" value={this.state.gender} onChange={this.handleInputChange} /></label><br />
-          <label className="profile_add_edit_form profile_city form_label">City
-          <input className="profile_add_edit_form profile_city form_input" type="text" name="city" value={this.state.city} onChange={this.handleInputChange} /></label><br />
-          <label className="profile_add_edit_form profile_state form_label">State
-          <input className="profile_add_edit_form profile_state form_input" type="text" name="state" value={this.state.state} onChange={this.handleInputChange} /></label><br />
-          <label className="profile_add_edit_form profile_country form_label">Country
-          <input className="profile_add_edit_form profile_country form_input" type="text" name="country" value={this.state.country} onChange={this.handleInputChange} /></label><br />
-          <label className="profile_add_edit_form profile_zip form_label">Zip
-          <input className="profile_add_edit_form profile_zip form_input" type="text" name="zip" value={this.state.zip} onChange={this.handleInputChange} /></label><br />
-          <label className="profile_add_edit_form profile_interests form_label">Dive Interests
-          <textarea className="profile_add_edit_form profile_interests form_textarea" name="diveInterests" value={this.state.diveInterests} onChange={this.handleInputChange} /></label><br />
-          <label className="profile_add_edit_form profile_password form_label">Password
-          <input className="profile_add_edit_form profile_password form_input" type="text"name="password" value={this.state.password} onChange={this.handleInputChange} /></label><br />
-          <input className="button profile_entry_edit_form submit_profile_button" type="submit" />
-        </form>;
-      </React.Fragment>
+      <section className="form_container">
+        <Form className="profile_add_edit_form whole_form" onSubmit={this.handleEntry}>
+        <Form.Row className="title_row"><Form.Label className="form_title">ENTER YOUR PROFILE INFORMATION</Form.Label></Form.Row>
+        <Form.Row className="form_row">
+          <Form.Group className="form_group" controlId="firstName">
+            <Form.Label size="sm" className="profile_add_edit_form profile_first_name form_label">First Name
+            <Form.Control as='input' size="sm" className="profile_add_edit_form profile_first_name form_input" type="text" name="firstName" value={this.state.firstName} onChange={this.handleInputChange} /></Form.Label>
+          </Form.Group>
+          <Form.Group className="form_group" controlId="lastName">
+            <Form.Label size="sm" className="profile_add_edit_form profile_last_name form_label">Last Name
+            <Form.Control as='input' size="sm" className="profile_add_edit_form profile_last_name form_input" type="text" name="lastName" value={this.state.lastName} onChange={this.handleInputChange} /></Form.Label>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row className="form_row">
+          <Form.Group className="form_group" controlId="birthDate">
+            <Form.Label size="sm" className="profile_add_edit_form profile_birthdate form_label">Birth Date
+            <Form.Control as='input' size="sm" className="profile_add_edit_form profile_birthdate form_input" type="date" name="birthDate" required={true} value={this.state.birthDate} onChange={this.handleInputChange} /></Form.Label>
+          </Form.Group>
+          <Form.Group className="form_group" controlId="gender">
+            <Form.Label size="sm" className="profile_add_edit_form profile_gender form_label">Gender
+           <Form.Control as='input' size="sm" className="profile_add_edit_form profile_gender form_input" type="text" name="gender" value={this.state.gender} onChange={this.handleInputChange} /></Form.Label>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row className="form_row">
+          <Form.Group className="form_group" controlId="certLevel">
+            <Form.Label size="sm" className="profile_add_edit_form profile_cert_level form_label">Certification Level
+            <Form.Control as='input' size="sm" className="profile_add_edit_form profile_cert_level form_input" type="text" name="certLevel" value={this.state.certLevel} onChange={this.handleInputChange} /></Form.Label>
+          </Form.Group>
+          <Form.Group className="form_group" controlId="certOrg">
+            <Form.Label size="sm" className="profile_add_edit_form profile_cert_org form_label">Certifying Organization
+            <Form.Control as='input' size="sm" className="profile_add_edit_form profile_cert_org form_input" type="text" name="certOrg" value={this.state.certOrg} onChange={this.handleInputChange} /></Form.Label>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row className="form_row">
+          <Form.Group className="form_group" controlId="city">
+            <Form.Label size="sm" className="profile_add_edit_form profile_city form_label">City
+            <Form.Control as='input' size="sm" className="profile_add_edit_form profile_city form_input" type="text" name="city" value={this.state.city} onChange={this.handleInputChange} /></Form.Label>
+          </Form.Group>
+          <Form.Group className="form_group" controlId="state">
+            <Form.Label size="sm" className="profile_add_edit_form profile_state form_label">State
+            <Form.Control as='input' size="sm" className="profile_add_edit_form profile_state form_input" type="text" name="state" value={this.state.state} onChange={this.handleInputChange} /></Form.Label>
+          </Form.Group>
+          <Form.Group className="form_group" controlId="zip">
+            <Form.Label size="sm" className="profile_add_edit_form profile_zip form_label">Zip
+            <Form.Control as='input' size="sm" className="profile_add_edit_form profile_zip form_input" type="text" name="zip" value={this.state.zip} onChange={this.handleInputChange} /></Form.Label>
+          </Form.Group>
+            <Form.Group className="form_group" controlId="country">
+            <Form.Label size="sm" className="profile_add_edit_form profile_country form_label">Country
+          <Form.Control as='input' size="sm" className="profile_add_edit_form profile_country form_input" type="text" name="country" value={this.state.country} onChange={this.handleInputChange} /></Form.Label>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row className="form_row">
+          <Form.Group className="form_group" controlId="diveInterests">
+            <Form.Label size="sm" className="profile_add_edit_form profile_interests form_label">Dive Interests
+            <Form.Control as='textarea' size="sm" className="profile_add_edit_form profile_interests form_textarea" name="diveInterests" value={this.state.diveInterests} onChange={this.handleInputChange} /></Form.Label>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row className="form_row">
+          <Form.Group className="form_group" controlId="password">
+            <Form.Label size="sm" className="profile_add_edit_form profile_password form_label">Password
+            <Form.Control as='input' size="sm" className="profile_add_edit_form profile_password form_input" type="text"name="password" value={this.state.password} onChange={this.handleInputChange} /></Form.Label>
+          </Form.Group>
+        </Form.Row>
+          <Button as="input" type="submit" size="sm" className="button profile_entry_edit_form submit_button" />
+        </Form>
+      </section>
     )
   }
 }

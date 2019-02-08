@@ -23,9 +23,9 @@ class ApplicationViews extends Component {
 
 	addDiveSite = site => divebookData.handleData({dataSet: "diveSites", fetchType: "POST", dataBaseObject: site}).then(this.props.populateAppState()).then(() => this.props.history.push(`/divesites/${this.props.state.firstDiveSite}`))
 
-	addFriend = (id, dataBaseObject) => divebookData.handleData({dataSet: "users", fetchType: "PUT", putId: id, dataBaseObject: dataBaseObject}).then(this.props.populateAppState()).then(() => this.props.history.push(`/friends/${this.props.state.firstFriend}`))
+	addFriend = (dataBaseObject) => divebookData.handleData({dataSet: "friends", fetchType: "POST", dataBaseObject: dataBaseObject}).then(this.props.populateAppState()).then(() => this.props.history.push(`/friends/${this.props.state.firstFriend}`))
 
-	deleteFriend = (id, dataBaseObject) => divebookData.handleData({dataSet: "users", fetchType: "PUT", putId: id, dataBaseObject: dataBaseObject}).then(this.props.populateAppState()).then(() => this.props.history.push(`/friends/${this.props.state.firstFriend}`))
+	deleteFriend = (id) => divebookData.handleData({dataSet: "friends", fetchType: "DELETE", deleteId: id}).then(this.props.populateAppState()).then(() => this.props.history.push(`/friends/${this.props.state.firstFriend}`))
 
 	editUserProfile = user => divebookData.handleData({dataSet: "users", fetchType: "PUT", putId: user.id, dataBaseObject: user}).then(this.props.populateAppState()).then(() => this.props.history.push("/profile"))
 

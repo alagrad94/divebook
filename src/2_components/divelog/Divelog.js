@@ -3,21 +3,22 @@ import { Link } from 'react-router-dom'
 import EntriesListBox from './EntriesListBox/EntriesListBox'
 import DiveDetailsBox from './DiveDetailsBox/DiveDetailsBox'
 import styled from 'styled-components'
-import { AppContainer as BaseAppContainer, ExampleNavigation as BaseNavigation } from '../../containers';
+import { AppContainer as BaseAppContainer, ExampleNavigation as BaseNavigation, ExampleBody as BaseBody } from '../../containers';
 import { SideNav } from 'react-sidenav'
-import './divelog.css'
 
 const AppContainer = styled(BaseAppContainer)`
   height: calc(100vh - 40px);
 `;
 
 const Navigation = styled(BaseNavigation)`
-  background: #303641;
-  color: #8d97ad;
+  background: #861213;
   font-size: 1em;
   letter-spacing: 2px;
-  width: 25%;
+  width: 20%;
   line-height: 22px;
+`;
+const Body = styled(BaseBody)`
+  height: calc(100vh - 40px);
 `;
 export default class Divelog extends Component {
 
@@ -30,10 +31,10 @@ export default class Divelog extends Component {
               <EntriesListBox className="dl_entries_box" key={1} {...this.props}/>
             </SideNav>
           </Navigation>
-          <section>
+          <Body>
             <DiveDetailsBox className="dl_dive_details_box" {...this.props} />
-            <Link to={{pathname: "/divelogentry/new", state: {fetch: "POST"}}}><button>Add New Dive</button></Link>
-          </section>
+            <Link to={{pathname: "/divelogentry/new", state: {fetch: "POST"}}}><button className="button">Add New Dive</button></Link>
+          </Body>
         </AppContainer>
       </React.Fragment>
     )

@@ -3,21 +3,23 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import DiveSitesListBox from './DiveSitesListBox/DiveSitesListBox'
 import DiveSitesDetailsBox from './DiveSitesDetailsBox/DiveSitesDetailsBox'
-import { AppContainer as BaseAppContainer, ExampleNavigation as BaseNavigation } from '../../containers';
+import { AppContainer as BaseAppContainer, ExampleNavigation as BaseNavigation, ExampleBody as BaseBody } from '../../containers';
 import { SideNav } from 'react-sidenav'
-import './divesites.css'
 
 const AppContainer = styled(BaseAppContainer)`
   height: calc(100vh - 40px);
 `;
 
 const Navigation = styled(BaseNavigation)`
-  background: #303641;
-  color: #8d97ad;
+  background: #861213;
   font-size: 1em;
   letter-spacing: 2px;
-  width: 25%;
+  width: 20%;
   line-height: 22px;
+`;
+
+const Body = styled(BaseBody)`
+  height: calc(100vh - 40px);
 `;
 
 export default class DiveSites extends Component {
@@ -31,10 +33,10 @@ export default class DiveSites extends Component {
               <DiveSitesListBox className="ds_dslist_box" key={1} {...this.props}/>
             </SideNav>
           </Navigation>
-          <section>
+          <Body>
             <DiveSitesDetailsBox className="ds_dsdetails_box" {...this.props} />
-            <Link to={{pathname: "/divesitesentry/new", state: {fetch: "POST"}}}><button>Add New Dive Site</button></Link>
-          </section>
+            <Link to={{pathname: "/divesitesentry/new", state: {fetch: "POST"}}}><button className="button">Add New Dive Site</button></Link>
+          </Body>
         </AppContainer>
       </React.Fragment>
     )

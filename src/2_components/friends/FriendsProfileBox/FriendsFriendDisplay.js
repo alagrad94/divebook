@@ -10,40 +10,38 @@ export default class FriendsFriendDisplay extends Component {
   deleteFriend(id) {
 
 		let currentUser = Number(sessionStorage.getItem("user"));
-		let userToRemoveFriend;
-		let friendToRemoveUser = id[0];
-		let friendId = friendToRemoveUser.id;
+		let friendId = id;
+		let recordsToDelete = []
 
-		divebookData.handleData({dataSet: "users", fetchType: "GET", embedItem: `/${currentUser}`})
-		.then(user => {
-			userToRemoveFriend = user;
-			userToRemoveFriend.friends.pop(friendId)})
-		.then(() => this.props.deleteFriend(currentUser, userToRemoveFriend))
-		.then(() => friendToRemoveUser.friends.pop(currentUser))
-		.then(() => this.props.deleteFriend(friendId, friendToRemoveUser))
+		divebookData.handleData({dataSet: "friends", fetchType: "GET", embedItem: `?userId=${currentUser}&friendId=${friendId}`})
+		.then(connection => {
+			connection.forEach(record => {recordsToDelete.push(record.id)});
+		})
+		.then(() => 	divebookData.handleData({dataSet: "friends", fetchType: "GET", embedItem: `?userId=${friendId}&friendId=${currentUser}`}))
+		.then(connection => {
+			connection.forEach(record => {recordsToDelete.push(record.id)});
+		})
+		.then(() => recordsToDelete.forEach(record => {
+			this.props.deleteFriend(record)
+		}))
   }
 
   render () {
     return(
 			<SplitterLayout vertical percentage={true} secondaryInitialSize={30}>
-				<SplitterLayout percentage={true} secondaryInitialSize={50}>
+				<SplitterLayout percentage={true} secondaryInitialSize={70}>
 				<div className="my-pane">
-					<UserProfileBox className="friends_profile friend_user_profile_box" user={2} data={this.props.data} />
+					<UserProfileBox className="friends_profile friend_user_profile_box" user={this.props.friend} data={this.props.data} {...this.props}/>
+					<button className="button friends_delete_friend_button" type="button" onClick={() => this.deleteFriend(this.props.friend)}>Remove Friend</button>
 				</div>
 				<div className="my-pane">
-					<DiveLogBox className="friends_profile friend_divelog_box"  user={2} data={this.props.data} />
+					<DiveLogBox className="friends_profile friend_divelog_box"  user={this.props.friend} data={this.props.data} {...this.props}/>
 				</div>
 				</SplitterLayout>
 				<div className="my-pane">
-					<FriendsBox className="friends_profile friend_friends_box"  user={2} data={this.props.data} />
+					<FriendsBox className="friends_profile friend_friends_box"  user={this.props.friend} data={this.props.data} {...this.props}/>
 				</div>
 			</SplitterLayout>
-			// this.props.friend.map(friend =>
-			// <div key={friend.id}>
-			// <h1>{friend.firstName} {friend.lastName}</h1>
-			// <button type="button" onClick={() => this.deleteFriend(this.props.friend)}>Remove Friend</button>
-			// </div>
-			// )
     )
   }
 }

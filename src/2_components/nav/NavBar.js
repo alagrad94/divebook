@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import FriendsSearch from './FriendSearch'
-import "./NavBar.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 class NavBar extends Component {
@@ -11,7 +10,7 @@ class NavBar extends Component {
 		let firstDiveSitePath = `/divesites/${this.props.state.firstDiveSite}`;
 		let firstLogEntryPath = `/divelog/${this.props.state.firstLogEntry}`;
 		return (
-			<nav className="navbar navbar-light light-blue flex-md-nowrap p-0 shadow">
+			<nav className="nav_bar p-0">
 				<ul className="nav nav-pills">
 					<li className="nav-item">
 						<Link className="nav-link" to="/">Home</Link>

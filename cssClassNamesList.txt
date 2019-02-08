@@ -121,7 +121,8 @@ Friends:
 “friends_profile friend_divelog_box” - DiveLogBox component on friends dashboard
 “friends_profile friend_friends_box” - FriendsBox component on friends dashboard
 “friends_search friend_search_results” - div containing search results from friend search
-“link-button friends_search search_button” - friend search button
+“link-button friends_search search_button” - add friend button
+"button friends_delete_friend_button" - delete friend button
 
 Nav:
 

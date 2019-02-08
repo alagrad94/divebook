@@ -1,0 +1,190 @@
+
+/* GLOBAL */
+
+html{
+  background-image: url(../../diveflag.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+}
+.nav_bar {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: #861213;
+}
+
+.nav-link{
+  color: #E2DFD8;
+}
+
+a {
+  color: #E2DFD8;
+  font-weight: bold;
+}
+
+/* FORMS */
+
+.ds_entry_edit_form {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 95%
+}
+
+.dl_entry_edit_form {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 95%
+}
+
+.profile_add_edit_form{
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 95%
+}
+
+.form_container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 600px;
+  border: 1px grey solid;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 8px;
+}
+
+.title_row{
+  justify-content: center;
+  margin: 5px;
+  font-weight: bold;
+}
+.form_group{
+  margin-left: 5px;
+  justify-content: center;
+}
+
+.form_textarea{
+  width: 500px
+}
+
+.form_label{
+  text-align: left;
+  text-indent: 5px;
+}
+
+.submit_button{
+  width: 150px;
+}
+
+.button {
+  background-color: #861213;
+  color: #E2DFD8;
+  border: none;
+  margin: 5px;
+}
+
+.friend_search_input{
+  margin: 5px;
+}
+
+/* SIDE NAV */
+
+.sc-gqjmRU {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.dl_entry_link {
+  border-bottom: 1px solid #E2DFD8;
+}
+
+.ds_site_link {
+  border-bottom: 1px solid #E2DFD8;
+}
+
+.friends_list_friend_link {
+  border-bottom: 1px solid #E2DFD8;
+}
+
+/* DASHBOARD */
+
+.friends_box{
+  display: flex;
+  flex-direction: row;
+}
+
+.friend {
+  border: solid 1px black;
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.db_user_profile {
+  padding-left: 160px;
+  margin-top: -150px;
+  width: 100%;
+  font-weight: bold;
+}
+
+.db_user_interests {
+  padding-left: 10px;
+  width: 100%;
+  font-weight: bold;
+}
+
+.divelog_box{
+  display: flex;
+  flex-direction: row;
+}
+
+.log_entry {
+  border: solid 1px black;
+  width: 200px;
+  height: 250px;
+  margin: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* DIVELOG */
+
+.dl_dive_details{
+  width: 100%;
+  font-weight: bold;
+}
+
+/* DIVESITES */
+
+.ds_site_details{
+width: 100%;
+font-weight: bold;
+}
+
+/* PROFILE */
+
+.user_profile {
+  width: 100%;
+  font-weight: bold;
+}
+
+.user_interests {
+  width: 100%;
+  font-weight: bold;
+}

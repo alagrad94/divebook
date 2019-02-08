@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import divebookData from '../../1_modules/divebookData';
 
 export default class FriendsSearchResults extends Component {
 
@@ -8,19 +7,18 @@ export default class FriendsSearchResults extends Component {
 
 		let friendId = id;
 		let currentUser = Number(sessionStorage.getItem("user"));
-		let userToAddFriend;
-		let friendToAddUser;
 
-		divebookData.handleData({dataSet: "users", fetchType: "GET", embedItem: `/${currentUser}`})
-		.then(user => {
-			userToAddFriend = user;
-			userToAddFriend.friends.push(friendId)})
-		.then(() => this.props.addFriend(currentUser, userToAddFriend))
-		.then(() => divebookData.handleData({dataSet: "users", fetchType: "GET", embedItem: `/${friendId}`}))
-		.then(friend => {
-			friendToAddUser = friend;
-			friendToAddUser.friends.push(currentUser)})
-		.then(() => this.props.addFriend(friendId, friendToAddUser))
+		let userToAddFriend = {
+			userId: currentUser,
+			friendId: friendId
+		}
+
+		let friendToAddUser = {
+			userId: friendId,
+			friendId: currentUser
+		}
+		this.props.addFriend(userToAddFriend)
+		.then(() => this.props.addFriend(friendToAddUser))
 	}
 
 	render () {

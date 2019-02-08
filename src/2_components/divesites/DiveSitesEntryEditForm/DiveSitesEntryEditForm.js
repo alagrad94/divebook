@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import divebookData from '../../../1_modules/divebookData'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 export default class DiveSiteEntryEditForm extends Component {
 
@@ -94,26 +96,41 @@ export default class DiveSiteEntryEditForm extends Component {
   render () {
 
     return(
-      <React.Fragment>
-        <form className="ds_entry_edit_form" onSubmit={this.handleEntry}>
-          <label className="ds_entry_edit_form site_name form_label">Name</label>
-          <input className="ds_entry_edit_form site_name form_input" type="text" name="name" value={this.state.name} onChange={this.handleInputChange}></input><br />
-          <label className="ds_entry_edit_form site_city form_label">City</label>
-          <input className="ds_entry_edit_form site_city form_input" type="text" name="city" value={this.state.city} onChange={this.handleInputChange}></input><br />
-          <label className="ds_entry_edit_form site_state form_label">State</label>
-          <input className="ds_entry_edit_form site_state form_input" type="text" name="state" value={this.state.state} onChange={this.handleInputChange}></input><br />
-          <label className="ds_entry_edit_form site_zip form_label">Zip Code</label>
-          <input className="ds_entry_edit_form site_zip form_input" name="zip" type="text" value={this.state.zip} onChange={this.handleInputChange}></input><br />
-          <label className="ds_entry_edit_form site_country form_label">Country</label>
-          <input className="ds_entry_edit_form site_country form_input" name="zip" type="text" value={this.state.country} onChange={this.handleInputChange}></input><br />
-          <label className="ds_entry_edit_form site_landAttractions form_label">Things to do on shore nearby</label>
-          <textarea className="ds_entry_edit_form site_landAttractions form_textarea" name="landAttractions" value={this.state.landAttractions} onChange={this.handleInputChange}></textarea><br />
-          <label className="ds_entry_edit_form site_underwaterAttractions form_label">Things to see underwater</label>
-          <textarea className="ds_entry_edit_form site_underwaterAttractions form_textarea" name="underwaterAttractions" value={this.state.underwaterAttractions} onChange={this.handleInputChange}></textarea><br />
-          <label className="ds_entry_edit_form site_depth form_label">Depth</label>
-          <input className="ds_entry_edit_form site_depth form_input" name="waterDepth" value={this.state.waterDepth} onChange={this.handleInputChange}></input><br />
-          <label className="ds_entry_edit_form site_dive_type form_label">Dive Type</label>
-          <select className="ds_entry_edit_form site_dive_type form_select" name="diveTypeId" value={this.state.diveTypeId} onChange={this.handleInputChange}>
+        <section className="form_container">
+        <Form className="ds_entry_edit_form whole_form" onSubmit={this.handleEntry}>
+        <Form.Row className="title_row"><Form.Label className="form_title">CREATE A NEW DIVE SITE</Form.Label></Form.Row>
+          <Form.Row className="form_row">
+            <Form.Group className="form_group" controlId="name">
+              <Form.Label size="sm" className="ds_entry_edit_form site_name form_label">Name</Form.Label>
+              <Form.Control as='input' size="sm" className="ds_entry_edit_form site_name form_input" type="text" name="name" value={this.state.name} onChange={this.handleInputChange}></Form.Control>
+            </Form.Group>
+          </Form.Row>
+          <Form.Row className="form_row">
+            <Form.Group className="form_group" controlId="city">
+              <Form.Label size="sm" className="ds_entry_edit_form site_city form_label">City</Form.Label>
+              <Form.Control as='input' size="sm" className="ds_entry_edit_form site_city form_input" type="text" name="city" value={this.state.city} onChange={this.handleInputChange}></Form.Control>
+            </Form.Group>
+            <Form.Group className="form_group" controlId="state">
+              <Form.Label size="sm" className="ds_entry_edit_form site_state form_label">State</Form.Label>
+              <Form.Control as='input' size="sm" className="ds_entry_edit_form site_state form_input" type="text" name="state" value={this.state.state} onChange={this.handleInputChange}></Form.Control>
+            </Form.Group>
+              <Form.Group className="form_group" controlId="zip">
+              <Form.Label size="sm" className="ds_entry_edit_form site_zip form_label">Zip Code</Form.Label>
+            <Form.Control as='input' size="sm" className="ds_entry_edit_form site_zip form_input" name="zip" type="text" value={this.state.zip} onChange={this.handleInputChange}></Form.Control>
+            </Form.Group>
+              <Form.Group className="form_group" controlId="country">
+              <Form.Label size="sm" className="ds_entry_edit_form site_country form_label">Country</Form.Label>
+            <Form.Control as='input' size="sm" className="ds_entry_edit_form site_country form_input" name="country" type="text" value={this.state.country} onChange={this.handleInputChange}></Form.Control>
+            </Form.Group>
+          </Form.Row>
+          <Form.Row className="form_row">
+          <Form.Group className="form_group" controlId="waterDepth">
+          <Form.Label size="sm" className="ds_entry_edit_form site_depth form_label">Depth</Form.Label>
+          <Form.Control as='input' type="text" size="sm" className="ds_entry_edit_form site_depth form_input" name="waterDepth" value={this.state.waterDepth} onChange={this.handleInputChange}></Form.Control>
+          </Form.Group>
+          <Form.Group className="form_group" controlId="diveTypeId">
+          <Form.Label size="sm" className="ds_entry_edit_form site_dive_type form_label">Dive Type</Form.Label>
+          <Form.Control as='select' size="sm" className="ds_entry_edit_form site_dive_type form_select" name="diveTypeId" value={this.state.diveTypeId} onChange={this.handleInputChange}>
             <option key={0} defaultValue=""></option>
             <option key={1} value={1}>Open Water - Ocean</option>
             <option key={2} value={2}>Open Water - Lake</option>
@@ -122,17 +139,33 @@ export default class DiveSiteEntryEditForm extends Component {
             <option key={5} value={5}>River</option>
             <option key={6} value={6}>Wreck</option>
             <option key={7} value={7}>Cave</option>
-          </select><br />
-          <label className="ds_entry_edit_form site_water_type form_label">Water Type</label>
-          <select className="ds_entry_edit_form site_water_type form_select"name="waterTypeId"  value={this.state.waterTypeId} onChange={this.handleInputChange}>
+          </Form.Control>
+          </Form.Group>
+          <Form.Group className="form_group" controlId="waterTypeId">
+          <Form.Label size="sm" className="ds_entry_edit_form site_water_type form_label">Water Type</Form.Label>
+          <Form.Control as='select' size="sm" className="ds_entry_edit_form site_water_type form_select"name="waterTypeId"  value={this.state.waterTypeId} onChange={this.handleInputChange}>
             <option key={0} defaultValue=""></option>
             <option key={1} value={1}>Salt</option>
             <option key={2} value={2}>Fresh</option>
             <option key={3} value={3}>Brackish</option>
-          </select><br />
-          <input className="button ds_entry_edit_form submit_ds_site_button" type="submit" />
-        </form>;
-      </React.Fragment>
+          </Form.Control>
+          </Form.Group>
+          </Form.Row>
+          <Form.Row className="form_row">
+            <Form.Group className="form_group" controlId="landAttractions">
+              <Form.Label size="sm" className="ds_entry_edit_form site_landAttractions form_label">Things to do on shore nearby</Form.Label>
+              <Form.Control as="textarea" size="sm" className="ds_entry_edit_form site_landAttractions form_textarea" name="landAttractions" value={this.state.landAttractions} onChange={this.handleInputChange}></Form.Control>
+           </Form.Group>
+          </Form.Row>
+          <Form.Row className="form_row">
+            <Form.Group className="form_group" controlId="underwaterAttractions">
+              <Form.Label size="sm" className="ds_entry_edit_form site_underwaterAttractions form_label">Things to see underwater</Form.Label>
+              <Form.Control as="textarea" size="sm" className="ds_entry_edit_form site_underwaterAttractions form_textarea" name="underwaterAttractions" value={this.state.underwaterAttractions} onChange={this.handleInputChange}></Form.Control>
+            </Form.Group>
+          </Form.Row>
+          <Button as="input" type="submit" size="sm" className="button ds_entry_edit_form submit_button" />
+        </Form>
+        </section>
     )
   }
 }
