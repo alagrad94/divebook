@@ -7,7 +7,7 @@ export default class FriendsSearch extends Component {
 			<div>
 				<form className="friend_search_form">
 				<input
-					className="friend_search_inout"
+					className="friend_search_input"
 					placeholder="Find New Friends"
 					ref={input => this.search = input}
 					onChange={this.props.handleFriendSearchInput}

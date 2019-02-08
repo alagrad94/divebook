@@ -11,7 +11,7 @@ export default class FriendsProfileBox extends Component {
       <section className="friends_profile_box">
       {
       friendToDisplay.map(friend => (
-        <FriendsFriendDisplay key={friend.id} friend={[friend]} deleteFriend={this.props.deleteFriend} {...this.props}/>
+        <FriendsFriendDisplay key={friend.id} friend={friend.id} deleteFriend={this.props.deleteFriend} {...this.props}/>
         ))
       }
       </section>

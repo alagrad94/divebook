@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PlaceholderImage from '../../../Placeholder.png'
 
 export default class DahsboardFriendDisplay extends Component {
 
@@ -6,14 +7,10 @@ export default class DahsboardFriendDisplay extends Component {
 
     return(
       <section >
-        {
-          this.props.data.friends.filter(friend => friend.id === this.props.friend).map(friend =>
-              <div key={friend.id} className="db-friends friend">
-              <p className="db_friends friend_name">{'Name:'} {friend.firstName} {friend.lastName}</p>
-              <div className="db_friends friend_photo">{friend.userPhoto}</div>
-              </div>
-            )
-        }
+        <div key={this.props.buddy.id} className="db-friends friend">
+        <div className="db_friends friend_name">{this.props.buddy.firstName} {this.props.buddy.lastName}</div>
+        <img src={PlaceholderImage} alt="" className="db_friends friend_photo"></img>
+        </div>
       </section>
     )
   }

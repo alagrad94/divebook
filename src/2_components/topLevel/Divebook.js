@@ -3,6 +3,7 @@ import NavBar from '../nav/NavBar'
 import ApplicationViews from "../topLevel/ApplicationViews"
 import divebookData from '../../1_modules/divebookData'
 import "bootstrap/dist/css/bootstrap.min.css"
+import './divebook.css'
 
 let userIdQueryString = "";
 export default class Divebook extends Component {
@@ -42,7 +43,7 @@ export default class Divebook extends Component {
             filteredResults.push(result)
           }});
 
-        this.setState({friendSearchResults: filteredResults})
+        this.setState({friendSearchResults: filteredResults}, () => null)
       })}
     })
 	}
@@ -62,7 +63,6 @@ export default class Divebook extends Component {
 	populateAppState () {
 
 		let diveSites = []
-		let friends = []
 		let currentUser = []
 		let diveLog = [];
 		divebookData.handleData({dataSet: 'users', fetchType: 'GET', embedItem: ""})
@@ -70,24 +70,25 @@ export default class Divebook extends Component {
 		.then(() => {
 			let user = this.state.users.find(user => user.id = Number(sessionStorage.getItem("user")))
 			currentUser.push(user)
-			this.setState({currentUser: currentUser}, ()=> null)
-			user.friends.map(buddy =>
-				this.state.users.filter(user => user.id === buddy).map(friend =>
-					friends.push(friend)))
-			friends.sort((a,b) => a.lastName.localeCompare(b.lastName))
-			this.setState({friends: friends}, () => null)
+			this.setState({currentUser: currentUser}, ()=> null)})
+		.then(() => divebookData.handleData({dataSet: "friends", fetchType: "GET", embedItem: ""}))
+		.then(friends => {
+			let friendsList = [];
+			friends.filter(friend => friend.userId === Number(sessionStorage.getItem("user"))).forEach(connection => {
+			let person = this.state.users.find(buddy => connection.friendId === buddy.id)
+				friendsList.push(person)})
+			friendsList.sort((a,b) => a.lastName.localeCompare(b.lastName))
+			this.setState({friends: friendsList}, () => null)
 		})
 		.then(() => divebookData.handleData({dataSet: 'diveLogEntries', fetchType: 'GET', embedItem: `?userId=${currentUser[0].id}&_expand=waterType&_expand=diveType&_expand=diveSite&_expand=airMix&_expand=precipType`}))
 		.then(entries => {
-			entries.forEach(entry => {
-				diveLog.push(entry)});
+			entries.forEach(entry => {diveLog.push(entry)});
 			diveLog.sort((a,b) => new Date(b.diveDate) - new Date(a.diveDate))
 			this.setState({diveLog: diveLog}, () => null)
 		})
 		.then(() => divebookData.handleData({dataSet: "diveSites", fetchType: "GET", embedItem: "?_expand=diveType&_expand=waterType"}))
     .then(sites => {
-      sites.forEach(site => {
-				diveSites.push(site)})
+      sites.forEach(site => {diveSites.push(site)})
 			diveSites.sort((a,b) => a.name.localeCompare(b.name))
       this.setState({diveSites: diveSites}, () => null)
 		})
