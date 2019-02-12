@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import NavBar from '../nav/NavBar'
 import ApplicationViews from "../topLevel/ApplicationViews"
 import divebookData from '../../1_modules/divebookData'
-import "bootstrap/dist/css/bootstrap.min.css"
-import './divebook.css'
+
 
 let userIdQueryString = "";
 export default class Divebook extends Component {
@@ -19,6 +18,7 @@ export default class Divebook extends Component {
 			firstFriend: 0,
 			firstDiveSite: 0,
 			firstLogEntry: 0,
+			photoUrl: "",
 			friendSearchResults: [],
 			jsonQuery: ""
 		}
@@ -27,6 +27,8 @@ export default class Divebook extends Component {
     this.builduserIdQueryString = this.builduserIdQueryString.bind(this);
 		this.populateAppState = this.populateAppState.bind(this)
 		this.setFirsts = this.setFirsts.bind(this)
+		this.checkLogin = this.checkLogin.bind(this)
+		this.showNav = this.showNav.bind(this)
 	}
 	handleFriendSearchInput = (e) => {
     this.setState({
@@ -65,6 +67,7 @@ export default class Divebook extends Component {
 		let diveSites = []
 		let currentUser = []
 		let diveLog = [];
+		let friendsList = [];
 		divebookData.handleData({dataSet: 'users', fetchType: 'GET', embedItem: ""})
 		.then(users => {this.setState({users: users}, ()=> null)})
 		.then(() => {
@@ -73,13 +76,11 @@ export default class Divebook extends Component {
 			this.setState({currentUser: currentUser}, ()=> null)})
 		.then(() => divebookData.handleData({dataSet: "friends", fetchType: "GET", embedItem: ""}))
 		.then(friends => {
-			let friendsList = [];
 			friends.filter(friend => friend.userId === Number(sessionStorage.getItem("user"))).forEach(connection => {
 			let person = this.state.users.find(buddy => connection.friendId === buddy.id)
 				friendsList.push(person)})
 			friendsList.sort((a,b) => a.lastName.localeCompare(b.lastName))
-			this.setState({friends: friendsList}, () => null)
-		})
+		}).then(() => this.setState({friends: friendsList}, () => null))
 		.then(() => divebookData.handleData({dataSet: 'diveLogEntries', fetchType: 'GET', embedItem: `?userId=${currentUser[0].id}&_expand=waterType&_expand=diveType&_expand=diveSite&_expand=airMix&_expand=precipType`}))
 		.then(entries => {
 			entries.forEach(entry => {diveLog.push(entry)});
@@ -91,7 +92,11 @@ export default class Divebook extends Component {
       sites.forEach(site => {diveSites.push(site)})
 			diveSites.sort((a,b) => a.name.localeCompare(b.name))
       this.setState({diveSites: diveSites}, () => null)
-		})
+		}).then(() => {
+		let user = Number(sessionStorage.getItem("user"))
+    divebookData.handleData({dataSet: "users", fetchType: "GET", embedItem: `/${user}`})
+    .then(user => {
+      this.setState({photoUrl: user.userPhoto}, ()=>null)})})
 		.then(() => this.setFirsts())
 	}
 
@@ -103,9 +108,20 @@ export default class Divebook extends Component {
 
 	}
 
+	checkLogin = (username, password) => {
+    return divebookData.handleData({dataSet: "users", fetchType: "GET", embedItem: `?userName=${username}&password=${password}`})
+    }
+
+	isAuthenticated = () => sessionStorage.getItem("user") !== null
+
+	showNav = () => {
+		if (this.isAuthenticated()) {
+			return <NavBar state={this.state} populateAppState={this.populateAppState}  handleFriendSearchInput={this.handleFriendSearchInput} showNav={this.showNav} {...this.props}/>
+		}
+	}
+
 	componentDidMount(){
 
-		sessionStorage.setItem("user", "1");
 		this.populateAppState();
 
 	}
@@ -113,8 +129,9 @@ export default class Divebook extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<NavBar state={this.state} populateAppState={this.populateAppState}  handleFriendSearchInput={this.handleFriendSearchInput} {...this.props}/>
-				<ApplicationViews state={this.state} populateAppState={this.populateAppState} handleFriendSearchInput={this.handleFriendSearchInput} {...this.props}/>
+			{this.showNav()}
+				{/* <NavBar state={this.state} populateAppState={this.populateAppState}  handleFriendSearchInput={this.handleFriendSearchInput} showNav={this.showNav} {...this.props}/> */}
+				<ApplicationViews state={this.state} populateAppState={this.populateAppState} handleFriendSearchInput={this.handleFriendSearchInput} checkLogin={this.checkLogin} isAuthenticated={this.isAuthenticated} {...this.props}/>
 			</React.Fragment>
 		)
 	}

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import EntriesListBox from './EntriesListBox/EntriesListBox'
 import DiveDetailsBox from './DiveDetailsBox/DiveDetailsBox'
 import styled from 'styled-components'
@@ -33,7 +32,7 @@ export default class Divelog extends Component {
           </Navigation>
           <Body>
             <DiveDetailsBox className="dl_dive_details_box" {...this.props} />
-            <Link to={{pathname: "/divelogentry/new", state: {fetch: "POST"}}}><button className="button">Add New Dive</button></Link>
+
           </Body>
         </AppContainer>
       </React.Fragment>

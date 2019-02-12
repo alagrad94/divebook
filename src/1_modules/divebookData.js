@@ -4,14 +4,6 @@ export default {
 
 	// "http://localhost:5002/friends?userId=4&friendId=1"
 
-	// "friends"
-	// "waterType"
-	// "precipType"
-	// "landAttractionType"
-	// "underwaterAttractionType"
-	// "diveType"
-	// "airMixType"
-
 		let remoteURL = "http://localhost:5002"
 		let dataSet = fetchObject.dataSet;
 		let embedItem = fetchObject.embedItem;
@@ -19,6 +11,7 @@ export default {
 		let dataBaseObject = fetchObject.dataBaseObject;
 		let putId = fetchObject.putId;
 		let deleteId = fetchObject.deleteId;
+		let patchId = fetchObject.patchId;
 
 		switch (fetchType) {
 
@@ -33,6 +26,9 @@ export default {
 
 			case "DELETE":
 				return fetch(`${remoteURL}/${dataSet}/${deleteId}`, {method: `${fetchType}`,}).then(r => r.json())
+
+			case "PATCH":
+			return fetch(`${remoteURL}/${dataSet}/${patchId}`, {method: `${fetchType}`,headers: {"Content-Type": "application/json; charset=utf-8",},body: JSON.stringify(dataBaseObject),}).then(r => r.json())
 
 			default:
 			break;

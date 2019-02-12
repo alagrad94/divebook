@@ -23,7 +23,6 @@ export default class DiveLogBox extends Component {
         dives.filter(dive => dive.userId === user).forEach(dive =>
           diveLog.push(dive))
         diveLog.sort((a,b) => new Date(b.diveDate) - new Date(a.diveDate))
-        console.log(diveLog)
       })
       .then(() => this.setState({diveLog: diveLog}, () => null))
 

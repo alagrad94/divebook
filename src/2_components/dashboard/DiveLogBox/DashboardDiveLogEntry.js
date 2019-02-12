@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
-import PlaceholderImage from '../../../Placeholder.png'
+import PlaceholderImage from '../../../images/userProfilePhotos/Placeholder.png'
+import { CardImg, CardTitle, Card } from 'reactstrap';
 
 export default class DashboardDiveLogEntry extends Component {
 
   render () {
     return(
-      <section>
-        <div key={this.props.entry.id} className="db_divelog log_entry">
-        <div className="db_divelog divesite_name">{this.props.entry.diveSite.name}</div>
-        <div className="db_divelog dive_date">{this.props.entry.diveDate}</div>
-        <img src={PlaceholderImage} alt="" className="db_divelog divelog_photo"></img>
-        </div>
-      </section>
+      <Card key={this.props.entry.id} className="db_divelog log_entry">
+        <CardTitle className="db_divelog divesite_name">{this.props.entry.diveSite.name}<br />{this.props.entry.diveDate}</CardTitle>
+        <CardImg bottom width="100%" src={PlaceholderImage} alt="" className="db_divelog divelog_photo"></CardImg>
+      </Card>
     )
   }
 }

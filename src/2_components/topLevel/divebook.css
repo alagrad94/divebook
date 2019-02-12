@@ -1,10 +1,10 @@
-
+@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 /* GLOBAL */
 
 html{
-  background-image: url(../../diveflag.png);
+  background-image: url(../../images/websiteBackground/diveflag.png);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-color: transparent;
   height: 100%;
   width: 100%;
@@ -14,6 +14,13 @@ body{
   padding: 0;
   margin: 0;
   background-color: transparent;
+  font: roboto;
+}
+
+.card_fix{
+  background-color: transparent;
+  border: none;
+  width: 500px;
 }
 .nav_bar {
   display: flex;
@@ -29,6 +36,16 @@ body{
 a {
   color: #E2DFD8;
   font-weight: bold;
+}
+
+.inputfile {
+  padding: 1px;
+  color: #E2DFD8;
+  background: #861213;
+}
+
+input[type="file"] {
+  display: none;
 }
 
 /* FORMS */
@@ -96,6 +113,7 @@ a {
   color: #E2DFD8;
   border: none;
   margin: 5px;
+  width: 150px;
 }
 
 .friend_search_input{
@@ -107,6 +125,7 @@ a {
 .sc-gqjmRU {
   margin-top: 5px;
   margin-left: 5px;
+  background: linear-gradient(to left, rgba(228, 227, 227, 0.26), rgba(110, 62, 62, 0.178));
 }
 .dl_entry_link {
   border-bottom: 1px solid #E2DFD8;
@@ -121,7 +140,17 @@ a {
 }
 
 /* DASHBOARD */
-
+.sc-bZQynM {
+  padding: 0;
+}
+.my-pane {
+  height: 100%;
+  width: 100%;
+}
+.card {
+  background: #861213;
+  color: #E2DFD8;
+}
 .friends_box{
   display: flex;
   flex-direction: row;
@@ -137,16 +166,14 @@ a {
 }
 
 .db_user_profile {
-  padding-left: 160px;
-  margin-top: -150px;
+  padding-left: 10px;
   width: 100%;
   font-weight: bold;
 }
 
-.db_user_interests {
+.user_photo {
   padding-left: 10px;
-  width: 100%;
-  font-weight: bold;
+  padding-top: 10px;
 }
 
 .divelog_box{
@@ -187,4 +214,42 @@ font-weight: bold;
 .user_interests {
   width: 100%;
   font-weight: bold;
+}
+
+/*LOGIN AND REGISTER */
+
+.btn-register {
+  background-color: #CBD2D9;
+}
+
+.register-sidenav{
+  height: 100%;
+  background-color: #6F8191;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.login-form{
+margin-top: 80%;
+}
+
+.register-form{
+margin-top: 20%;
+}
+
+.login-main-text{
+margin-top: 45%;
+padding: 60px;
+color: #fff;
+}
+
+.login-main-text h2{
+font-weight: 300;
+font-size: 400%;
+
+}
+
+.not-a-user {
+margin-top: 5%;
+color: #861213
 }

@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import FriendsSearch from './FriendSearch'
-import "bootstrap/dist/css/bootstrap.min.css"
 
 class NavBar extends Component {
 
@@ -13,7 +12,7 @@ class NavBar extends Component {
 			<nav className="nav_bar p-0">
 				<ul className="nav nav-pills">
 					<li className="nav-item">
-						<Link className="nav-link" to="/">Home</Link>
+						<Link className="nav-link" to="/home">Home</Link>
 					</li>
 					<li className="nav-item">
 						<Link className="nav-link" to={firstLogEntryPath} >Dive Log</Link>
@@ -28,6 +27,9 @@ class NavBar extends Component {
 						<Link className="nav-link" to="/profile" >Profile</Link>
 					</li>
 					<Link to="/searchresults"><FriendsSearch jsonQuery={this.props.state.jsonQuery} handleFriendSearchInput={this.props.handleFriendSearchInput} friendSearchResults={this.props.state.friendSearchResults} addFriend={this.props.addFriend} deleteFriend={this.props.deleteFriend}/></Link>
+					<li className="nav-item">
+						<Link className="nav-link" to="/">Logout</Link>
+					</li>
 				</ul>
 			</nav>
 		)

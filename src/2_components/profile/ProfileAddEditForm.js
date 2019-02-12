@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+
 export default class ProfileAddEditForm extends Component {
 
   constructor(props) {
@@ -8,6 +9,8 @@ export default class ProfileAddEditForm extends Component {
     super(props);
     this.state = {
 
+      users: [],
+      userName: "",
       password: "",
       firstName: "",
       lastName: "",
@@ -46,6 +49,7 @@ export default class ProfileAddEditForm extends Component {
 
       let entryObject = {
         "id": userId,
+        "username": this.state.userName,
         "password": this.state.password,
         "firstName": this.state.firstName,
         "lastName": this.state.lastName,
@@ -62,13 +66,13 @@ export default class ProfileAddEditForm extends Component {
         "userPhoto": this.state.userPhoto
 
       }
-      console.log("PUT", entryObject)
       this.props.editUserProfile(entryObject)
 
     } else if (this.props.location.state.fetch === "POST") {
 
       let entryObject = {
 
+        "userName": this.state.userName,
         "password": this.state.password,
         "firstName": this.state.firstName,
         "lastName": this.state.lastName,
@@ -85,16 +89,14 @@ export default class ProfileAddEditForm extends Component {
         "userPhoto": this.state.userPhoto
 
       }
-      console.log("POST", entryObject)
       this.props.registerNewUser(entryObject)
-
     }
   }
 
   prepopulateForm() {
     let user = this.props.location.state.user
     user.map(usr =>
-      this.setState({password: usr.password, firstName: usr.firstName, lastName: usr.lastName, birthDate: usr.birthDate, certLevel: usr.certLevel, certOrg: usr.certOrg, gender: usr.gender, city: usr.city, state: usr.state, country: usr.country, zip: usr.zip, diveInterests: usr.diveInterests, friends: usr.friends, userPhoto: usr.userPhoto}, () => null)
+      this.setState({userName: usr.userName, password: usr.password, firstName: usr.firstName, lastName: usr.lastName, birthDate: usr.birthDate, certLevel: usr.certLevel, certOrg: usr.certOrg, gender: usr.gender, city: usr.city, state: usr.state, country: usr.country, zip: usr.zip, diveInterests: usr.diveInterests, friends: usr.friends, userPhoto: usr.userPhoto}, () => null)
     )
   }
 
@@ -110,6 +112,16 @@ export default class ProfileAddEditForm extends Component {
       <section className="form_container">
         <Form className="profile_add_edit_form whole_form" onSubmit={this.handleEntry}>
         <Form.Row className="title_row"><Form.Label className="form_title">ENTER YOUR PROFILE INFORMATION</Form.Label></Form.Row>
+        <Form.Row>
+          <Form.Group className="form_group" controlId="userName">
+            <Form.Label size="sm" className="profile_add_edit_form profile_userName form_label">UserName
+            <Form.Control as='input' size="sm" className="profile_add_edit_form profile_userName form_input" type="text"name="password" value={this.state.userName} onChange={this.handleInputChange} /></Form.Label>
+          </Form.Group>
+          <Form.Group className="form_group" controlId="password">
+            <Form.Label size="sm" className="profile_add_edit_form profile_password form_label">Password
+            <Form.Control as='input' size="sm" className="profile_add_edit_form profile_password form_input" type="text"name="password" value={this.state.password} onChange={this.handleInputChange} /></Form.Label>
+          </Form.Group>
+        </Form.Row>
         <Form.Row className="form_row">
           <Form.Group className="form_group" controlId="firstName">
             <Form.Label size="sm" className="profile_add_edit_form profile_first_name form_label">First Name
@@ -165,10 +177,6 @@ export default class ProfileAddEditForm extends Component {
           </Form.Group>
         </Form.Row>
         <Form.Row className="form_row">
-          <Form.Group className="form_group" controlId="password">
-            <Form.Label size="sm" className="profile_add_edit_form profile_password form_label">Password
-            <Form.Control as='input' size="sm" className="profile_add_edit_form profile_password form_input" type="text"name="password" value={this.state.password} onChange={this.handleInputChange} /></Form.Label>
-          </Form.Group>
         </Form.Row>
           <Button as="input" type="submit" size="sm" className="button profile_entry_edit_form submit_button" />
         </Form>

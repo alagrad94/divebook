@@ -1,4 +1,4 @@
-import { Route, withRouter } from 'react-router-dom'
+import { Route, withRouter, Redirect } from 'react-router-dom'
 import React, { Component } from "react"
 import DivebookDashboard from '../dashboard/Dashboard'
 import DiveLog from '../divelog/Divelog'
@@ -10,6 +10,8 @@ import divebookData from '../../1_modules/divebookData';
 import FriendsSearchResults from '../friends/FriendsSearchResults'
 import ProfileAddEditForm from '../profile/ProfileAddEditForm'
 import UserProfile from '../profile/UserProfile';
+import Login from './Login';
+import Register from './Register';
 
 class ApplicationViews extends Component {
 
@@ -29,7 +31,7 @@ class ApplicationViews extends Component {
 
 	editUserProfile = user => divebookData.handleData({dataSet: "users", fetchType: "PUT", putId: user.id, dataBaseObject: user}).then(this.props.populateAppState()).then(() => this.props.history.push("/profile"))
 
-	registerNewUser = user => divebookData.handleData({dataSet: "users", fetchType: "POST", dataBaseObject: user}).then(this.props.populateAppState()).then(() => this.props.history.push("/profile"))
+	registerNewUser = user => divebookData.handleData({dataSet: "users", fetchType: "POST", dataBaseObject: user}).then(this.props.populateAppState()).then(() => this.props.history.push("/home"))
 
 	render() {
 
@@ -37,29 +39,55 @@ class ApplicationViews extends Component {
 			<React.Fragment>
 
 				<Route exact path="/" render={(props) => {
-					return <DivebookDashboard {...props} data={this.props.state} populateAppState={this.props.populateAppState}/>}} />
+					return <Login {...props} populateAppState={this.props.populateAppState} checkLogin={this.props.checkLogin}/>}} />
+
+				<Route exact path="/register" render={(props) => {
+					return <Register {...props} registerNewUser={this.registerNewUser} populateAppState={this.props.populateAppState}/>}} />
+
+				<Route exact path="/home" render={(props) => {
+					if(this.props.isAuthenticated()) {
+						return <DivebookDashboard {...props} data={this.props.state} populateAppState={this.props.populateAppState}/>
+					} else {
+						return <Redirect to='/' />
+    			}}} />
 
 				<Route exact path="/divelog/:id" render={(props) => {
-					return <DiveLog {...props} data={this.props.state} populateAppState={this.props.populateAppState} deleteLogEntry={this.deleteLogEntry}/>}} />
+					if(this.props.isAuthenticated()) {
+						return <DiveLog {...props} data={this.props.state} populateAppState={this.props.populateAppState} deleteLogEntry={this.deleteLogEntry}/>
+					} else {
+						return <Redirect to='/' />
+    			}}} />
 				<Route exact path="/divelogentry/new" render={props => {
     			return <DiveLogEntryEditForm {...props} populateAppState={this.props.populateAppState} addLogEntry={this.addLogEntry} editLogEntry={this.editLogEntry}/> }}/>
 				<Route exact path="/divelog/:id/edit" render={(props)=> {
     			return <DiveLogEntryEditForm {...props} populateAppState={this.props.populateAppState} addLogEntry={this.addLogEntry} editLogEntry={this.editLogEntry}/>}} />
 
 				<Route exact path="/divesites/:id" render={(props) => {
-					return <DiveSites {...props} data={this.props.state} populateAppState={this.props.populateAppState}/>}} />
+					if(this.props.isAuthenticated()) {
+						return <DiveSites {...props} data={this.props.state} populateAppState={this.props.populateAppState}/>
+					} else {
+						return <Redirect to='/' />
+					}}} />
 				<Route exact path="/divesitesentry/new" render={props => {
     			return <DiveSiteEntryEditForm {...props} populateAppState={this.props.populateAppState} addDiveSite={this.addDiveSite} editDiveSite={this.editDiveSite}/> }}/>
 				<Route exact path="/divesites/:id/edit" render={props => {
 					return <DiveSiteEntryEditForm {...props} populateAppState={this.props.populateAppState} addDiveSite={this.addDiveSite} editDiveSite={this.editDiveSite}/> }}/>
 
 				<Route exact path="/friends/:id" render={(props) => {
-					return <Friends {...props} data={this.props.state} populateAppState={this.props.populateAppState} addFriend={this.addFriend} deleteFriend={this.deleteFriend}/>}} />
+					if(this.props.isAuthenticated()) {
+						return <Friends {...props} data={this.props.state} populateAppState={this.props.populateAppState} addFriend={this.addFriend} deleteFriend={this.deleteFriend}/>
+					}	else {
+						return <Redirect to='/' />
+    			}}} />
 				<Route exact path="/searchresults" render={(props) => {
 					return <FriendsSearchResults {...props} data={this.props.state} jsonQuery={this.props.state.jsonQuery} handleFriendSearchInput={this.props.handleFriendSearchInput} friendSearchResults={this.props.state.friendSearchResults} addFriend={this.addFriend} deleteFriend={this.deleteFriend} />}} />
 
 				<Route exact path="/profile" render={(props) => {
-					return <UserProfile {...props} data={this.props.state} editUserProfile={this.editUserProfile} />}} />
+					if(this.props.isAuthenticated()) {
+						return <UserProfile {...props} data={this.props.state} editUserProfile={this.editUserProfile} />
+					}	else {
+						return <Redirect to='/' />
+    			}}} />
 				<Route exact path="/profile/edit" render={props => {
 					return <ProfileAddEditForm {...props} data={this.props.state} populateAppState={this.props.populateAppState} editUserProfile={this.editUserProfile} registerNewUser={this.registerNewUser}/> }}/>
 

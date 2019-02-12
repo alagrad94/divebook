@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import divebookData from '../../../1_modules/divebookData'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -11,6 +12,10 @@ export default class DiveLogEntryEditForm extends Component {
     this.state = {
 
       diveSiteNames: [],
+      airMixes: [],
+      precipTypes: [],
+      waterTypes: [],
+      diveTypes: [],
 			diveSiteId: 0,
 			diveTypeId: 0,
 			waterTypeId: 0,
@@ -31,7 +36,7 @@ export default class DiveLogEntryEditForm extends Component {
 
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleEntry = this.handleEntry.bind(this)
-    this.buildDiveSiteSelectOptions = this.buildDiveSiteSelectOptions.bind(this)
+    this.buildSelectOptions = this.buildSelectOptions.bind(this)
   }
 
   handleInputChange(event) {
@@ -39,10 +44,8 @@ export default class DiveLogEntryEditForm extends Component {
     const value = target.value;
     const name = target.name;
 
-    this.setState({
-        [name]: value
-    });
-    }
+    this.setState({[name]: value});
+  }
 
 	handleEntry = evt => {
     evt.preventDefault();
@@ -70,7 +73,6 @@ export default class DiveLogEntryEditForm extends Component {
         "vis": this.state.vis,
         "comments": this.state.comments
       }
-      console.log("PUT", entryObject)
       this.props.editLogEntry(entryObject)
 
     } else if (this.props.location.state.fetch === "POST") {
@@ -94,36 +96,54 @@ export default class DiveLogEntryEditForm extends Component {
         "vis": this.state.vis,
         "comments": this.state.comments
       }
-      console.log("POST", entryObject)
       this.props.addLogEntry(entryObject)
-
     }
-
   }
 
-  buildDiveSiteSelectOptions () {
+  buildSelectOptions () {
     let diveSiteNames = [];
+    let airMixes =  [];
+    let precipTypes =  [];
+    let waterTypes =  [];
+    let diveTypes =  [];
+
     divebookData.handleData({dataSet: 'diveSites', fetchType: 'GET', embedItem: ""})
     .then(entries => {
       entries.forEach(entry => {
         if (!diveSiteNames.includes({name: entry.name, id: entry.id})) {
-          diveSiteNames.push({name: entry.name, id: entry.id})
-        }
-      });
-      this.setState({diveSiteNames : diveSiteNames})
-    })
+          diveSiteNames.push({name: entry.name, id: entry.id})}});})
+    .then(()=> divebookData.handleData({dataSet: 'airMixes', fetchType: 'GET', embedItem: ""}))
+    .then(mixes => {
+      mixes.forEach(mix => {
+        if (!airMixes.includes({airType: mix.airType, id: mix.id})) {
+          airMixes.push({airType: mix.airType, id: mix.id})}});})
+    .then(()=> divebookData.handleData({dataSet: 'precipTypes', fetchType: 'GET', embedItem: ""}))
+    .then(precips => {
+      precips.forEach(preicp => {
+        if (!precipTypes.includes({precipType: preicp.precipType, id: preicp.id})) {
+          precipTypes.push({precipType: preicp.precipType, id: preicp.id})}});})
+    .then(()=> divebookData.handleData({dataSet: 'waterTypes', fetchType: 'GET', embedItem: ""}))
+    .then(waters => {
+      waters.forEach(type => {
+        if (!waterTypes.includes({waterType: type.waterType, id: type.id})) {
+          waterTypes.push({waterType: type.waterType, id: type.id})}});})
+    .then(()=> divebookData.handleData({dataSet: 'diveTypes', fetchType: 'GET', embedItem: ""}))
+    .then(dives => {
+      dives.forEach(type => {
+        if (!diveTypes.includes({diveType: type.diveType, id: type.id})) {
+          diveTypes.push({diveType: type.diveType, id: type.id})}});})
+    .then(() => this.setState({diveSiteNames : diveSiteNames, airMixes: airMixes, precipTypes: precipTypes, waterTypes: waterTypes, diveTypes: diveTypes}, ()=> null))
   }
 
   prepopulateForm() {
     let diveLogInfo = this.props.location.state.diveLog
     diveLogInfo.map(log =>
 
-      this.setState({diveSiteId: log.diveSiteId, diveTypeId: log.diveTypeId, waterTypeId: log.waterTypeId, airMixId: log.airMixId, precipTypeId: log.precipTypeId, diveDate: log.diveDate, diveStartTime: log.diveStartTime, diveEndTime: log.diveEndTime, bottomTime: log.bottomTime, equipment: log.equipment, airTemp: log.airTemp, surfaceTemp: log.surfaceTemp, bottomTemp: log.bottomTemp, diveDepth: log.diveDepth, vis: log.vis, comments: log.comments}, console.log(this.state.diveDate))
-    )
-
+      this.setState({diveSiteId: log.diveSiteId, diveTypeId: log.diveTypeId, waterTypeId: log.waterTypeId, airMixId: log.airMixId, precipTypeId: log.precipTypeId, diveDate: log.diveDate, diveStartTime: log.diveStartTime, diveEndTime: log.diveEndTime, bottomTime: log.bottomTime, equipment: log.equipment, airTemp: log.airTemp, surfaceTemp: log.surfaceTemp, bottomTemp: log.bottomTemp, diveDepth: log.diveDepth, vis: log.vis, comments: log.comments}, console.log(this.state.diveDate)))
   }
+
   componentDidMount () {
-    this.buildDiveSiteSelectOptions();
+    this.buildSelectOptions();
     if (this.props.location.state.fetch === "PUT") {
       this.prepopulateForm();
     }
@@ -151,7 +171,7 @@ export default class DiveLogEntryEditForm extends Component {
           </Form.Group>
         </Form.Row>
         <Form.Row className="form_row">
-          <Button className="button dl_entry_edit_form create_divesite_button" onClick={()=> {this.props.history.push("/divesites/new")}}>Create a New Dive Site</Button>
+        <Link to={{pathname: "/divesitesentry/new", state: {fetch: "POST"}}}><button className="button">Add New Dive Site</button></Link>
         </Form.Row>
         <Form.Row className="form_row">
           <Form.Group className="form_group" controlId="diveStartTime">
@@ -172,42 +192,36 @@ export default class DiveLogEntryEditForm extends Component {
             <Form.Label size="sm" className="dl_entry_edit_form dive_dive_type form_label">Dive Type</Form.Label>
             <Form.Control as='select' size="sm" name="diveTypeId" className="dl_entry_edit_form dive_dive_type form_select" value={this.state.diveTypeId} onChange={this.handleInputChange}>
               <option key={0} defaultValue=""></option>
-              <option key={1} value={1}>Open Water - Ocean</option>
-              <option key={2} value={2}>Open Water - Lake</option>
-              <option key={3} value={3}>Open Water - Quarry</option>
-              <option key={4} value={4}>Open Water - Other</option>
-              <option key={5} value={5}>River</option>
-              <option key={6} value={6}>Wreck</option>
-              <option key={7} value={7}>Cave</option>
+              {this.state.diveTypes.map(diveType =>(
+                <option key={diveType.id} value={diveType.id}>{diveType.diveType}</option>))
+              }
             </Form.Control>
           </Form.Group>
           <Form.Group className="form_group" controlId="waterTypeId">
             <Form.Label size="sm" className="dl_entry_edit_form dive_water_type form_label">Water Type</Form.Label>
             <Form.Control as='select' size="sm" name="waterTypeId" className="dl_entry_edit_form dive_water_type form_select" value={this.state.waterTypeId} onChange={this.handleInputChange}>
               <option key={0} defaultValue=""></option>
-              <option key={1} value={1}>Salt</option>
-              <option key={2} value={2}>Fresh</option>
-              <option key={3} value={3}>Brackish</option>
+              {this.state.waterTypes.map(waterType =>(
+                <option key={waterType.id} value={waterType.id}>{waterType.waterType}</option>))
+              }
             </Form.Control>
           </Form.Group>
           <Form.Group className="form_group" controlId="airMixId">
             <Form.Label size="sm" className="dl_entry_edit_form dive_air_mix form_label">Air Mix</Form.Label>
             <Form.Control as='select' size="sm" name="airMixId" className="dl_entry_edit_form dive_air_mix form_select" value={this.state.airMixId} onChange={this.handleInputChange}>
               <option key={0} defaultValue=""></option>
-              <option key={1} value={1}>Air</option>
-              <option key={2} value={2}>Nitrox</option>
-              <option key={3} value={3}>Trimix</option>
-              <option key={4} value={4}>Heliox</option>
+              {this.state.airMixes.map(airMix =>(
+                <option key={airMix.id} value={airMix.id}>{airMix.airType}</option>))
+              }
             </Form.Control>
           </Form.Group>
           <Form.Group className="form_group" controlId="precipTypeId">
             <Form.Label size="sm" className="dl_entry_edit_form dive_precip_type form_label">Precipitation</Form.Label>
             <Form.Control as='select' size="sm" name="precipTypeId" className="dl_entry_edit_form dive_precip_type form_select" value={this.state.precipTypeId} onChange={this.handleInputChange}>
               <option key={0} defaultValue=""></option>
-              <option key={1} value={1}>Sunny</option>
-              <option key={2} value={2}>Rain</option>
-              <option key={3} value={3}>Sleet</option>
-              <option key={4} value={4}>Snow</option>
+              {this.state.precipTypes.map(precipType =>(
+                <option key={precipType.id} value={precipType.id}>{precipType.precipType}</option>))
+              }
             </Form.Control>
           </Form.Group>
         </Form.Row>
