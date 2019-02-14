@@ -5,11 +5,13 @@ import UserProfileBox from './UserProfileBox/UserProfileBox';
 import SplitterLayout from 'react-splitter-layout'
 
 export default class DivebookDashboard  extends Component {
-
+	componentDidMount(){
+		this.props.populateAppState();
+	}
 	render() {
 
 		return (
-			<SplitterLayout vertical percentage={true} secondaryInitialSize={30} >
+			<SplitterLayout className="dashboard" vertical percentage={true} secondaryInitialSize={30} >
 				<SplitterLayout percentage={true} secondaryInitialSize={70}>
 				<div className="my-pane">
 					<UserProfileBox className="profile prof_box" user={Number(sessionStorage.getItem("user"))} data={this.props.data} />

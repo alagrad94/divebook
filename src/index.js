@@ -1,5 +1,4 @@
 import React from 'react'
-import './index.css'
 import '../src/2_components/topLevel/divebook.css'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'

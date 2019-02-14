@@ -24,16 +24,9 @@ export default class Login extends Component {
         alert("We can't seem to find you! Try registering below")
       } else {
         allUsers.forEach(user => {
-          let loggedIn = false;
-          if (this.state.userName === user.userName && this.state.password === user.password) {
-            loggedIn = true;
-          }
-          if (loggedIn === true){
-            sessionStorage.setItem("user", user.id);
-            this.props.populateAppState();
-            this.props.history.push("/home");
-          }
-        })
+        sessionStorage.setItem("user", user.id);
+        this.props.populateAppState()
+        this.props.history.push("/home")});
       }
     })
   }
@@ -48,7 +41,7 @@ export default class Login extends Component {
     return (
       <section className="form_container">
         <div className="registration-text">
-          <h3>Welcome to DiveBook!  Please log in. </h3>
+          <h3 className="whole_form">Welcome to DiveBook!  Please log in. </h3>
         </div>
         <Form className="profile_add_edit_form whole_form" onSubmit={this.onLogin}>
           <Form.Row>

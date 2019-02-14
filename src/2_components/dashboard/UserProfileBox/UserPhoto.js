@@ -10,7 +10,7 @@ export default class UserPhoto extends Component {
     let profilePhoto = (currentUserPhoto === "") ? PlaceholderImage : currentUserPhoto
 
     return(
-      <Image width="50%" height="25%" src={profilePhoto} alt="" className="db_profile user_photo"></Image>
+      <Image width="225px" height="225px" src={profilePhoto} alt="" className="db_profile user_photo"></Image>
     )
   }
 }

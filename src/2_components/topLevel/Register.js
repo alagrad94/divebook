@@ -66,7 +66,7 @@ export default class Register extends Component {
     return (
       <section className="form_container">
         <div className="registration-text">
-          <h3>WELCOME TO DIVEBOOK, PLEASE REGISTER</h3>
+          <h3 className="whole_form">WELCOME TO DIVEBOOK, PLEASE REGISTER</h3>
         </div>
         <Form className="registration_form whole_form" onSubmit={this.getAllUsers}>
           <Form.Row>

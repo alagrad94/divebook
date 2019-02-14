@@ -30,8 +30,10 @@ export default class FriendsBox extends Component {
 
     }
   }
-
-  componentDidMount() {
+  componentDidMount(){
+    this.userToDisplayFriends();
+  }
+  componentWillReceiveProps() {
     this.userToDisplayFriends();
   }
 

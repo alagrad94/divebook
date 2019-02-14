@@ -28,7 +28,7 @@ export default {
 				return fetch(`${remoteURL}/${dataSet}/${deleteId}`, {method: `${fetchType}`,}).then(r => r.json())
 
 			case "PATCH":
-			return fetch(`${remoteURL}/${dataSet}/${patchId}`, {method: `${fetchType}`,headers: {"Content-Type": "application/json; charset=utf-8",},body: JSON.stringify(dataBaseObject),}).then(r => r.json())
+				return fetch(`${remoteURL}/${dataSet}/${patchId}`, {method: `${fetchType}`,headers: {"Content-Type": "application/json; charset=utf-8",},body: JSON.stringify(dataBaseObject),}).then(r => r.json())
 
 			default:
 			break;

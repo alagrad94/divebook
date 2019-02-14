@@ -8,14 +8,19 @@ class NavBar extends Component {
 		let firstFriendPath = `/friends/${this.props.state.firstFriend}`;
 		let firstDiveSitePath = `/divesites/${this.props.state.firstDiveSite}`;
 		let firstLogEntryPath = `/divelog/${this.props.state.firstLogEntry}`;
+		let firstPhotoAlbumPath = `/photos/${this.props.state.firstLogEntry}`;
 		return (
-			<nav className="nav_bar p-0">
+			<nav className="navbar p-1">
+				<a className="navbar-brand" href="/home">Divebook</a>
 				<ul className="nav nav-pills">
-					<li className="nav-item">
+					<li className="nav-item-fix">
 						<Link className="nav-link" to="/home">Home</Link>
 					</li>
 					<li className="nav-item">
 						<Link className="nav-link" to={firstLogEntryPath} >Dive Log</Link>
+					</li>
+					<li className="nav-item">
+						<Link className="nav-link" to={firstPhotoAlbumPath	} >Photo Albums</Link>
 					</li>
 					<li className="nav-item">
 						<Link className="nav-link" to={firstFriendPath} >Dive Buddies</Link>
@@ -26,10 +31,10 @@ class NavBar extends Component {
 					<li className="nav-item">
 						<Link className="nav-link" to="/profile" >Profile</Link>
 					</li>
-					<Link to="/searchresults"><FriendsSearch jsonQuery={this.props.state.jsonQuery} handleFriendSearchInput={this.props.handleFriendSearchInput} friendSearchResults={this.props.state.friendSearchResults} addFriend={this.props.addFriend} deleteFriend={this.props.deleteFriend}/></Link>
 					<li className="nav-item">
 						<Link className="nav-link" to="/">Logout</Link>
 					</li>
+					<Link to="/searchresults"><FriendsSearch jsonQuery={this.props.state.jsonQuery} handleFriendSearchInput={this.props.handleFriendSearchInput} friendSearchResults={this.props.state.friendSearchResults} addFriend={this.props.addFriend} deleteFriend={this.props.deleteFriend}/></Link>
 				</ul>
 			</nav>
 		)

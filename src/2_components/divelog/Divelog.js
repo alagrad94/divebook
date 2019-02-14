@@ -13,7 +13,7 @@ const Navigation = styled(BaseNavigation)`
   background: #861213;
   font-size: 1em;
   letter-spacing: 2px;
-  width: 20%;
+  width: 15%;
   line-height: 22px;
 `;
 const Body = styled(BaseBody)`
@@ -32,7 +32,6 @@ export default class Divelog extends Component {
           </Navigation>
           <Body>
             <DiveDetailsBox className="dl_dive_details_box" {...this.props} />
-
           </Body>
         </AppContainer>
       </React.Fragment>

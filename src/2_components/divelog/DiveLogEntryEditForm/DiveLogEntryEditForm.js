@@ -31,7 +31,8 @@ export default class DiveLogEntryEditForm extends Component {
 			bottomTemp: 0,
 			diveDepth: 0,
 			vis: 0,
-			comments: ""
+      comments: "",
+      coverPhoto: ""
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -71,7 +72,8 @@ export default class DiveLogEntryEditForm extends Component {
         "bottomTemp": this.state.bottomTemp,
         "diveDepth": this.state.diveDepth,
         "vis": this.state.vis,
-        "comments": this.state.comments
+        "comments": this.state.comments,
+        "coverPhoto": ""
       }
       this.props.editLogEntry(entryObject)
 
@@ -94,7 +96,8 @@ export default class DiveLogEntryEditForm extends Component {
         "bottomTemp": this.state.bottomTemp,
         "diveDepth": this.state.diveDepth,
         "vis": this.state.vis,
-        "comments": this.state.comments
+        "comments": this.state.comments,
+        "coverPhoto": ""
       }
       this.props.addLogEntry(entryObject)
     }
@@ -139,7 +142,7 @@ export default class DiveLogEntryEditForm extends Component {
     let diveLogInfo = this.props.location.state.diveLog
     diveLogInfo.map(log =>
 
-      this.setState({diveSiteId: log.diveSiteId, diveTypeId: log.diveTypeId, waterTypeId: log.waterTypeId, airMixId: log.airMixId, precipTypeId: log.precipTypeId, diveDate: log.diveDate, diveStartTime: log.diveStartTime, diveEndTime: log.diveEndTime, bottomTime: log.bottomTime, equipment: log.equipment, airTemp: log.airTemp, surfaceTemp: log.surfaceTemp, bottomTemp: log.bottomTemp, diveDepth: log.diveDepth, vis: log.vis, comments: log.comments}, console.log(this.state.diveDate)))
+      this.setState({diveSiteId: log.diveSiteId, diveTypeId: log.diveTypeId, waterTypeId: log.waterTypeId, airMixId: log.airMixId, precipTypeId: log.precipTypeId, diveDate: log.diveDate, diveStartTime: log.diveStartTime, diveEndTime: log.diveEndTime, bottomTime: log.bottomTime, equipment: log.equipment, airTemp: log.airTemp, surfaceTemp: log.surfaceTemp, bottomTemp: log.bottomTemp, diveDepth: log.diveDepth, vis: log.vis, comments: log.comments, coverPhoto: log.coverPhoto}, ()=> null))
   }
 
   componentDidMount () {
@@ -158,11 +161,11 @@ export default class DiveLogEntryEditForm extends Component {
         <Form.Row className="form_row">
           <Form.Group className="form_group" controlId="diveDate">
             <Form.Label size="sm" className="dl_entry_edit_form dive_date form_label">Dive Date
-            <Form.Control as='input' size="sm" type="date" name="diveDate" className="dl_entry_edit_form dive_date form_input" required={true} value={this.state.diveDate} onChange={this.handleInputChange} /></Form.Label>
+            <Form.Control as='input' required size="sm" type="date" name="diveDate" className="dl_entry_edit_form dive_date form_input" value={this.state.diveDate} onChange={this.handleInputChange} /></Form.Label>
           </Form.Group>
           <Form.Group className="form_group" controlId="diveSiteId">
             <Form.Label size="sm" className="dl_entry_edit_form dive_divesite form_Label">Select A Dive Site</Form.Label>
-            <Form.Control as="select" size="sm" name="diveSiteId" className="dl_entry_edit_form dive_divesite form_select" value={this.state.diveSiteId} onChange={this.handleInputChange}>
+            <Form.Control as="select" required size="sm" name="diveSiteId" className="dl_entry_edit_form dive_divesite form_select" value={this.state.diveSiteId} onChange={this.handleInputChange}>
               <option key={0} defaultValue=""></option>
               {this.state.diveSiteNames.map(diveSite =>(
                 <option key={diveSite.id} value={diveSite.id}>{diveSite.name}</option>))
@@ -176,21 +179,21 @@ export default class DiveLogEntryEditForm extends Component {
         <Form.Row className="form_row">
           <Form.Group className="form_group" controlId="diveStartTime">
             <Form.Label size="sm" className="dl_entry_edit_form form_field dive_start_time form_label" >Dive Start Time
-            <Form.Control as='input' type="time" size="sm" name="diveStartTime" className="dl_entry_edit_form dive_start_time form_input" value={this.state.diveStartTime} onChange={this.handleInputChange} /></Form.Label>
+            <Form.Control as='input' required type="time" size="sm" name="diveStartTime" className="dl_entry_edit_form dive_start_time form_input" value={this.state.diveStartTime} onChange={this.handleInputChange} /></Form.Label>
           </Form.Group>
           <Form.Group className="form_group" controlId="diveEndTime">
             <Form.Label size="sm" className="dl_entry_edit_form form_field dive_end_time form_label">Dive End Time
-            <Form.Control as='input' type="time" size="sm" name="diveEndTime" className="dl_entry_edit_form dive_end_time form_input" value={this.state.diveEndTime} onChange={this.handleInputChange} /></Form.Label>
+            <Form.Control as='input' required type="time" size="sm" name="diveEndTime" className="dl_entry_edit_form dive_end_time form_input" value={this.state.diveEndTime} onChange={this.handleInputChange} /></Form.Label>
           </Form.Group>
           <Form.Group className="form_group" controlId="bottomTime">
             <Form.Label size="sm" className="dl_entry_edit_form form_field dive_bottom_time form_label">Bottom Time
-            <Form.Control as='input' type="text" name="bottomTime" size="sm" className="dl_entry_edit_form dive_bottom_time form_input" value={this.state.bottomTime} onChange={this.handleInputChange} /></Form.Label>
+            <Form.Control as='input' required type="text" name="bottomTime" size="sm" className="dl_entry_edit_form dive_bottom_time form_input" value={this.state.bottomTime} onChange={this.handleInputChange} /></Form.Label>
           </Form.Group>
         </Form.Row>
         <Form.Row className="form_row">
           <Form.Group className="form_group" controlId="diveTypeId">
             <Form.Label size="sm" className="dl_entry_edit_form dive_dive_type form_label">Dive Type</Form.Label>
-            <Form.Control as='select' size="sm" name="diveTypeId" className="dl_entry_edit_form dive_dive_type form_select" value={this.state.diveTypeId} onChange={this.handleInputChange}>
+            <Form.Control as='select' required size="sm" name="diveTypeId" className="dl_entry_edit_form dive_dive_type form_select" value={this.state.diveTypeId} onChange={this.handleInputChange}>
               <option key={0} defaultValue=""></option>
               {this.state.diveTypes.map(diveType =>(
                 <option key={diveType.id} value={diveType.id}>{diveType.diveType}</option>))
@@ -199,7 +202,7 @@ export default class DiveLogEntryEditForm extends Component {
           </Form.Group>
           <Form.Group className="form_group" controlId="waterTypeId">
             <Form.Label size="sm" className="dl_entry_edit_form dive_water_type form_label">Water Type</Form.Label>
-            <Form.Control as='select' size="sm" name="waterTypeId" className="dl_entry_edit_form dive_water_type form_select" value={this.state.waterTypeId} onChange={this.handleInputChange}>
+            <Form.Control as='select' required size="sm" name="waterTypeId" className="dl_entry_edit_form dive_water_type form_select" value={this.state.waterTypeId} onChange={this.handleInputChange}>
               <option key={0} defaultValue=""></option>
               {this.state.waterTypes.map(waterType =>(
                 <option key={waterType.id} value={waterType.id}>{waterType.waterType}</option>))
@@ -208,7 +211,7 @@ export default class DiveLogEntryEditForm extends Component {
           </Form.Group>
           <Form.Group className="form_group" controlId="airMixId">
             <Form.Label size="sm" className="dl_entry_edit_form dive_air_mix form_label">Air Mix</Form.Label>
-            <Form.Control as='select' size="sm" name="airMixId" className="dl_entry_edit_form dive_air_mix form_select" value={this.state.airMixId} onChange={this.handleInputChange}>
+            <Form.Control as='select' required size="sm" name="airMixId" className="dl_entry_edit_form dive_air_mix form_select" value={this.state.airMixId} onChange={this.handleInputChange}>
               <option key={0} defaultValue=""></option>
               {this.state.airMixes.map(airMix =>(
                 <option key={airMix.id} value={airMix.id}>{airMix.airType}</option>))
@@ -217,7 +220,7 @@ export default class DiveLogEntryEditForm extends Component {
           </Form.Group>
           <Form.Group className="form_group" controlId="precipTypeId">
             <Form.Label size="sm" className="dl_entry_edit_form dive_precip_type form_label">Precipitation</Form.Label>
-            <Form.Control as='select' size="sm" name="precipTypeId" className="dl_entry_edit_form dive_precip_type form_select" value={this.state.precipTypeId} onChange={this.handleInputChange}>
+            <Form.Control as='select' required size="sm" name="precipTypeId" className="dl_entry_edit_form dive_precip_type form_select" value={this.state.precipTypeId} onChange={this.handleInputChange}>
               <option key={0} defaultValue=""></option>
               {this.state.precipTypes.map(precipType =>(
                 <option key={precipType.id} value={precipType.id}>{precipType.precipType}</option>))
@@ -228,37 +231,37 @@ export default class DiveLogEntryEditForm extends Component {
         <Form.Row className="form_row">
           <Form.Group className="form_group" controlId="airTemp">
             <Form.Label size="sm" className="dl_entry_edit_form dive_air_temp form_label">Air Temperature
-            <Form.Control as='input' type="text" size="sm" name="airTemp" className="dl_entry_edit_form dive_air_temp form_input" value={this.state.airTemp} onChange={this.handleInputChange} /></Form.Label>
+            <Form.Control as='input' required type="text" size="sm" name="airTemp" className="dl_entry_edit_form dive_air_temp form_input" value={this.state.airTemp} onChange={this.handleInputChange} /></Form.Label>
           </Form.Group>
           <Form.Group className="form_group" controlId="surfaceTemp">
             <Form.Label size="sm" className="dl_entry_edit_form dive_surface_temp form_label">Surface Temperature
-            <Form.Control as='input' type="text" size="sm" name="surfaceTemp" className="dl_entry_edit_form dive_surface_temp form_input" value={this.state.surfaceTemp} onChange={this.handleInputChange} /></Form.Label>
+            <Form.Control as='input' required type="text" size="sm" name="surfaceTemp" className="dl_entry_edit_form dive_surface_temp form_input" value={this.state.surfaceTemp} onChange={this.handleInputChange} /></Form.Label>
          </Form.Group>
         </Form.Row>
         <Form.Row className="form_row">
           <Form.Group className="form_group" controlId="bottomTemp">
             <Form.Label size="sm" className="dl_entry_edit_form dive_bottom_temp form_label">Bottom Temperature
-            <Form.Control as='input' type="text" size="sm" name="bottomTemp" className="dl_entry_edit_form dive_bottom_tem form_input" value={this.state.bottomTemp} onChange={this.handleInputChange} /></Form.Label>
+            <Form.Control as='input' required type="text" size="sm" name="bottomTemp" className="dl_entry_edit_form dive_bottom_tem form_input" value={this.state.bottomTemp} onChange={this.handleInputChange} /></Form.Label>
           </Form.Group>
           <Form.Group className="form_group" controlId="vis">
             <Form.Label size="sm" className="dl_entry_edit_form dive_vis form_label">Visibility
-            <Form.Control as='input' type="text" size="sm" name="vis" className="dl_entry_edit_form dive_vis form_input" value={this.state.vis} onChange={this.handleInputChange} /></Form.Label>
+            <Form.Control as='input' required type="text" size="sm" name="vis" className="dl_entry_edit_form dive_vis form_input" value={this.state.vis} onChange={this.handleInputChange} /></Form.Label>
           </Form.Group>
           <Form.Group className="form_group" controlId="diveDepth">
             <Form.Label size="sm" className="dl_entry_edit_form dive_depth form_label">Depth
-            <Form.Control as='input' size="sm" type="text" className="dl_entry_edit_form dive_depth form_input" name="diveDepth" value={this.state.diveDepth} onChange={this.handleInputChange} /></Form.Label>
+            <Form.Control as='input' required size="sm" type="text" className="dl_entry_edit_form dive_depth form_input" name="diveDepth" value={this.state.diveDepth} onChange={this.handleInputChange} /></Form.Label>
           </Form.Group>
         </Form.Row>
         <Form.Row className="form_row">
           <Form.Group className="form_group" controlId="equipment">
             <Form.Label size="sm" className="dl_entry_edit_form dive_equip form_label">Equipment Used
-            <Form.Control as="textarea" name="equipment" size="sm" className="dl_entry_edit_form dive_equip form_textarea" value={this.state.equipment} onChange={this.handleInputChange} /></Form.Label>
+            <Form.Control as="textarea" required name="equipment" size="sm" className="dl_entry_edit_form dive_equip form_textarea" value={this.state.equipment} onChange={this.handleInputChange} /></Form.Label>
           </Form.Group>
         </Form.Row>
         <Form.Row className="form_row">
           <Form.Group className="form_group" controlId="comments">
             <Form.Label size="sm" className="dl_entry_edit_form dive_comments form_label">Comments
-            <Form.Control as="textarea"  name="comments" size="sm" className="dl_entry_edit_form dive_comments form_textarea" value={this.state.comments} onChange={this.handleInputChange} /></Form.Label>
+            <Form.Control as="textarea" required  name="comments" size="sm" className="dl_entry_edit_form dive_comments form_textarea" value={this.state.comments} onChange={this.handleInputChange} /></Form.Label>
           </Form.Group>
         </Form.Row>
         <Button as="input" type="submit" className="button dl_entry_edit_form submit_button"  ></Button>

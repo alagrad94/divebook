@@ -26,7 +26,6 @@ export default class Divebook extends Component {
 		this.handleFriendSearchInput = this.handleFriendSearchInput.bind(this);
     this.builduserIdQueryString = this.builduserIdQueryString.bind(this);
 		this.populateAppState = this.populateAppState.bind(this)
-		this.setFirsts = this.setFirsts.bind(this)
 		this.checkLogin = this.checkLogin.bind(this)
 		this.showNav = this.showNav.bind(this)
 	}
@@ -68,45 +67,44 @@ export default class Divebook extends Component {
 		let currentUser = [];
 		let diveLog = [];
 		let friendsList = [];
-		divebookData.handleData({dataSet: 'users', fetchType: 'GET', embedItem: ""})
-		.then(users => {users.forEach(user => {allUsers.push(user)})
-		this.setState({users: users}, ()=> null)})
-		.then(() => {
-			let userId = Number(sessionStorage.getItem("user"))
-			this.state.users.forEach(record => {if(record.id === userId) {currentUser.push(record)}})
-			this.setState({currentUser: currentUser}, ()=> null)})
-		.then(() => divebookData.handleData({dataSet: "friends", fetchType: "GET", embedItem: ""}))
-		.then(friends => {
-			friends.filter(friend => friend.userId === Number(sessionStorage.getItem("user"))).forEach(connection => {
-				let person = this.state.users.find(buddy => connection.friendId === buddy.id)
-				friendsList.push(person)})
-			friendsList.sort((a,b) => a.lastName.localeCompare(b.lastName))})
+		let userId = Number(sessionStorage.getItem("user"))
+
+		return divebookData.handleData({dataSet: 'users', fetchType: 'GET', embedItem: ""})
+			.then(users => users.forEach(user => {allUsers.push(user)}))
+
+		.then(() => this.setState({users: allUsers}, ()=> null))
+		.then(() => this.state.users.forEach(record => {if(record.id === userId) {currentUser.push(record)}}))
+		.then(() => this.setState({currentUser: currentUser}, ()=> null))
+		.then(() => {return divebookData.handleData({dataSet: "friends", fetchType: "GET", embedItem: ""})
+			.then(friends => {
+				friends.filter(friend => friend.userId === userId).forEach(connection => {
+					let person = this.state.users.find(buddy => connection.friendId === buddy.id)
+					friendsList.push(person)})
+				friendsList.sort((a,b) => a.lastName.localeCompare(b.lastName))})})
+
 		.then(() => this.setState({friends: friendsList}, () => null))
-		.then(() => divebookData.handleData({dataSet: 'diveLogEntries', fetchType: 'GET', embedItem: `?userId=${currentUser[0].id}&_expand=waterType&_expand=diveType&_expand=diveSite&_expand=airMix&_expand=precipType`}))
-		.then(entries => {
-			entries.forEach(entry => {diveLog.push(entry)});
-			diveLog.sort((a,b) => new Date(b.diveDate) - new Date(a.diveDate))
-			this.setState({diveLog: diveLog}, () => null)})
-		.then(() => divebookData.handleData({dataSet: "diveSites", fetchType: "GET", embedItem: "?_expand=diveType&_expand=waterType"}))
-    .then(sites => {
-      sites.forEach(site => {diveSites.push(site)})
-			diveSites.sort((a,b) => a.name.localeCompare(b.name))
-      this.setState({diveSites: diveSites}, () => null)})
+		.then(() => {return divebookData.handleData({dataSet: 'diveLogEntries', fetchType: 'GET', embedItem: `?userId=${userId}&_expand=waterType&_expand=diveType&_expand=diveSite&_expand=airMix&_expand=precipType`})
+			.then(entries => {
+				entries.forEach(entry => {diveLog.push(entry)});
+				diveLog.sort((a,b) => new Date(`${b.diveDate}T${b.diveStartTime}`) - new Date(`${a.diveDate}T${a.diveStartTime}`))})})
+
+		.then(() =>	this.setState({diveLog: diveLog}, () => null))
+		.then(() => {return divebookData.handleData({dataSet: "diveSites", fetchType: "GET", embedItem: "?_expand=diveType&_expand=waterType"})
+    	.then(sites => {
+				sites.forEach(site => {diveSites.push(site)})
+				diveSites.sort((a,b) => a.name.localeCompare(b.name))})})
+
+    .then(() =>  this.setState({diveSites: diveSites}, () => null))
+		.then(() => {return divebookData.handleData({dataSet: "users", fetchType: "GET", embedItem: `?userId=${userId}`})
+			.then(user => {this.setState({photoUrl: user.userPhoto}, ()=>null)})})
+
 		.then(() => {
-			let user = Number(sessionStorage.getItem("user"))
-			divebookData.handleData({dataSet: "users", fetchType: "GET", embedItem: `/${user}`})
-    .then(user => {
-      this.setState({photoUrl: user.userPhoto}, ()=>null)})})
-		.then(() => this.setFirsts())
-	}
+			let firstFriend = (this.state.friends.length > 0) ? this.state.friends[0].id : ""
+			let firstDiveSite = (this.state.diveSites.length > 0) ? this.state.diveSites[0].id : ""
+			let firstLogEntry = (this.state.diveLog.length > 0) ? this.state.diveLog[0].id : ""
 
-	setFirsts () {
-
-		let firstFriend = (this.state.friends.length > 0) ? this.state.friends[0].id : ""
-		let firstDiveSite = (this.state.diveSites.length > 0) ? this.state.diveSites[0].id : ""
-		let firstLogEntry = (this.state.diveLog.length > 0) ? this.state.diveLog[0].id : ""
-		this.setState({firstFriend: firstFriend, firstDiveSite: firstDiveSite,firstLogEntry: firstLogEntry}, () => null)
-
+			this.setState({firstFriend: firstFriend, firstDiveSite: firstDiveSite,firstLogEntry: firstLogEntry}, () => null)
+		})
 	}
 
 	checkLogin = (username, password) => {
@@ -130,8 +128,7 @@ export default class Divebook extends Component {
 	render() {
 		return (
 			<React.Fragment>
-			{this.showNav()}
-				{/* <NavBar state={this.state} populateAppState={this.populateAppState}  handleFriendSearchInput={this.handleFriendSearchInput} showNav={this.showNav} {...this.props}/> */}
+				{this.showNav()}
 				<ApplicationViews state={this.state} populateAppState={this.populateAppState} handleFriendSearchInput={this.handleFriendSearchInput} checkLogin={this.checkLogin} isAuthenticated={this.isAuthenticated} {...this.props}/>
 			</React.Fragment>
 		)
