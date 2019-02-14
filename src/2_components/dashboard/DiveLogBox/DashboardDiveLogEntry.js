@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
-import PlaceholderImage from '../../../Placeholder.png'
+import PlaceholderImage from '../../../images/userProfilePhotos/Placeholder.png'
+import { CardImg, CardTitle, Card } from 'reactstrap'
+import { Link } from 'react-router-dom'
 
 export default class DashboardDiveLogEntry extends Component {
 
   render () {
+
+    let coverPhoto = (this.props.entry.coverPhoto === "") ? PlaceholderImage : this.props.entry.coverPhoto
+
     return(
-      <section>
-        <div key={this.props.entry.id} className="db_divelog log_entry">
-        <div className="db_divelog divesite_name">{this.props.entry.diveSite.name}</div>
-        <div className="db_divelog dive_date">{this.props.entry.diveDate}</div>
-        <img src={PlaceholderImage} alt="" className="db_divelog divelog_photo"></img>
-        </div>
-      </section>
+      <Card key={this.props.entry.id} className="db_divelog log_entry">
+       <Link to={`/divelog/${this.props.entry.id}`}>
+        <CardTitle className="db_divelog divesite_name"><strong>{this.props.entry.diveSite.name}<br />{this.props.entry.diveDate}</strong></CardTitle></Link>
+        <CardImg bottom width="100%" src={coverPhoto} alt="" className="db_divelog divelog_photo"></CardImg>
+      </Card>
     )
   }
 }

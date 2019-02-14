@@ -31,8 +31,10 @@ export default class FriendsFriendDisplay extends Component {
 			<SplitterLayout vertical percentage={true} secondaryInitialSize={30}>
 				<SplitterLayout percentage={true} secondaryInitialSize={70}>
 				<div className="my-pane">
+					<div className="friend_user_profile_box">
 					<UserProfileBox className="friends_profile friend_user_profile_box" user={this.props.friend} data={this.props.data} {...this.props}/>
 					<button className="button friends_delete_friend_button" type="button" onClick={() => this.deleteFriend(this.props.friend)}>Remove Friend</button>
+					</div>
 				</div>
 				<div className="my-pane">
 					<DiveLogBox className="friends_profile friend_divelog_box"  user={this.props.friend} data={this.props.data} {...this.props}/>

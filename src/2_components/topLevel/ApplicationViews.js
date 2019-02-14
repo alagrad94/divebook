@@ -1,4 +1,4 @@
-import { Route, withRouter } from 'react-router-dom'
+import { Route, withRouter, Redirect } from 'react-router-dom'
 import React, { Component } from "react"
 import DivebookDashboard from '../dashboard/Dashboard'
 import DiveLog from '../divelog/Divelog'
@@ -10,26 +10,35 @@ import divebookData from '../../1_modules/divebookData';
 import FriendsSearchResults from '../friends/FriendsSearchResults'
 import ProfileAddEditForm from '../profile/ProfileAddEditForm'
 import UserProfile from '../profile/UserProfile';
+import Login from './Login';
+import Register from './Register';
+import PhotoAlbums from '../photos/photoAlbums/PhotoAlbums'
+
 
 class ApplicationViews extends Component {
+	state = {
+		logIdForPictureReroute: ""
+	}
 
-	editLogEntry = entry => divebookData.handleData({dataSet: "diveLogEntries", fetchType: "PUT", putId: entry.id, dataBaseObject: entry}).then(this.props.populateAppState()).then(() => this.props.history.push(`/divelog/${this.props.state.firstLogEntry}`))
+	editLogEntry = entry => divebookData.handleData({dataSet: "diveLogEntries", fetchType: "PUT", putId: entry.id, dataBaseObject: entry}).then(() => this.props.populateAppState()).then(() => this.props.history.push(`/divelog/${this.props.state.firstLogEntry}`))
 
-	addLogEntry = entry => divebookData.handleData({dataSet: "diveLogEntries", fetchType: "POST", dataBaseObject: entry}).then(this.props.populateAppState()).then(() => this.props.history.push(`/divelog/${this.props.state.firstLogEntry}`))
+	addLogEntry = entry => divebookData.handleData({dataSet: "diveLogEntries", fetchType: "POST", dataBaseObject: entry}).then(() => this.props.populateAppState()).then(() => this.props.history.push(`/divelog/${this.props.state.firstLogEntry}`))
 
-	deleteLogEntry = id => divebookData.handleData({dataSet: "diveLogEntries", fetchType: "DELETE", deleteId: id}).then(this.props.populateAppState()).then(() => this.props.history.push(`/divelog/${this.props.state.firstLogEntry}`))
+	addPhotos = (id, url) => divebookData.handleData({dataSet: "diveLogEntries", fetchType: "PATCH", patchId: id, dataBaseObject: {"id": id ,"coverPhoto": url}}).then(()=> this.setState({logIdForPictureReroute: id}, ()=> null)).then(()=> this.props.populateAppState()).then(() => this.props.history.push("/divelog"))
 
-	editDiveSite = site => divebookData.handleData({dataSet: "diveSites", fetchType: "PUT", putId: site.id, dataBaseObject: site}).then(this.props.populateAppState()).then(() => this.props.history.push(`/divesites/${this.props.state.firstDiveSite}`))
+	deleteLogEntry = id => divebookData.handleData({dataSet: "diveLogEntries", fetchType: "DELETE", deleteId: id}).then(() => this.props.populateAppState()).then(() => this.props.history.push(`/divelog/${this.props.state.firstLogEntry}`))
 
-	addDiveSite = site => divebookData.handleData({dataSet: "diveSites", fetchType: "POST", dataBaseObject: site}).then(this.props.populateAppState()).then(() => this.props.history.push(`/divesites/${this.props.state.firstDiveSite}`))
+	editDiveSite = site => divebookData.handleData({dataSet: "diveSites", fetchType: "PUT", putId: site.id, dataBaseObject: site}).then(() => this.props.populateAppState()).then(() => this.props.history.push(`/divesites/${this.props.state.firstDiveSite}`))
 
-	addFriend = (dataBaseObject) => divebookData.handleData({dataSet: "friends", fetchType: "POST", dataBaseObject: dataBaseObject}).then(this.props.populateAppState()).then(() => this.props.history.push(`/friends/${this.props.state.firstFriend}`))
+	addDiveSite = site => divebookData.handleData({dataSet: "diveSites", fetchType: "POST", dataBaseObject: site}).then(() => this.props.populateAppState()).then(() => this.props.history.push(`/divesites/${this.props.state.firstDiveSite}`))
 
-	deleteFriend = (id) => divebookData.handleData({dataSet: "friends", fetchType: "DELETE", deleteId: id}).then(this.props.populateAppState()).then(() => this.props.history.push(`/friends/${this.props.state.firstFriend}`))
+	addFriend = (dataBaseObject) => divebookData.handleData({dataSet: "friends", fetchType: "POST", dataBaseObject: dataBaseObject}).then(() => this.props.populateAppState()).then(() => this.props.history.push(`/friends/${this.props.state.firstFriend}`))
 
-	editUserProfile = user => divebookData.handleData({dataSet: "users", fetchType: "PUT", putId: user.id, dataBaseObject: user}).then(this.props.populateAppState()).then(() => this.props.history.push("/profile"))
+	deleteFriend = (id) => divebookData.handleData({dataSet: "friends", fetchType: "DELETE", deleteId: id}).then(() => this.props.populateAppState()).then(() => this.props.history.push(`/friends/${this.props.state.firstFriend}`))
 
-	registerNewUser = user => divebookData.handleData({dataSet: "users", fetchType: "POST", dataBaseObject: user}).then(this.props.populateAppState()).then(() => this.props.history.push("/profile"))
+	editUserProfile = user => divebookData.handleData({dataSet: "users", fetchType: "PUT", putId: user.id, dataBaseObject: user}).then(() => this.props.populateAppState()).then(() => this.props.history.push("/profile"))
+
+	registerNewUser = user => divebookData.handleData({dataSet: "users", fetchType: "POST", dataBaseObject: user}).then(() => this.props.populateAppState()).then(() => this.props.history.push("/home"))
 
 	render() {
 
@@ -37,29 +46,65 @@ class ApplicationViews extends Component {
 			<React.Fragment>
 
 				<Route exact path="/" render={(props) => {
-					return <DivebookDashboard {...props} data={this.props.state} populateAppState={this.props.populateAppState}/>}} />
+					return <Login {...props} populateAppState={this.props.populateAppState} checkLogin={this.props.checkLogin}/>}} />
+
+				<Route exact path="/register" render={(props) => {
+					return <Register {...props} registerNewUser={this.registerNewUser} populateAppState={this.props.populateAppState}/>}} />
+
+				<Route exact path="/home" render={(props) => {
+					if(this.props.isAuthenticated()) {
+						return <DivebookDashboard {...props} user={Number(sessionStorage.getItem("user"))} data={this.props.state} populateAppState={this.props.populateAppState}/>
+					} else {
+						return <Redirect to='/' />
+    			}}} />
 
 				<Route exact path="/divelog/:id" render={(props) => {
-					return <DiveLog {...props} data={this.props.state} populateAppState={this.props.populateAppState} deleteLogEntry={this.deleteLogEntry}/>}} />
+					if(this.props.isAuthenticated()) {
+						return <DiveLog {...props} data={this.props.state} populateAppState={this.props.populateAppState} deleteLogEntry={this.deleteLogEntry} addPhotos={this.addPhotos}/>
+					} else {
+						return <Redirect to='/' />
+    			}}} />
 				<Route exact path="/divelogentry/new" render={props => {
     			return <DiveLogEntryEditForm {...props} populateAppState={this.props.populateAppState} addLogEntry={this.addLogEntry} editLogEntry={this.editLogEntry}/> }}/>
 				<Route exact path="/divelog/:id/edit" render={(props)=> {
     			return <DiveLogEntryEditForm {...props} populateAppState={this.props.populateAppState} addLogEntry={this.addLogEntry} editLogEntry={this.editLogEntry}/>}} />
+				<Route exact path="/divelog" render={(props)=> {
+    			return <Redirect to={`/divelog/${this.state.logIdForPictureReroute}`} />
+					}} />
+
+				<Route exact path="/photos/:id" render={(props) => {
+					if(this.props.isAuthenticated()) {
+						return <PhotoAlbums {...props} data={this.props.state} />
+					} else {
+						return <Redirect to='/' />
+    			}}} />
 
 				<Route exact path="/divesites/:id" render={(props) => {
-					return <DiveSites {...props} data={this.props.state} populateAppState={this.props.populateAppState}/>}} />
+					if(this.props.isAuthenticated()) {
+						return <DiveSites {...props} data={this.props.state} populateAppState={this.props.populateAppState}/>
+					} else {
+						return <Redirect to='/' />
+					}}} />
 				<Route exact path="/divesitesentry/new" render={props => {
     			return <DiveSiteEntryEditForm {...props} populateAppState={this.props.populateAppState} addDiveSite={this.addDiveSite} editDiveSite={this.editDiveSite}/> }}/>
 				<Route exact path="/divesites/:id/edit" render={props => {
 					return <DiveSiteEntryEditForm {...props} populateAppState={this.props.populateAppState} addDiveSite={this.addDiveSite} editDiveSite={this.editDiveSite}/> }}/>
 
 				<Route exact path="/friends/:id" render={(props) => {
-					return <Friends {...props} data={this.props.state} populateAppState={this.props.populateAppState} addFriend={this.addFriend} deleteFriend={this.deleteFriend}/>}} />
+					if(this.props.isAuthenticated()) {
+						return <Friends {...props} data={this.props.state} populateAppState={this.props.populateAppState} addFriend={this.addFriend} deleteFriend={this.deleteFriend}/>
+					}	else {
+						return <Redirect to='/' />
+    			}}} />
 				<Route exact path="/searchresults" render={(props) => {
 					return <FriendsSearchResults {...props} data={this.props.state} jsonQuery={this.props.state.jsonQuery} handleFriendSearchInput={this.props.handleFriendSearchInput} friendSearchResults={this.props.state.friendSearchResults} addFriend={this.addFriend} deleteFriend={this.deleteFriend} />}} />
 
 				<Route exact path="/profile" render={(props) => {
-					return <UserProfile {...props} data={this.props.state} editUserProfile={this.editUserProfile} />}} />
+					if(this.props.isAuthenticated()) {
+						return <UserProfile {...props} data={this.props.state} editUserProfile={this.editUserProfile} />
+					}	else {
+						return <Redirect to='/' />
+    			}}} />
 				<Route exact path="/profile/edit" render={props => {
 					return <ProfileAddEditForm {...props} data={this.props.state} populateAppState={this.props.populateAppState} editUserProfile={this.editUserProfile} registerNewUser={this.registerNewUser}/> }}/>
 

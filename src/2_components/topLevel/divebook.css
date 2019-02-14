@@ -1,10 +1,12 @@
+@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import './PhotoAlbums.css';
 
 /* GLOBAL */
 
 html{
-  background-image: url(../../diveflag.png);
+  background-image: url(../../images/websiteBackground/diveflag.png);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-color: transparent;
   height: 100%;
   width: 100%;
@@ -14,47 +16,73 @@ body{
   padding: 0;
   margin: 0;
   background-color: transparent;
+  -webkit-font-smoothing: antialiased;
 }
-.nav_bar {
+
+.card_fix{
+  background-color: transparent;
+  border: none;
+  width: 500px;
+}
+.card-text {
+  font-family: 'Cabin Sketch';
+  font-size: 18px
+}
+
+.navbar {
   display: flex;
   justify-content: flex-start;
-  padding: 20px;
+  font-size: 25px;
+  font-family: 'Cabin Sketch';
   background-color: #861213;
 }
 
-.nav-link{
+.navbar-brand{
   color: #E2DFD8;
+  font-size: 35px;
+  font-family: 'Cabin Sketch';
+  font-style: italic;
 }
 
-a {
+.nav-link, a {
   color: #E2DFD8;
-  font-weight: bold;
+  background: #861213
+}
+
+.button_link{
+  background: none;
+}
+
+.inputfile {
+  padding: 1px;
+  color: #E2DFD8;
+  background: #861213;
+}
+
+input[type="file"] {
+  display: none;
+}
+.upload_button {
+  width: 75px;
+  font-family: 'Cabin Sketch';
+  font-size: 18px;
+  background-color: #861213;
+  color: #E2DFD8;
+  border: none;
+  margin: 5px;
 }
 
 /* FORMS */
-
-.ds_entry_edit_form {
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  font-size: 95%
+.whole_form, button, .form_label, .form_select, .form_input, .form_textarea, .submit_button{
+  font-family: 'Cabin Sketch';
+  font-size: 18px
 }
 
-.dl_entry_edit_form {
+.ds_entry_edit_form, .dl_entry_edit_form, .profile_add_edit_form {
   margin-left: 5px;
   margin-right: 5px;
   margin-top: 0px;
   margin-bottom: 0px;
-  font-size: 95%
-}
-
-.profile_add_edit_form{
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  font-size: 95%
 }
 
 .form_container{
@@ -71,7 +99,7 @@ a {
 .title_row{
   justify-content: center;
   margin: 5px;
-  font-weight: bold;
+
 }
 .form_group{
   margin-left: 5px;
@@ -96,10 +124,15 @@ a {
   color: #E2DFD8;
   border: none;
   margin: 5px;
+  width: 175px;
 }
 
 .friend_search_input{
-  margin: 5px;
+  margin-top: 5px;
+  height: 75%;
+  font-family: 'Cabin Sketch';
+  font-size: 18px
+
 }
 
 /* SIDE NAV */
@@ -107,84 +140,196 @@ a {
 .sc-gqjmRU {
   margin-top: 5px;
   margin-left: 5px;
-}
-.dl_entry_link {
+  background: linear-gradient(to left, rgba(228, 227, 227, 0.26), rgba(110, 62, 62, 0.178));
+ }
+.dl_entry_link, .ds_site_link, .friends_list_friend_link   {
   border-bottom: 1px solid #E2DFD8;
-}
-
-.ds_site_link {
-  border-bottom: 1px solid #E2DFD8;
-}
-
-.friends_list_friend_link {
-  border-bottom: 1px solid #E2DFD8;
+  color: #E2DFD8;
+  font-family: 'Cabin Sketch';
+  font-size: 20px
 }
 
 /* DASHBOARD */
+.sc-bZQynM {
+  padding: 0;
+}
 
+.user_photo {
+  resize: none
+}
+.my-pane, .layout-pane, .splitter-layout {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  font-family: 'Cabin Sketch';
+  font-size: 20px;
+  padding-left: 5px;
+}
+.card {
+  background: transparent;
+  color: black;
+  border: none;
+}
 .friends_box{
   display: flex;
   flex-direction: row;
 }
 
 .friend {
-  border: solid 1px black;
+  /* border: solid 1px black; */
   width: 200px;
   height: 200px;
   margin: 5px;
   text-align: center;
-  font-weight: bold;
 }
 
-.db_user_profile {
-  padding-left: 160px;
-  margin-top: -150px;
-  width: 100%;
-  font-weight: bold;
-}
-
-.db_user_interests {
+.user_photo {
   padding-left: 10px;
-  width: 100%;
-  font-weight: bold;
+  padding-top: 10px;
 }
 
 .divelog_box{
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
 }
 
 .log_entry {
-  border: solid 1px black;
+  /* border: solid 1px black; */
   width: 200px;
   height: 250px;
   margin: 5px;
   text-align: center;
-  font-weight: bold;
+  flex-wrap: wrap
 }
 
+.prof_box {
+  height: 100%;
+  width: 100%;
+}
+/* FRIENDS */
+
+.friend_user_profile_box{
+  display: flex;
+  flex-direction: column;
+}
 /* DIVELOG */
 
 .dl_dive_details{
   width: 100%;
-  font-weight: bold;
+  margin: 4px;
 }
 
+.dl_dive_details_card{
+  display: flex;
+  flex-direction: row;
+  flex-basis: auto;
+  background-color: transparent;
+  border: none;
+}
+
+.divelog_details_photo {
+  width: 225px;
+  height: 225px;
+  margin: 5px;
+  resize: none
+}
+
+.dl_dive_details_card_1{
+  display: flex;
+  flex-direction: column;
+  flex-basis: auto;
+  width: calc(25vw - 40px);
+  height: calc(100vh - 40px);
+}
+
+.dl_dive_details_card_2{
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: auto;
+  width: calc(70vw - 40px);
+  height: calc(100vh - 40px);
+}
 /* DIVESITES */
 
 .ds_site_details{
-width: 100%;
-font-weight: bold;
+  width: 100%;
+  font-family: 'Cabin Sketch';
+  font-size: 18px
 }
 
 /* PROFILE */
 
 .user_profile {
   width: 100%;
-  font-weight: bold;
+}
+
+.inputfile {
+  font-family: 'Cabin Sketch';
+  font-size: 18px
 }
 
 .user_interests {
   width: 100%;
-  font-weight: bold;
+
+}
+
+/*LOGIN AND REGISTER */
+
+.btn-register {
+  background-color: #CBD2D9;
+  font-family: 'Cabin Sketch';
+
+}
+
+.register-sidenav{
+  height: 100%;
+  background-color: #6F8191;
+  overflow-x: hidden;
+  padding-top: 20px;
+  font-family: 'Cabin Sketch';
+  font-size: 18px
+}
+
+.login-form{
+  margin-top: 80%;
+  font-family: 'Cabin Sketch';
+  font-size: 18px
+}
+
+.register-form{
+  margin-top: 20%;
+  font-family: 'Cabin Sketch';
+  font-size: 18px
+}
+
+.login-main-text{
+  margin-top: 45%;
+  padding: 60px;
+  color: #fff;
+  font-family: 'Cabin Sketch';
+  font-size: 18px
+}
+
+.login-main-text h2{
+  font-weight: 300;
+  font-size: 400%;
+  font-family: 'Cabin Sketch';
+}
+
+.not-a-user {
+  margin-top: 5%;
+  color: #861213;
+  font-family: 'Cabin Sketch';
+}
+
+/* PHOTO ALBUMS */
+
+.image-gallery-content {
+  width: calc(70vw - 40px);
+  height: calc(90vh - 40px);
+}
+
+.photo_album_link {
+  background: transparent;
 }

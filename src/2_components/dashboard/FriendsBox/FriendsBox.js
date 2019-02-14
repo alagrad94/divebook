@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import DashboardFriendDisplay from './DashboardFriendDisplay'
 import divebookData from '../../../1_modules/divebookData'
+
 export default class FriendsBox extends Component {
 
   state = {
@@ -29,8 +30,10 @@ export default class FriendsBox extends Component {
 
     }
   }
-
-  componentDidMount() {
+  componentDidMount(){
+    this.userToDisplayFriends();
+  }
+  componentWillReceiveProps() {
     this.userToDisplayFriends();
   }
 

@@ -5,8 +5,8 @@ import divebookData from '../../../1_modules/divebookData'
 export default class DiveLogBox extends Component {
 
   state = {
-    diveLog: []
-  }
+      diveLog: []
+    }
 
   userToDisplayDiveLog () {
 
@@ -22,15 +22,15 @@ export default class DiveLogBox extends Component {
       .then(dives => {
         dives.filter(dive => dive.userId === user).forEach(dive =>
           diveLog.push(dive))
-        diveLog.sort((a,b) => new Date(b.diveDate) - new Date(a.diveDate))
-        console.log(diveLog)
+          diveLog.sort((a,b) => new Date(`${b.diveDate}T${b.diveStartTime}`) - new Date(`${a.diveDate}T${a.diveStartTime}`))
       })
       .then(() => this.setState({diveLog: diveLog}, () => null))
-
     }
   }
-
-  componentDidMount() {
+  componentDidMount(){
+    this.userToDisplayDiveLog();
+  }
+  componentWillReceiveProps() {
     this.userToDisplayDiveLog();
   }
 
