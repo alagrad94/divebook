@@ -120,7 +120,7 @@ input[type="file"] {
 }
 
 .button {
-  background-color: #861213;
+  background-color: #861214;
   color: #E2DFD8;
   border: none;
   margin: 5px;
@@ -150,8 +150,18 @@ input[type="file"] {
 }
 
 /* DASHBOARD */
-.sc-bZQynM {
-  padding: 0;
+.db_grid {
+  width: calc(102vw - 40px);
+  height: calc(95vh - 40px);
+}
+
+.db_grid_left {
+  border-right: 5px solid #861213;
+}
+
+
+.db_grid_bottom {
+  border-top: 5px solid #861213;
 }
 
 .user_photo {
@@ -173,10 +183,13 @@ input[type="file"] {
 .friends_box{
   display: flex;
   flex-direction: row;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 
 .friend {
-  /* border: solid 1px black; */
+  border: solid 1px #861213;
+  background: #861213;
   width: 200px;
   height: 200px;
   margin: 5px;
@@ -192,10 +205,13 @@ input[type="file"] {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 
 .log_entry {
-  /* border: solid 1px black; */
+  border: solid 1px #861213;
+  background: #861213;
   width: 200px;
   height: 250px;
   margin: 5px;
@@ -204,14 +220,24 @@ input[type="file"] {
 }
 
 .prof_box {
-  height: 100%;
-  width: 100%;
+  height: 90%;
+  width: 90%;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 /* FRIENDS */
+
+.sc-bZQynM {
+  padding-left: 0;
+}
 
 .friend_user_profile_box{
   display: flex;
   flex-direction: column;
+}
+.friends_grid {
+  width: calc(82vw - 40px);
+  height: calc(90vh - 40px);
 }
 /* DIVELOG */
 
