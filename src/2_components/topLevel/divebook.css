@@ -347,6 +347,7 @@ input[type="file"] {
   margin-top: 5%;
   color: #861213;
   font-family: 'Cabin Sketch';
+  background: transparent
 }
 
 /* PHOTO ALBUMS */

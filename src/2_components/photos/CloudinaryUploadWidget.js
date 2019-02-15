@@ -33,7 +33,7 @@ export default class CloudinaryUploadWidget extends Component {
         resultsUrls.push({original: result.info.url, thumbnail: result.info.thumbnail_url})
       }
 
-      if (result && result.event === "close") {
+      if (result && result.event === "close" && resultsUrls.length>0) {
         let logId = Number(this.props.entry[0].id)
         let url = resultsUrls[0].original
         this.props.addPhotos(logId, url)
