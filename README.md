@@ -8,10 +8,10 @@ Scuba divers keep a log of all of their dives to meet professional education req
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses the following:
 
-Cloudinary (www.cloudinary.com)
-Grommet (https://v2.grommet.io)
-React-bootstrap (https://react-bootstrap.github.io)
-React-image-gallery (https://github.com/xiaolin/react-image-gallery)
-React-sidenav (https://github.com/trendmicro-frontend/react-sidenav)
-Reactstrap (https://reactstrap.github.io)
-Styled-components (https://www.styled-components.com)
+Cloudinary (www.cloudinary.com)<br>
+Grommet (https://v2.grommet.io)<br>
+React-bootstrap (https://react-bootstrap.github.io)<br>
+React-image-gallery (https://github.com/xiaolin/react-image-gallery)<br>
+React-sidenav (https://github.com/trendmicro-frontend/react-sidenav)<br>
+Reactstrap (https://reactstrap.github.io)<br>
+Styled-components (https://www.styled-components.com)<br>
