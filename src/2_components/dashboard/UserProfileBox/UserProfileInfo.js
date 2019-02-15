@@ -4,6 +4,7 @@ export default class UserProfileInfo extends Component {
 
   render () {
     let currentUser = this.props.data.users.filter(user => user.id === this.props.user)
+    console.log(currentUser)
     return(
 
         currentUser.map(user =>

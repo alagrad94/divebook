@@ -95,8 +95,8 @@ export default class Divebook extends Component {
 				diveSites.sort((a,b) => a.name.localeCompare(b.name))})})
 
     .then(() =>  this.setState({diveSites: diveSites}, () => null))
-		.then(() => {return divebookData.handleData({dataSet: "users", fetchType: "GET", embedItem: `?userId=${userId}`})
-			.then(user => {this.setState({photoUrl: user.userPhoto}, ()=>null)})})
+		.then(() => {divebookData.handleData({dataSet: "users", fetchType: "GET", embedItem: `?id=${userId}`})
+			.then(users => {users.forEach(user => this.setState({photoUrl: user.userPhoto}, ()=> null))})})
 
 		.then(() => {
 			let firstFriend = (this.state.friends.length > 0) ? this.state.friends[0].id : ""
