@@ -10,7 +10,7 @@ class NavBar extends Component {
 		let firstLogEntryPath = `/divelog/${this.props.state.firstLogEntry}`;
 		let firstPhotoAlbumPath = `/photos/${this.props.state.firstLogEntry}`;
 		return (
-			<nav className="navbar p-1">
+			<nav className="navbar p-2">
 				<a className="navbar-brand" href="/home">Divebook</a>
 				<ul className="nav nav-pills">
 					<li className="nav-item-fix">

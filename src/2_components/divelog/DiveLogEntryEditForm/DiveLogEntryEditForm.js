@@ -174,7 +174,7 @@ export default class DiveLogEntryEditForm extends Component {
           </Form.Group>
         </Form.Row>
         <Form.Row className="form_row">
-        <Link to={{pathname: "/divesitesentry/new", state: {fetch: "POST"}}}><button className="button">Add New Dive Site</button></Link>
+        <Link className="button_link add_ds_button" to={{pathname: "/divesitesentry/new", state: {fetch: "POST"}}}><Button type="button" className="button add_ds_button">Add New Dive Site</Button></Link>
         </Form.Row>
         <Form.Row className="form_row">
           <Form.Group className="form_group" controlId="diveStartTime">

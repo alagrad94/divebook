@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import divebookData from '../../1_modules/divebookData'
+import { Button } from 'react-bootstrap';
 
 export default class CloudinaryUploadWidget extends Component {
 
@@ -45,9 +46,9 @@ export default class CloudinaryUploadWidget extends Component {
   render () {
     return (
       <div className="upload">
-        <button onClick={this.showWidget.bind(this)} className="button">
+        <Button onClick={this.showWidget.bind(this)} className="button">
           Add Images
-        </button>
+        </Button>
       </div>
     )
   }

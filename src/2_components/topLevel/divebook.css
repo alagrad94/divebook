@@ -6,6 +6,7 @@
 html{
   background-image: url(../../images/websiteBackground/diveflag.png);
   background-size: cover;
+  background-size: 125%;
   background-repeat: repeat-y;
   background-color: transparent;
   height: 100%;
@@ -32,21 +33,31 @@ body{
 .navbar {
   display: flex;
   justify-content: flex-start;
-  font-size: 25px;
+  font-size: 30px;
   font-family: 'Cabin Sketch';
-  background-color: #861213;
+  background: -moz-linear-gradient(45deg, rgba(134,18,19,1) 0%, rgba(134,18,19,0.68) 99%, rgba(134,18,19,0.68) 100%);
+  background: -webkit-linear-gradient(45deg, rgba(134,18,19,1) 0%,rgba(134,18,19,0.68) 99%,rgba(134,18,19,0.68) 100%);
+  background: linear-gradient(45deg, rgba(134,18,19,1) 0%,rgba(134,18,19,0.68) 99%,rgba(134,18,19,0.68) 100%);
 }
 
 .navbar-brand{
   color: #E2DFD8;
-  font-size: 35px;
+  font-size: 60px;
   font-family: 'Cabin Sketch';
   font-style: italic;
 }
 
+.nav-link {
+  -webkit-box-shadow: 5px 5px 25px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
+  box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
+}
+
 .nav-link, a {
   color: #E2DFD8;
-  background: #861213
+  background: transparent;
+  font-style: italic
 }
 
 .button_link{
@@ -75,7 +86,15 @@ input[type="file"] {
 /* FORMS */
 .whole_form, button, .form_label, .form_select, .form_input, .form_textarea, .submit_button{
   font-family: 'Cabin Sketch';
-  font-size: 18px
+  font-size: 18px;
+}
+
+.whole_form {
+  background-color: rgba(226, 223, 216, 0.541);
+  -webkit-box-shadow: 14px 10px 50px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+  box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
 }
 
 .ds_entry_edit_form, .dl_entry_edit_form, .profile_add_edit_form {
@@ -90,7 +109,6 @@ input[type="file"] {
   flex-direction: column;
   flex-wrap: wrap;
   width: 600px;
-  border: 1px grey solid;
   margin: 0 auto;
   margin-top: 30px;
   padding: 8px;
@@ -119,16 +137,27 @@ input[type="file"] {
   width: 150px;
 }
 
+.add_ds_button{
+  margin-left: 5px;
+}
+
 .button {
   background-color: #861214;
+  padding: 0;
   color: #E2DFD8;
   border: none;
   margin: 5px;
   width: 175px;
+  -webkit-box-shadow: 5px 5px 25px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 5px 5px 25px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 5px 5px 25px 5px rgba(0,0,0,0.75);
+  box-shadow: 5px 5px 25px 5px rgba(0,0,0,0.75);
+  box-sizing: none;
 }
 
 .friend_search_input{
-  margin-top: 5px;
+  margin-top: 15px;
+  margin-left: 40px;
   height: 75%;
   font-family: 'Cabin Sketch';
   font-size: 18px
@@ -146,7 +175,12 @@ input[type="file"] {
   border-bottom: 1px solid #E2DFD8;
   color: #E2DFD8;
   font-family: 'Cabin Sketch';
-  font-size: 20px
+  font-size: 20px;
+  margin-right: 10px;
+  -webkit-box-shadow: 5px 5px 25px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
+  box-shadow: 5px 5px 25px 0px rgba(0,0,0,0.75);
 }
 
 /* DASHBOARD */
@@ -164,9 +198,32 @@ input[type="file"] {
   border-top: 5px solid #861213;
 }
 
-.user_photo {
-  resize: none
+.divesite_name, .friend_name {
+  color: #E2DFD8;
 }
+
+.user_photo {
+  -webkit-box-shadow: 14px 10px 50px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+  box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+  resize: none;
+  margin: 10px;
+  margin-left: 90px
+}
+
+.db_user_profile {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 19px;
+  font-style: italic;
+  padding: 10px;
+  -webkit-box-shadow: 14px 10px 50px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+  box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+}
+
 .my-pane, .layout-pane, .splitter-layout {
   display: flex;
   height: 100%;
@@ -176,9 +233,9 @@ input[type="file"] {
   padding-left: 5px;
 }
 .card {
-  background: transparent;
   color: black;
   border: none;
+  background-color: rgba(226, 223, 216, 0.63)
 }
 .friends_box{
   display: flex;
@@ -188,17 +245,21 @@ input[type="file"] {
 }
 
 .friend {
+  -webkit-box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.75);
   border: solid 1px #861213;
   background: #861213;
   width: 200px;
   height: 200px;
-  margin: 5px;
+  margin: 10px;
   text-align: center;
 }
 
-.user_photo {
-  padding-left: 10px;
-  padding-top: 10px;
+.friend_photo{
+  width: 125px;
+  height: 125px
 }
 
 .divelog_box{
@@ -210,21 +271,26 @@ input[type="file"] {
 }
 
 .log_entry {
+  -webkit-box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.75);
   border: solid 1px #861213;
   background: #861213;
   width: 200px;
   height: 250px;
-  margin: 5px;
+  margin: 10px;
   text-align: center;
   flex-wrap: wrap
 }
 
 .prof_box {
-  height: 90%;
-  width: 90%;
+  width: calc(30vw - 40px);
+  height: calc(70vh - 40px);
   margin-left: 5px;
   margin-top: 5px;
 }
+
 /* FRIENDS */
 
 .sc-bZQynM {
@@ -244,10 +310,10 @@ input[type="file"] {
 .dl_dive_details{
   width: 100%;
   margin: 4px;
+  font-size: 20px
 }
 
 .dl_dive_details_card{
-  display: flex;
   flex-direction: row;
   flex-basis: auto;
   background-color: transparent;
@@ -257,37 +323,71 @@ input[type="file"] {
 .divelog_details_photo {
   width: 225px;
   height: 225px;
-  margin: 5px;
-  resize: none
+  margin: 10px;
+  resize: none;
+  -webkit-box-shadow: 14px 10px 50px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+  box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
 }
 
 .dl_dive_details_card_1{
-  display: flex;
   flex-direction: column;
   flex-basis: auto;
   width: calc(25vw - 40px);
-  height: calc(100vh - 40px);
+  height: calc(90vh - 40px);
+  font-style: italic;
+  padding: 10px;
+  background-color: rgba(226, 223, 216, 0.541);
+  -webkit-box-shadow: 14px 10px 50px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+  box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
 }
 
 .dl_dive_details_card_2{
   display: flex;
   flex-wrap: wrap;
   flex-basis: auto;
-  width: calc(70vw - 40px);
-  height: calc(100vh - 40px);
+  margin-left: 10px;
+  width: calc(65vw - 40px);
+  height: calc(90vh - 40px);
 }
 /* DIVESITES */
 
 .ds_site_details{
   width: 100%;
+  margin: 10px;
   font-family: 'Cabin Sketch';
-  font-size: 18px
+  font-size: 18px;
+  background-color: rgba(226, 223, 216, 0.541);
+  -webkit-box-shadow: 14px 10px 50px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+  box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+}
+.ds_details{
+  margin-left: 5px;
+
 }
 
 /* PROFILE */
 
 .user_profile {
   width: 100%;
+  margin: 10px;
+  padding: 5px;
+  background-color: rgba(226, 223, 216, 0.541);
+  -webkit-box-shadow: 14px 10px 50px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+  box-shadow: 14px 10px 50px 5px rgba(0,0,0,0.75);
+}
+
+.profile {
+  margin-left: 10px;
+  font-size: 20px;
+
 }
 
 .inputfile {
@@ -295,12 +395,43 @@ input[type="file"] {
   font-size: 18px
 }
 
-.user_interests {
-  width: 100%;
+/*LOGIN AND REGISTER */
 
+.login_grid {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Cabin Sketch';
+  font-size: 50px
 }
 
-/*LOGIN AND REGISTER */
+.login_grid_logo {
+  font-size: 50px;
+  margin-left: 125px;
+}
+
+.login_grid_left {
+  justify-content: center;
+  height: calc(125vh - 40px);
+}
+
+.login_grid_right {
+  justify-content: center;
+  height: calc(125vh - 40px);
+}
+.login_form_whole {
+  margin-left: 100px;
+  width: 400px;
+  font-size: 20px;
+}
+
+.login_password, .login_userName {
+  font-size: 20px;
+}
+
+.login_password_input, .login_userName_input {
+  font-size: 20px;
+  margin-left: 10px;
+}
 
 .btn-register {
   background-color: #CBD2D9;
@@ -308,39 +439,46 @@ input[type="file"] {
 
 }
 
-.register-sidenav{
-  height: 100%;
-  background-color: #6F8191;
-  overflow-x: hidden;
-  padding-top: 20px;
+.registration_grid {
+  display: flex;
+  flex-direction: column;
   font-family: 'Cabin Sketch';
-  font-size: 18px
+  font-size: 50px
 }
 
-.login-form{
-  margin-top: 80%;
-  font-family: 'Cabin Sketch';
-  font-size: 18px
+.registration_grid_logo {
+  font-size: 40px;
+  margin-left: 75px;
+  width: 100%;
+}
+.registration_grid_logo_subtitle {
+  font-size: 20px;
+  margin-left: 75px;
+  width: 100%;
 }
 
-.register-form{
-  margin-top: 20%;
-  font-family: 'Cabin Sketch';
-  font-size: 18px
+.registration_grid_left {
+  justify-content: center;
+  height: calc(125vh - 40px);
 }
 
-.login-main-text{
-  margin-top: 45%;
-  padding: 60px;
-  color: #fff;
-  font-family: 'Cabin Sketch';
-  font-size: 18px
+.registration_grid_right {
+  justify-content: center;
+  height: calc(125vh - 40px);
+}
+.registration_form_whole {
+  margin-left: 100px;
+  width: 600px;
+  font-size: 20px;
 }
 
-.login-main-text h2{
-  font-weight: 300;
-  font-size: 400%;
-  font-family: 'Cabin Sketch';
+.registration_form_group {
+  margin-left: 10px;
+}
+
+.registration_submit_button {
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 .not-a-user {
@@ -352,11 +490,15 @@ input[type="file"] {
 
 /* PHOTO ALBUMS */
 
-.image-gallery-content {
+.image-gallery-content, .image-gallery-slide-wrapper, .image-gallery-image, .image-gallery-slide {
   width: calc(70vw - 40px);
-  height: calc(90vh - 40px);
+  height: calc(80vh - 40px);
+  background: transparent
 }
 
 .photo_album_link {
   background: transparent;
+  width: 225px;
+  height: 225px;
+  margin: 10px;
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button } from 'react-bootstrap'
 
 export default class FriendsSearchResults extends Component {
 
@@ -30,7 +31,7 @@ export default class FriendsSearchResults extends Component {
 			{
 				this.props.friendSearchResults.map(potentialFriend =>
 				<div key={potentialFriend.id} className="friends_search friend_search_results">
-					<button className="link-button friends_search search_button" href='#' onClick={() => this.addFriend(potentialFriend.id)}>{`Name: `}{potentialFriend.userName}</button>
+					<Button type="button" className="link-button friends_search search_button" href='#' onClick={() => this.addFriend(potentialFriend.id)}>{`Name: `}{potentialFriend.userName}</Button>
 				</div>
 			)}
 		</section>

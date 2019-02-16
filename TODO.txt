@@ -1,0 +1,2 @@
+Left nav links - look better
+Friends dashboard - divelog and friends actually link through

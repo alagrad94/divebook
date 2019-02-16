@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import divebookData from '../../1_modules/divebookData'
+import { Button, ButtonGroup } from 'react-bootstrap'
 
 export default class ProfilePhotoUploader extends Component {
   state = {
@@ -52,7 +53,7 @@ export default class ProfilePhotoUploader extends Component {
       if(this.state.file !== null) {
         return (
           <div>
-          <button  type="submit" className="upload_button">Upload</button>
+          <Button  type="submit" className="upload_button">Upload</Button>
           <img width="25%" height="25%" src={this.state.file} alt=""/>
           </div>
         )
@@ -62,7 +63,7 @@ export default class ProfilePhotoUploader extends Component {
     }
 
     let ProfilePicUpload = () => {
-      if(this.props.data.photoUrl !== "") {
+      if(this.props.data.photoUrl === "") {
 
         return (
           <label htmlFor="file-upload" className="inputfile">Select A Profile Photo <input type="file" id="file-upload" onChange={this.fileSelectedHandler} /></label>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PlaceholderImage from '../../../images/userProfilePhotos/Placeholder.png'
-import { CardImg, CardTitle, Card } from 'reactstrap'
+import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
 export default class DahsboardFriendDisplay extends Component {
 
@@ -10,12 +10,33 @@ export default class DahsboardFriendDisplay extends Component {
     let thisUserPhoto = thisUser.map(user => user.userPhoto)[0]
     let profilePhoto = (thisUserPhoto === "") ? PlaceholderImage : thisUserPhoto
 
-    return(
-      <Card key={this.props.buddy.id} className="db-friends friend" >
-      <Link to={`/friends/${this.props.buddy.id}`}>
-        <CardTitle className="db_friends friend_name"><strong>{this.props.buddy.firstName} {this.props.buddy.lastName}</strong></CardTitle></Link>
-        <CardImg bottom width="100%" src={profilePhoto} alt="" className="db_friends friend_photo" fluid="true"></CardImg>
-      </Card>
-    )
+
+    let FriendEntry = () => {
+
+      if (this.props.user !== parseInt(sessionStorage.getItem('user'))) {
+
+        return (
+          <Card key={this.props.buddy.id} className="db-friends friend" >
+            <Card.Body>
+              <Card.Title className="db_friends friend_name"><strong>{this.props.buddy.firstName} {this.props.buddy.lastName}</strong></Card.Title>
+              <Card.Img width="100%" src={profilePhoto} alt="" className="db_friends friend_photo" fluid="true"></Card.Img>
+            </Card.Body>
+          </Card>
+        )
+      } else {
+
+        return (
+          <Card key={this.props.buddy.id} className="db-friends friend" >
+            <Card.Body>
+              <Link to={`/friends/${this.props.buddy.id}`}>
+              <Card.Title className="db_friends friend_name"><strong>{this.props.buddy.firstName} {this.props.buddy.lastName}</strong></Card.Title></Link>
+              <Card.Img width="100%" src={profilePhoto} alt="" className="db_friends friend_photo" fluid="true"></Card.Img>
+            </Card.Body>
+          </Card>
+        )
+      }
+    }
+
+    return <FriendEntry></FriendEntry>
   }
 }

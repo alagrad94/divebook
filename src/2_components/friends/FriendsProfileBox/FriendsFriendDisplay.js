@@ -4,6 +4,7 @@ import UserProfileBox from '../../dashboard/UserProfileBox/UserProfileBox'
 import DiveLogBox from '../../dashboard/DiveLogBox/DiveLogBox'
 import FriendsBox from '../../dashboard/FriendsBox/FriendsBox'
 import { Box, Grid} from 'grommet'
+import { Button } from 'react-bootstrap'
 
 export default class FriendsFriendDisplay extends Component {
 
@@ -34,38 +35,21 @@ export default class FriendsFriendDisplay extends Component {
 					{name: 'divelog', start: [1,0], end: [2,0]},
 					{name: 'friends', start: [0,1], end: [2,1]}
 				]}
-				columns={['30%', '780%']}
-				rows={['75%', '25%']}
+				columns={['30%', '70%']}
+				rows={['70%', '30%']}
 				gap='none'
 			>
 				<Box gridArea='profile' background='none' className="db_grid_left">
 					<UserProfileBox className="profile prof_box" user={this.props.friend} data={this.props.data} />
+					<Button type="button" className="button friends_delete_friend_button" onClick={() => this.deleteFriend(this.props.friend)}>Remove Friend</Button>
 				</Box>
-
 				<Box gridArea='divelog' background='none' className="db_grid_right">
 					<DiveLogBox className="db_divelog divelog_box card-deck" user={this.props.friend} data={this.props.data} />
 				</Box>
-
 				<Box gridArea='friends' background='none' className="db_grid_bottom">
 					<FriendsBox className="db_friends friends_box card-deck" user={this.props.friend} data={this.props.data} />
 				</Box>
 		</Grid>
-			// <SplitterLayout vertical percentage={true} secondaryInitialSize={30}>
-			// 	<SplitterLayout percentage={true} secondaryInitialSize={70}>
-			// 	<div className="my-pane">
-			// 		<div className="friend_user_profile_box">
-			// 		<UserProfileBox className="friends_profile friend_user_profile_box" user={this.props.friend} data={this.props.data} {...this.props}/>
-			// 		<button className="button friends_delete_friend_button" type="button" onClick={() => this.deleteFriend(this.props.friend)}>Remove Friend</button>
-			// 		</div>
-			// 	</div>
-			// 	<div className="my-pane">
-			// 		<DiveLogBox className="friends_profile friend_divelog_box"  user={this.props.friend} data={this.props.data} {...this.props}/>
-			// 	</div>
-			// 	</SplitterLayout>
-			// 	<div className="my-pane">
-			// 		<FriendsBox className="friends_profile friend_friends_box"  user={this.props.friend} data={this.props.data} {...this.props}/>
-			// 	</div>
-			// </SplitterLayout>
     )
   }
 }
