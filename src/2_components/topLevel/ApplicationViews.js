@@ -20,9 +20,13 @@ class ApplicationViews extends Component {
 		logIdForPictureReroute: ""
 	}
 
+	//All of these functions are called from within other components.  The downstream component builds the necessary elements to PUT/POST/PATCH and passes them to these functions.  These then do the database operation, rebuild state and route to the correct new record based on the resorted array in state.
+
 	editLogEntry = entry => divebookData.handleData({dataSet: "diveLogEntries", fetchType: "PUT", putId: entry.id, dataBaseObject: entry}).then(() => this.props.populateAppState()).then(() => this.props.history.push(`/divelog/${this.props.state.firstLogEntry}`))
 
 	addLogEntry = entry => divebookData.handleData({dataSet: "diveLogEntries", fetchType: "POST", dataBaseObject: entry}).then(() => this.props.populateAppState()).then(() => this.props.history.push(`/divelog/${this.props.state.firstLogEntry}`))
+
+	//This function is slightly different. It sets the logId of the diveLog entry to which photos were just added and then routes to a generic path.  Below in the App Views route, the generic path then routes to the specific record.  This was necessary after the photo upload because simply navigating directly to the record with history.push didn't refresh the page and a refresh is required to get the photos to display.  The database ooly contains a URL for the photo, so while the URLs would be in teh diveLog record in state, they wouldn't show without the page refresh.
 
 	addPhotos = (id, url) => divebookData.handleData({dataSet: "diveLogEntries", fetchType: "PATCH", patchId: id, dataBaseObject: {"id": id ,"coverPhoto": url}}).then(()=> this.setState({logIdForPictureReroute: id}, ()=> null)).then(()=> this.props.populateAppState()).then(() => this.props.history.push("/divelog"))
 
@@ -68,6 +72,8 @@ class ApplicationViews extends Component {
     			return <DiveLogEntryEditForm {...props} populateAppState={this.props.populateAppState} addLogEntry={this.addLogEntry} editLogEntry={this.editLogEntry}/> }}/>
 				<Route exact path="/divelog/:id/edit" render={(props)=> {
     			return <DiveLogEntryEditForm {...props} populateAppState={this.props.populateAppState} addLogEntry={this.addLogEntry} editLogEntry={this.editLogEntry}/>}} />
+
+				{/*This route is used to cause the page refresh when photos are added to a diveLog entry.*/}
 				<Route exact path="/divelog" render={(props)=> {
     			return <Redirect to={`/divelog/${this.state.logIdForPictureReroute}`} />
 					}} />

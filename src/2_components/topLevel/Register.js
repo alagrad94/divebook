@@ -30,6 +30,7 @@ export default class Register extends Component {
     this.setState(stateToChange);
   }
 
+  //Checks input to ensure username is already in use, ensures username and password fields aren't blank and if both conditions are met then it constructs a new user record and posts that to the database.
   getAllUsers = evt => {
     evt.preventDefault();
     divebookData.handleData({dataSet: "users", fetchType: "GET", embedItem: `?userName=${this.state.userName}`})

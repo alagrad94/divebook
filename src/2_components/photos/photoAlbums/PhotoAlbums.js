@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import { AppContainer as BaseAppContainer, ExampleNavigation as BaseNavigation, ExampleBody as BaseBody } from '../../../containers';
 import { SideNav } from 'react-sidenav'
 
+
+//These constants are part of the sidenav component's requirements.
 const AppContainer = styled(BaseAppContainer)`
   height: calc(100vh - 40px);
 `;

@@ -49,6 +49,7 @@ export default class ProfilePhotoUploader extends Component {
   }
 
   render () {
+    //Renders the preview of the selected photo and the "Upload" button only once a photo is selected
     let PicAndButton = () => {
       if(this.state.file !== null) {
         return (
@@ -61,7 +62,7 @@ export default class ProfilePhotoUploader extends Component {
         return null
       }
     }
-
+    //Only renders the option to Select A Profile Photo if none exists.  This is due to limitations in the Cloudinary storage.  Without a true backend, it's not possible to upload "signed" photos.  Thus, due to thier security policies, it's also not possible for users to change their profile photo once uploaded.
     let ProfilePicUpload = () => {
       if(this.props.data.photoUrl === "") {
 

@@ -8,6 +8,7 @@ export default class AlbumDetails extends Component {
     diveImages: []
   }
 
+  //Builds the array of imagaes to be displayed for each divelog entry's photo album.
   getDiveImages () {
     let diveImages = [];
       divebookData.handleData({dataSet: "albums", fetchType: "GET", embedItem: `?diveLogEntrieId=${this.props.entry[0].id}`})
@@ -19,7 +20,6 @@ export default class AlbumDetails extends Component {
         this.setState({diveImages: diveImages}, ()=>null)
 
         })
-      // .then(() => this.setState({diveImages: diveImages}, ()=>null))
   }
 
   componentDidMount () {

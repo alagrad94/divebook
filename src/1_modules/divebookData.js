@@ -87,3 +87,15 @@ export default {
 //       "userId": sessionStorage.getItem("userId")
 //     }
 // }
+// PATCH
+// Note: Database object should only contain K/V pairs for the fields to be updated.
+// let fetchTest5 = {
+
+//     "patchId" : 2,
+//     "dataSet" : "events",
+//     "fetchType" : "PATCH",
+//     "dataBaseObject" : {
+//       "id" : 2,
+//       "eventLocation": "Vegas"
+//     }
+// }

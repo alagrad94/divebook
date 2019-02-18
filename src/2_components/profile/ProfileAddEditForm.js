@@ -93,6 +93,7 @@ export default class ProfileAddEditForm extends Component {
     }
   }
 
+  //If the user routes to the form via an edit link the fetch property is "PUT", if they route to the form via an add link it is "POST".  This allows using one form for both editing and adding.  If it is an edit, then the form is prepopulated with existing data, otherwise the fields are blank.
   prepopulateForm() {
     let user = this.props.location.state.user
     user.map(usr =>

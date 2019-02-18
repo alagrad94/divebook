@@ -8,7 +8,9 @@ import ProfilePhotoUploader from '../photos/ProfilePhotoUploader';
 export default class UserProfile extends Component {
 
 render() {
-let profilePhoto = (this.props.data.photoUrl !== "") ? this.props.data.photoUrl : PlaceholderImage
+
+  //This allows redering a placeholder image if the user has not uploaded a profile photo.
+  let profilePhoto = (this.props.data.photoUrl !== "") ? this.props.data.photoUrl : PlaceholderImage
 
   return(
     this.props.data.currentUser.map(user => (

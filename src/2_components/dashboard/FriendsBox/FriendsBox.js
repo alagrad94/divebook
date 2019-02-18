@@ -8,6 +8,7 @@ export default class FriendsBox extends Component {
     friendsList: []
   }
 
+  //This allows the dashboard element to be used as both the current user's dashboard as well as the friends display.  If the user passed to the component in props is the current user, then it sets the local state to be equal to the information already in state.  If not, it does a fetch and builds a friendsList for the user whose information is being displayed. The dashboard renders using the local state.
   userToDisplayFriends () {
 
     if (this.props.user === Number(sessionStorage.getItem('user'))) {

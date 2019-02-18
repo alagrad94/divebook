@@ -1,3 +1,5 @@
+//These constants are necessary for the sidenav component
+
 import styled from "styled-components";
 
 export const AppContainer = styled.div`

@@ -5,6 +5,7 @@ import FriendsSearch from './FriendSearch'
 class NavBar extends Component {
 
 	render() {
+		//Uses the "first" variables in state to navigate to ensure navigation is always to the top record in the list.
 		let firstFriendPath = `/friends/${this.props.state.firstFriend}`;
 		let firstDiveSitePath = `/divesites/${this.props.state.firstDiveSite}`;
 		let firstLogEntryPath = `/divelog/${this.props.state.firstLogEntry}`;

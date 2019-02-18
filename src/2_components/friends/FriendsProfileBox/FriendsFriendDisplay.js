@@ -8,6 +8,7 @@ import { Button } from 'react-bootstrap'
 
 export default class FriendsFriendDisplay extends Component {
 
+	//Because divebook has a true "friend" relationship and utilizes an intersect table to record them, two records are created for each friendship.  This handles deleting both of those records.
   deleteFriend(id) {
 
 		let currentUser = Number(sessionStorage.getItem("user"));

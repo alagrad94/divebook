@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap'
 export default class FriendsSearchResults extends Component {
 
 
+	//Because divebook has a true "friend" relationship and utilizes an intersect table to record them, two records are created for each friendship.  This handles adding both of those records.
   addFriend = id => {
 
 		let friendId = id;

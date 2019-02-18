@@ -17,6 +17,7 @@ export default class Login extends Component {
     this.setState(stateToChange);
   };
 
+  //If username and password combo exists when checked by "checkLogin", sets sessionStorage credentials.  If not it alerts the users to register.
   onLogin = (evt) => {
     evt.preventDefault();
     this.props.checkLogin(this.state.userName, this.state.password)

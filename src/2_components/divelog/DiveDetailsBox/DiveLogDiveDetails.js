@@ -10,6 +10,7 @@ export default class DiveLogDiveDetails extends Component {
     diveImages: []
   }
 
+  //Builds the array of imagaes to be displayed for each divelog entry.
   getDiveImages () {
     let diveImages = [];
       divebookData.handleData({dataSet: "albums", fetchType: "GET", embedItem: `?diveLogEntrieId=${this.props.entry[0].id}`})

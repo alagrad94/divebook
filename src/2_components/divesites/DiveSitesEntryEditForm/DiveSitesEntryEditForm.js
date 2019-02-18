@@ -80,7 +80,7 @@ export default class DiveSiteEntryEditForm extends Component {
 
     }
   }
-
+  //Builds the options that appear on each select in the form.  Doing this allows a simple change in the database tables (adding/removing options) to be reflected in the form selects without changing the code.
   buildSelectOptions () {
 
     let waterTypes =  [];
@@ -99,6 +99,7 @@ export default class DiveSiteEntryEditForm extends Component {
     .then(() => this.setState({waterTypes: waterTypes, diveTypes: diveTypes}, ()=> null))
   }
 
+   //If the user routes to the form via an edit link the fetch property is "PUT", if they route to the form via an add link it is "POST".  This allows using one form for both editing and adding.  If it is an edit, then the form is prepopulated with existing data, otherwise the fields are blank.
   prepopulateForm() {
     let diveSiteId = Number(this.props.match.params.id)
     divebookData.handleData({dataSet: "diveSites", fetchType: "GET", embedItem: `/${diveSiteId}`})
