@@ -17,9 +17,11 @@ const Navigation = styled(BaseNavigation)`
   width: 20%;
   line-height: 22px;
 `;
+
 const Body = styled(BaseBody)`
   height: calc(100vh - 40px);
 `;
+
 export default class Friends extends Component {
 
   render () {

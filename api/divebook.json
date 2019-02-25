@@ -399,16 +399,6 @@
       "userId": 3,
       "friendId": 1,
       "id": 6
-    },
-    {
-      "userId": 1,
-      "friendId": 4,
-      "id": 7
-    },
-    {
-      "userId": 4,
-      "friendId": 1,
-      "id": 8
     }
   ],
   "albums": [

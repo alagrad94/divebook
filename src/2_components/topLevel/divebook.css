@@ -335,7 +335,7 @@ input[type="file"] {
   flex-direction: column;
   flex-basis: auto;
   width: calc(25vw - 40px);
-  height: calc(90vh - 40px);
+  height: calc(92vh - 40px);
   font-style: italic;
   padding: 10px;
   background-color: rgba(226, 223, 216, 0.541);

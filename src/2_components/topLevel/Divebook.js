@@ -3,8 +3,6 @@ import NavBar from '../nav/NavBar'
 import ApplicationViews from "../topLevel/ApplicationViews"
 import divebookData from '../../1_modules/divebookData'
 
-
-let userIdQueryString = "";
 export default class Divebook extends Component {
 	constructor(props) {
 		super(props);

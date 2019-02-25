@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import divebookData from '../../1_modules/divebookData'
-import { Button, ButtonGroup } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
 export default class ProfilePhotoUploader extends Component {
   state = {
