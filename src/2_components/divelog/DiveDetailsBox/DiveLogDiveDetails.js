@@ -30,7 +30,7 @@ export default class DiveLogDiveDetails extends Component {
       this.props.entry.map(log =>
       <Card key={log.id} className="dl_dive_details_card">
         <Card.Body className="dl_dive_details_card_1">
-          <Card.Text className="dl_dive_details divesite_name"><strong>{'Dive Site:'}</strong> {log.diveSite.name}</Card.Text>
+          <Card.Text className="dl_dive_details dl_divesite_name"><strong>{'Dive Site:'}</strong> {log.diveSite.name}</Card.Text>
           <Card.Text className="dl_dive_details dive_date"><strong>{'Date:'}</strong> {log.diveDate}</Card.Text>
           <Card.Text className="dl_dive_details dive_start_time"><strong>{'Start:'}</strong> {log.diveStartTime}</Card.Text>
           <Card.Text className="dl_dive_details dive_end_time"><strong>{'End:'}</strong> {log.diveEndTime}</Card.Text>
