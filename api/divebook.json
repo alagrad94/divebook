@@ -90,14 +90,14 @@
     {
       "userId": 1,
       "id": 1,
-      "diveSiteId": 1,
+      "diveSiteId": 4,
       "diveTypeId": 1,
       "waterTypeId": 1,
       "airMixId": 1,
       "precipTypeId": 1,
-      "diveDate": "2019-02-04",
-      "diveStartTime": "14:00",
-      "diveEndTime": "15:00",
+      "diveDate": "2019-01-04",
+      "diveStartTime": "15:00",
+      "diveEndTime": "16:00",
       "bottomTime": "1 hour",
       "equipment": "BCD, no wet suit needed, double tank, 15lbs weight",
       "airTemp": 90,
@@ -106,7 +106,7 @@
       "diveDepth": 80,
       "vis": 100,
       "comments": "Awesome dive!  Saw tons of sharks, rays and took some awesome pics.",
-      "coverPhoto": "http://res.cloudinary.com/dehn2kueo/image/upload/v1550161833/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-9.jpg"
+      "coverPhoto": ""
     },
     {
       "id": 2,
@@ -120,7 +120,7 @@
       "diveStartTime": "11:30:00",
       "diveEndTime": "12:00:00",
       "bottomTime": "30:00",
-      "equipment":  "BCD, 2mil wet suit, double tank, 15lbs weight",
+      "equipment": "BCD, 2mil wet suit, double tank, 15lbs weight",
       "airTemp": 80,
       "surfaceTemp": 75,
       "bottomTemp": 60,
@@ -141,7 +141,7 @@
       "diveStartTime": "11:30:00",
       "diveEndTime": "12:00:00",
       "bottomTime": "30:00",
-      "equipment":  "BCD, 2mil wet suit, double tank, 15lbs weight",
+      "equipment": "BCD, 2mil wet suit, double tank, 15lbs weight",
       "airTemp": 80,
       "surfaceTemp": 75,
       "bottomTemp": 60,
@@ -152,29 +152,8 @@
     },
     {
       "userId": 1,
-      "id": 5,
-      "diveSiteId": 3,
-      "diveTypeId": 7,
-      "waterTypeId": 2,
-      "airMixId": 1,
-      "precipTypeId": 1,
-      "diveDate": "2018-07-04",
-      "diveStartTime": "12:00",
-      "diveEndTime": "13:00",
-      "bottomTime": "1 hour",
-      "equipment": "BCD, 2mil wet suit, double tank, 15lbs weight",
-      "airTemp": 100,
-      "surfaceTemp": 80,
-      "bottomTemp": 65,
-      "diveDepth": 60,
-      "vis": 50,
-      "comments": "Awesome dive!  Explored several caves, one has a cavern at the back with a small beach.",
-      "coverPhoto": ""
-    },
-    {
-      "userId": 1,
       "id": 6,
-      "diveSiteId": 4,
+      "diveSiteId": 3,
       "diveTypeId": 1,
       "waterTypeId": 1,
       "airMixId": 1,
@@ -232,7 +211,7 @@
       "diveDepth": 80,
       "vis": 100,
       "comments": "Awesome dive!  Saw tons of sharks, rays and took some awesome pics.",
-      "coverPhoto": ""
+      "coverPhoto": "http://res.cloudinary.com/dehn2kueo/image/upload/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-7.jpg"
     },
     {
       "id": 9,
@@ -246,7 +225,7 @@
       "diveStartTime": "11:30:00",
       "diveEndTime": "12:00:00",
       "bottomTime": "30:00",
-      "equipment":  "BCD, 2mil wet suit, double tank, 15lbs weight",
+      "equipment": "BCD, 2mil wet suit, double tank, 15lbs weight",
       "airTemp": 80,
       "surfaceTemp": 75,
       "bottomTemp": 60,
@@ -267,7 +246,7 @@
       "diveStartTime": "11:30:00",
       "diveEndTime": "12:00:00",
       "bottomTime": "30:00",
-      "equipment":  "BCD, 2mil wet suit, double tank, 15lbs weight",
+      "equipment": "BCD, 2mil wet suit, double tank, 15lbs weight",
       "airTemp": 80,
       "surfaceTemp": 75,
       "bottomTemp": 60,
@@ -288,7 +267,7 @@
       "diveStartTime": "11:30:00",
       "diveEndTime": "12:00:00",
       "bottomTime": "30:00",
-      "equipment":  "BCD, 2mil wet suit, double tank, 15lbs weight",
+      "equipment": "BCD, 2mil wet suit, double tank, 15lbs weight",
       "airTemp": 80,
       "surfaceTemp": 75,
       "bottomTemp": 60,
@@ -309,7 +288,7 @@
       "diveStartTime": "11:30:00",
       "diveEndTime": "12:00:00",
       "bottomTime": "30:00",
-      "equipment":  "BCD, 2mil wet suit, double tank, 15lbs weight",
+      "equipment": "BCD, 2mil wet suit, double tank, 15lbs weight",
       "airTemp": 80,
       "surfaceTemp": 75,
       "bottomTemp": 60,
@@ -330,7 +309,7 @@
       "diveStartTime": "11:30:00",
       "diveEndTime": "12:00:00",
       "bottomTime": "30:00",
-      "equipment":  "BCD, 2mil wet suit, double tank, 15lbs weight",
+      "equipment": "BCD, 2mil wet suit, double tank, 15lbs weight",
       "airTemp": 80,
       "surfaceTemp": 75,
       "bottomTemp": 60,
@@ -351,7 +330,7 @@
       "diveStartTime": "11:30:00",
       "diveEndTime": "12:00:00",
       "bottomTime": "30:00",
-      "equipment":  "BCD, 2mil wet suit, double tank, 15lbs weight",
+      "equipment": "BCD, 2mil wet suit, double tank, 15lbs weight",
       "airTemp": 80,
       "surfaceTemp": 75,
       "bottomTemp": 60,
@@ -372,7 +351,7 @@
       "diveStartTime": "11:30:00",
       "diveEndTime": "12:00:00",
       "bottomTime": "30:00",
-      "equipment":  "BCD, 2mil wet suit, double tank, 15lbs weight",
+      "equipment": "BCD, 2mil wet suit, double tank, 15lbs weight",
       "airTemp": 80,
       "surfaceTemp": 75,
       "bottomTemp": 60,
@@ -550,66 +529,6 @@
   ],
   "albums": [
     {
-      "diveLogEntrieId": 1,
-      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1550161833/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-9.jpg",
-      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1550161833/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-9.jpg",
-      "id": 1
-    },
-    {
-      "diveLogEntrieId": 1,
-      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1550161833/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-8.jpg",
-      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1550161833/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-8.jpg",
-      "id": 2
-    },
-    {
-      "diveLogEntrieId": 1,
-      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1550161834/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-2.png",
-      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1550161834/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-2.png",
-      "id": 3
-    },
-    {
-      "diveLogEntrieId": 1,
-      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1550161833/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-4.jpg",
-      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1550161833/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-4.jpg",
-      "id": 4
-    },
-    {
-      "diveLogEntrieId": 1,
-      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1550161834/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-3.jpg",
-      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1550161834/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-3.jpg",
-      "id": 5
-    },
-    {
-      "diveLogEntrieId": 1,
-      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1550161833/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04.jpg",
-      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1550161833/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04.jpg",
-      "id": 6
-    },
-    {
-      "diveLogEntrieId": 1,
-      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1550161834/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-5.jpg",
-      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1550161834/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-5.jpg",
-      "id": 7
-    },
-    {
-      "diveLogEntrieId": 1,
-      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1550161834/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-6.jpg",
-      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1550161834/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-6.jpg",
-      "id": 8
-    },
-    {
-      "diveLogEntrieId": 1,
-      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1550161834/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-7.jpg",
-      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1550161834/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-7.jpg",
-      "id": 9
-    },
-    {
-      "diveLogEntrieId": 1,
-      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1550161834/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-10.jpg",
-      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1550161834/divebook/Russell_Reiter/Blue%20Hole_2019-02-04/Blue%20Hole_2019-02-04-10.jpg",
-      "id": 10
-    },
-    {
       "diveLogEntrieId": 7,
       "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1550178942/divebook/Russell_Reiter/Blue%20Hole_2019-02-03/Blue%20Hole_2019-02-03-4.jpg",
       "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1550178942/divebook/Russell_Reiter/Blue%20Hole_2019-02-03/Blue%20Hole_2019-02-03-4.jpg",
@@ -668,6 +587,66 @@
       "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1550178942/divebook/Russell_Reiter/Blue%20Hole_2019-02-03/Blue%20Hole_2019-02-03-10.jpg",
       "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1550178942/divebook/Russell_Reiter/Blue%20Hole_2019-02-03/Blue%20Hole_2019-02-03-10.jpg",
       "id": 20
+    },
+    {
+      "diveLogEntrieId": 8,
+      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-7.jpg",
+      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-7.jpg",
+      "id": 21
+    },
+    {
+      "diveLogEntrieId": 8,
+      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-6.jpg",
+      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-6.jpg",
+      "id": 22
+    },
+    {
+      "diveLogEntrieId": 8,
+      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-5.jpg",
+      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-5.jpg",
+      "id": 23
+    },
+    {
+      "diveLogEntrieId": 8,
+      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01.jpg",
+      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01.jpg",
+      "id": 24
+    },
+    {
+      "diveLogEntrieId": 8,
+      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-3.jpg",
+      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-3.jpg",
+      "id": 25
+    },
+    {
+      "diveLogEntrieId": 8,
+      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-8.jpg",
+      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-8.jpg",
+      "id": 26
+    },
+    {
+      "diveLogEntrieId": 8,
+      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-2.png",
+      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-2.png",
+      "id": 27
+    },
+    {
+      "diveLogEntrieId": 8,
+      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-4.jpg",
+      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-4.jpg",
+      "id": 28
+    },
+    {
+      "diveLogEntrieId": 8,
+      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-10.jpg",
+      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-10.jpg",
+      "id": 29
+    },
+    {
+      "diveLogEntrieId": 8,
+      "original": "http://res.cloudinary.com/dehn2kueo/image/upload/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-9.jpg",
+      "thumbnail": "https://res.cloudinary.com/dehn2kueo/image/upload/c_limit,h_60,w_90/v1551123039/divebook/Russell_Reiter/Blue%20Hole_2019-02-01/Blue%20Hole_2019-02-01-9.jpg",
+      "id": 30
     }
   ]
 }

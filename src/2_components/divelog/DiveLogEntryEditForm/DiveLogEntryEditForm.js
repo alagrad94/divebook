@@ -115,27 +115,37 @@ export default class DiveLogEntryEditForm extends Component {
     .then(entries => {
       entries.forEach(entry => {
         if (!diveSiteNames.includes({name: entry.name, id: entry.id})) {
-          diveSiteNames.push({name: entry.name, id: entry.id})}});})
+          diveSiteNames.push({name: entry.name, id: entry.id})}})
+          diveSiteNames.sort((a,b) => a.name.localeCompare(b.name))
+        })
     .then(()=> divebookData.handleData({dataSet: 'airMixes', fetchType: 'GET', embedItem: ""}))
     .then(mixes => {
       mixes.forEach(mix => {
         if (!airMixes.includes({airType: mix.airType, id: mix.id})) {
-          airMixes.push({airType: mix.airType, id: mix.id})}});})
+          airMixes.push({airType: mix.airType, id: mix.id})}})
+          airMixes.sort((a,b) => a.airType.localeCompare(b.airType))
+        })
     .then(()=> divebookData.handleData({dataSet: 'precipTypes', fetchType: 'GET', embedItem: ""}))
     .then(precips => {
       precips.forEach(preicp => {
         if (!precipTypes.includes({precipType: preicp.precipType, id: preicp.id})) {
-          precipTypes.push({precipType: preicp.precipType, id: preicp.id})}});})
+          precipTypes.push({precipType: preicp.precipType, id: preicp.id})}})
+          precipTypes.sort((a,b) => a.precipType.localeCompare(b.precipType))
+        })
     .then(()=> divebookData.handleData({dataSet: 'waterTypes', fetchType: 'GET', embedItem: ""}))
     .then(waters => {
       waters.forEach(type => {
         if (!waterTypes.includes({waterType: type.waterType, id: type.id})) {
-          waterTypes.push({waterType: type.waterType, id: type.id})}});})
+          waterTypes.push({waterType: type.waterType, id: type.id})}})
+          waterTypes.sort((a,b) => a.waterType.localeCompare(b.waterType))
+        })
     .then(()=> divebookData.handleData({dataSet: 'diveTypes', fetchType: 'GET', embedItem: ""}))
     .then(dives => {
       dives.forEach(type => {
         if (!diveTypes.includes({diveType: type.diveType, id: type.id})) {
-          diveTypes.push({diveType: type.diveType, id: type.id})}});})
+          diveTypes.push({diveType: type.diveType, id: type.id})}})
+          diveTypes.sort((a,b) => a.diveType.localeCompare(b.diveType))
+        })
     .then(() => this.setState({diveSiteNames : diveSiteNames, airMixes: airMixes, precipTypes: precipTypes, waterTypes: waterTypes, diveTypes: diveTypes}, ()=> null))
   }
 

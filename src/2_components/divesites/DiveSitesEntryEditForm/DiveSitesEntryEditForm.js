@@ -90,12 +90,16 @@ export default class DiveSiteEntryEditForm extends Component {
     .then(waters => {
       waters.forEach(type => {
         if (!waterTypes.includes({waterType: type.waterType, id: type.id})) {
-          waterTypes.push({waterType: type.waterType, id: type.id})}});})
+          waterTypes.push({waterType: type.waterType, id: type.id})}})
+          waterTypes.sort((a,b) => a.waterType.localeCompare(b.waterType))
+        })
     .then(()=> divebookData.handleData({dataSet: 'diveTypes', fetchType: 'GET', embedItem: ""}))
     .then(dives => {
       dives.forEach(type => {
         if (!diveTypes.includes({diveType: type.diveType, id: type.id})) {
-          diveTypes.push({diveType: type.diveType, id: type.id})}});})
+          diveTypes.push({diveType: type.diveType, id: type.id})}})
+          diveTypes.sort((a,b) => a.diveType.localeCompare(b.diveType))
+        })
     .then(() => this.setState({waterTypes: waterTypes, diveTypes: diveTypes}, ()=> null))
   }
 
